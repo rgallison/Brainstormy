@@ -5,22 +5,22 @@
 
 
 div.signIn {
-	margin: 10px 20px 10px 50px;
+	margin: 20px 20px 10px 50px;
 	border-style: ridge;
 	border-color: #006a89;
-	height: 440px;
+	height: 450px;
 	width: 25%;
 	min-width: 255px;
 	padding: 10px 20px 10px 20px;
-	line-height: 200%;
+	line-height: 210%;
 	float: left;
 }
 
 div.popularIdeas {
-	margin: 10px 20px 10px 20px;
+	margin: 20px 20px 10px 20px;
 	border-style: ridge;
 	border-color: #006a89;
-	height: 440px;
+	height: 450px;
 	overflow: auto;
 	width: 25%;
 	padding: 10px 20px 10px 20px;
@@ -29,14 +29,17 @@ div.popularIdeas {
 }
 
 div.aboutSite {
-	margin: 10px 50px 10px 20px;
+	margin: 20px 50px 10px 20px;
 	border-style: ridge;
 	border-color: #006a89;
-	height: 440px;
+	height: 450px;
 	width: 25%;
 	padding: 10px 20px 10px 20px;
-	line-height: 200%;
 	float: left;
+}
+
+.aboutSite p {
+	font-size: 90%;
 }
 
 hr {
@@ -45,7 +48,7 @@ hr {
 
 .search {
 	float: right;
-	margin-top: 20px;
+	margin-top: 25px;
 }
 
 .floatL {
