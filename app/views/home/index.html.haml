@@ -1,0 +1,36 @@
+%header
+	= image_tag "logo_example.jpg", :size => "250x70", :alt => "Brainstormy logo"
+	= submit_tag 'Search', :class => 'search'
+	= text_field_tag :search, nil, :size => 20, :class => 'search'
+
+%div{:name=>"signIn", :class => "signIn"} 
+	%b Sign In
+	%br
+	= form_tag home_index_path do
+		= text_field_tag :email, nil, :placeholder => 'E-mail', :size => 30 
+		%br
+		= password_field_tag :password, nil, :placeholder => 'Password', :size => 30 
+		%br
+		= submit_tag 'Sign In'
+	%hr
+	%b Sign Up
+	= form_tag home_index_path do
+		= text_field_tag :firstName, nil, :placeholder => 'First Name', :size => 30 
+		%br
+		= text_field_tag :lastName, nil, :placeholder => 'Last Name', :size => 30 
+		%br
+		= text_field_tag :email, nil, :placeholder => 'E-mail', :size => 30
+		%br
+		= text_field_tag :email2, nil, :placeholder => 'Re-enter E-mail', :size => 30
+		%br
+		= password_field_tag :password, nil, :placeholder => 'Password', :size => 30
+		%br
+		= password_field_tag :password, nil, :placeholder => 'Re-enter Password', :size => 30
+		%br
+		= submit_tag 'Sign Up'
+
+%div{:name => 'popularIdeas', :class => 'popularIdeas'}
+	%b Popular Ideas
+
+%div{:name => 'aboutSite', :class => 'aboutSite'}
+	%b About Brainstormy
