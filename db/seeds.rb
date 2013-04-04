@@ -5,20 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-users = [{:username => 'jsmith', :name => 'John Smith', :email => 'jsmith@gmail.com', :password => 'pengu1ns'}
-		{:username => 'kRobenson', :name => 'Kate Robenson', :email => 'kRobenson@gmail.com', :password => '1q1q1q1'}
-		{:username => 'pKing', :name => 'Patty King', :email => 'pKing@gmail.com', :password => 'pa33wOrd'}
-		{:username => 'rJackson', :name => 'Ryan Jackson', :email => 'rjackson@gmail.com', :password => '4rrt49j'}
+users = [{:username => 'jsmith', :name => 'John Smith', :email => 'jsmith@gmail.com', :password => 'pengu1ns'},
+		{:username => 'kRobenson', :name => 'Kate Robenson', :email => 'kRobenson@gmail.com', :password => '1q1q1q1'},
+		{:username => 'pKing', :name => 'Patty King', :email => 'pKing@gmail.com', :password => 'pa33wOrd'},
+		{:username => 'rJackson', :name => 'Ryan Jackson', :email => 'rjackson@gmail.com', :password => '4rrt49j'},
 		{:username => 'cRaylon', :name => 'Cindy Raylon', :email => 'cRaylon', :password => 'spot886'}]
 
-ideas = [:title => , :description => , :rank =>, :status => , :privacy => , :user_id => }
-		{:title => , :description => , :rank =>, :status => , :privacy => , :user_id => }
-		{:title => , :description => , :rank =>, :status => , :privacy => , :user_id => }
-		{:title => , :description => , :rank =>, :status => , :privacy => , :user_id => }
-		{:title => , :description => , :rank =>, :status => , :privacy => , :user_id => }]
+ideas = [{:title => 'A site that matches wines to meals', :rank => 54, :status => 'new', :privacy => 'public', :user_id => 2},
+		{:title => 'A business that produces knitted hats', :rank => 104, :status => 'complete', :privacy => 'private', :user_id => 5},
+		{:title => 'An app that tracks useage', :rank => 30, :status => 'prototype', :privacy => 'public', :user_id => 1},
+		{:title => 'A website that explores the ocean at 1000 ft', :rank => 26, :status => 'fledging', :privacy => 'public', :user_id => 2},
+		{:title => 'A product for pet owners', :rank => 77, :status => 'new', :privacy => 'public', :user_id => 4}]
 
-comments = [{:text => , :rank => , :userOn_id => , :userOn_type => }
-			{:text => , :rank => , :userOn_id => , :userOn_type => }
-			{:text => , :rank => , :userOn_id => , :userOn_type => }
-			{:text => , :rank => , :userOn_id => , :userOn_type => }
-			{:text => , :rank => , :userOn_id => , :userOn_type => }]
+comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
+			{:text => 'how about a virtual tour', :rank => 10, :user_id => 1, :idea_id => 4},
+			{:text => 'A place for divers to upload pictures', :rank => 23, :user_id => 3, :idea_id => 4},
+			{:text => 'should include hats that create an illusion of some object', :rank => 6, :user_id => 1, :idea_id => 2},
+			{:text => 'What about hats to match tv show characters?', :rank => 44, :user_id => 5, :idea_id => 2}]
+
+

@@ -8,6 +8,14 @@ gem 'haml' #support haml -RG, 3/20
 group :development, :test do
   gem 'sqlite3'
 end
+#for iter 1-2.  to support BDD and TDD.  rg
+group :test, :development do
+	gem 'ZenTest'
+	gem 'rspec-rails','~> 2.0'
+	gem 'database_cleaner'
+	gem 'capybara'
+	gem 'launchy'
+end
 
 group :test do
 	gem 'cucumber-rails'
