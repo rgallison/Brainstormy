@@ -1,5 +1,5 @@
 class Idea < ActiveRecord::Base
 	attr_accessible :title, :description, :rank, :user_id, :status, :privacy, :created_on, :updated_on
-	belongs_to :user
+	belongs_to :user, :inverse_of => :ideas
 	has_many :comments, :as => :userOn
 end
