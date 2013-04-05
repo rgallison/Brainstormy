@@ -4,11 +4,11 @@ As a user,
 So that I can share my ideas and collaborate with others, 
 I want to create a page where I list my idea.
 
-#Background: A user account has been created
+Background: A user account has been created
 
-#Given the following user exists:
-#| username                 | name          | email           | password |
-#| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
+Given the following user exists:
+| username                 | name          | email           | password |
+| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
 
 Scenario: Create a new idea from home page
 
