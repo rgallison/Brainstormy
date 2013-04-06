@@ -13,9 +13,11 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    #Colin added:
     when /^the home\s?page$/
       '/home/index'
 
+    #Colin added:
     when /^the idea\s?page$/
       '/ideas/:id'
 
