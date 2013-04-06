@@ -13,22 +13,22 @@ class UsersController < ApplicationController
   end
 
   def create
-  	# user_info = :params[:user]
-  	# if !user_info.value? ""
-	  # 	# if user_info[:password] == user_info[:password2] and user_info[:email] == user_info[:email2]
-	  # 	# 	user_info.delete("password2")
-	  # 	# 	user_info.delete("email2")
-	  # 	# 	@user = User.create!(user_info)
-	  # 	# 	@user = User.new(user_info)
+  	user_info = params[:user]
+  	if !user_info.value? ""
+	  	if user_info[:password] == user_info[:password2] and user_info[:email] == user_info[:email2]
+	  		user_info.delete("password2")
+	  		user_info.delete("email2")
+	  		@user = User.new(user_info)
 
-	  # 	#   	respond_to do |format|
-	  # 	# 		if @user.save
-	  # 	# 			format.html  { redirect_to(@user, :notice => 'User was successfully created.') }
-	  #  #  		else
-	  #  #    			format.html  { render :action => "new" }
-	  #  #  		end
-	  #  #  	end
-  	# end
+	  	  	respond_to do |format|
+	  			if @user.save
+	  				format.html  { redirect_to(@user, :notice => 'User was successfully created.') }
+	    		else
+	      			format.html  { render :action => "new" }
+	    		end
+	    	end
+      end
+  	end
   	flash[:warning] = "Please try again"
   	redirect_to home_index_path
   	
