@@ -1,10 +1,11 @@
 Brainstormy::Application.routes.draw do
-  get "home/index"
-  # root :to => 'home#index'
+  # get "home/index"
+  root :to => 'home#index'
   resources :ideas
   resources :users
-  root :to => redirect('/home/index')
 
+  #root :to => redirect('/home/index')
+  match 'home/index' => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

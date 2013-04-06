@@ -4,9 +4,10 @@ body {
 }
 
 div.signIn {
-	margin: 20px 20px 10px 40px;
+	margin: 10px 20px 10px 40px;
 	border-style: ridge;
 	border-color: #006a89;
+	min-height: 475px;
 	height: 90%;
 	width: 26%;
 	min-width: 250px;
@@ -16,9 +17,10 @@ div.signIn {
 }
 
 div.popularIdeas {
-	margin: 20px 15px 10px 15px;
+	margin: 10px 15px 10px 15px;
 	border-style: ridge;
 	border-color: #006a89;
+	min-height: 475px;
 	height: 90%;
 	overflow: auto;
 	width: 26%;
@@ -29,9 +31,10 @@ div.popularIdeas {
 }
 
 div.aboutSite {
-	margin: 20px 40px 10px 20px;
+	margin: 10px 40px 10px 20px;
 	border-style: ridge;
 	border-color: #006a89;
+	min-height: 475px;
 	height: 90%;
 	width: 26%;
 	min-width: 250px;

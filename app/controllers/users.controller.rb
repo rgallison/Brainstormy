@@ -9,11 +9,11 @@ class UsersController < ApplicationController
   		user_info.delete("password2")
   		user_info.delete("email2")
   		@user = User.create!(user_info)
-  		flash[:notice] = "#{@user.username} has been added.  Please fill out your profile page."
+  		flash[:notice] = "#{@user.username} has been added!  Please fill out your profile page."
   		redirect_to user_path
   	else
-  		flas[:notice] = "Please try again."
-  		redirect_to root_path
+  		flash[:notice] = "Please try again."
+  		redirect_to home_index_path
   	end
   end
 
