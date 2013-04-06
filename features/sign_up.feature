@@ -6,7 +6,7 @@ I want to create an account
 
 Scenario: Sign up for Brainstormy
 
-Given I am on the Brainstormy home page
+Given I am on the Brainstormy home index page
 When I fill in "firstName" with "John"
 And I fill in "lastName" with "Adams"
 And I fill in "email" with "jadams@gmail.com"
