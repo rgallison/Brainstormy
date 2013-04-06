@@ -11,10 +11,13 @@ Given /the following user exists/ do |user_table|
   end
 end
 
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+#Rachel - added \ in between every ^ and " in the expression "([^"]*)"
+# now things aren't being colored as a string when they're not supposed to be
+# this shouldn't change anything- Willow told me about this
+When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^(?:|I )press "([^"]*)"$/ do |button|
+When /^(?:|I )press "([^\"]*)"$/ do |button|
   click_button(button)
 end
