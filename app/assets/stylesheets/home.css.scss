@@ -1,39 +1,43 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
+html,
+body {
+    height:90%;
+}
 
 div.signIn {
-	margin: 20px 20px 10px 40px;
+	margin: 10px 20px 10px 40px;
 	border-style: ridge;
 	border-color: #006a89;
-	height: 455px;
+	min-height: 475px;
+	height: 90%;
 	width: 26%;
-	min-width: 255px;
+	min-width: 250px;
 	padding: 10px 20px 10px 20px;
 	line-height: 210%;
 	float: left;
 }
 
 div.popularIdeas {
-	margin: 20px 15px 10px 15px;
+	margin: 10px 15px 10px 15px;
 	border-style: ridge;
 	border-color: #006a89;
-	height: 455px;
+	min-height: 475px;
+	height: 90%;
 	overflow: auto;
 	width: 26%;
+	min-width: 250px;
 	padding: 10px 20px 10px 20px;
 	line-height: 200%;
 	float: left;
 }
 
 div.aboutSite {
-	margin: 20px 40px 10px 20px;
+	margin: 10px 40px 10px 20px;
 	border-style: ridge;
 	border-color: #006a89;
-	height: 455px;
+	min-height: 475px;
+	height: 90%;
 	width: 26%;
+	min-width: 250px;
 	padding: 10px 20px 10px 20px;
 	float: left;
 }
@@ -44,6 +48,27 @@ div.aboutSite {
 
 hr {
 	margin: 20px 0px 10px 0px;
+}
+
+
+p.flashnotice {
+	position: absolute;
+	left: 40%;
+	top: 20px;
+	background-color: #fed05e;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
+}
+
+p.flashwarning{
+	position: absolute;
+	left: 40%;
+	top: 20px;
+	background-color: #fe5e5e;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
 }
 
 .search {
