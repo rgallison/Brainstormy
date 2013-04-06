@@ -6,6 +6,7 @@ Brainstormy::Application.routes.draw do
 
   #root :to => redirect('/home/index')
   match 'home/index' => 'home#index'
+  match 'users/new' => 'users#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

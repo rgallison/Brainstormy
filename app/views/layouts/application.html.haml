@@ -8,9 +8,8 @@
 
   %body
   #main
-    - if flash[:notice]
-      #notice.message= flash[:notice]
-    - elsif flash[:warning]
-      #warning.message= flash[:warning]
+    - [:notice, :warning].each do |key|
+      -if flash[key]
+        %p{:class => "flash#{key}"}= flash[key]
     = yield
 

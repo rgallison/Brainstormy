@@ -50,6 +50,27 @@ hr {
 	margin: 20px 0px 10px 0px;
 }
 
+
+p.flashnotice {
+	position: absolute;
+	left: 40%;
+	top: 20px;
+	background-color: #fed05e;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
+}
+
+p.flashwarning{
+	position: absolute;
+	left: 40%;
+	top: 20px;
+	background-color: #fe5e5e;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
+}
+
 .search {
 	float: right;
 	margin-top: 25px;
