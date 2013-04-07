@@ -2,7 +2,7 @@ Feature:  User can browse though all ideas with a public privacy setting
 
 Scenario:  Browse all ideas
 	Given I am on the Brainstomry home page
-	I should see a list of ideas
+	Then I should see a list of ideas
 
 Scenario: Browse all ideas by User1
 	Given I am on the Brainstormy home page
