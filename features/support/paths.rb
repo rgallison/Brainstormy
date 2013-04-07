@@ -21,10 +21,6 @@ module NavigationHelpers
     when /^the idea\s?page$/
       '/ideas/:id'
 
-    #Renee added:
-    when /^the profile\s?page$^/
-      '/users/:id'
-    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
