@@ -26,7 +26,12 @@ end
 Then /^(?:|I )should be on (.+)$/ do |page_name|
 	visit path_to(page_name)
 end
- 
+
+Then /^(?:|I )should be on "([^\"]*)" profile page/ do |username|
+  user = User.find(:username => username)
+  assert_equal "/users/#{user.id}", URI.parse(current_url).path
+end
+
 #Rachel for edit profile features
 Given /^"([^\"]*)" is an image$/ do |image|
 end
