@@ -35,7 +35,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    #Rachel
+    id = params[:id]
+    @movie = User.find(id)
   end
   
 end

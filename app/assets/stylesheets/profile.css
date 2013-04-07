@@ -1,0 +1,65 @@
+//Rachel
+html,
+body {
+    height:90%;
+}
+
+div.profile_picture {
+	margin: 10px 0px 0px 10px;
+	width: 30%;
+	float: left;
+}
+
+div.profile_info {
+	margin: 10px 10px 0px 0px;
+	width: 60%;
+	float: left;
+}
+
+div.bio {
+	margin: 0px 10px 10px 10px;
+	width: 100%;
+	float: left;
+}
+
+.profile_info, .bio p {
+	font-size: 90%;
+}
+
+hr {
+	margin: 20px 0px 10px 0px;
+}
+
+
+p.flashnotice {
+	position: absolute;
+	left: 40%;
+	top: 20px;
+	background-color: #fed05e;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
+}
+
+p.flashwarning{
+	position: absolute;
+	left: 40%;
+	top: 20px;
+	background-color: #fe5e5e;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
+}
+
+.search {
+	float: right;
+	margin-top: 25px;
+}
+
+.floatL {
+	float: left;
+}
+
+.floatR {
+	float: right;
+}
