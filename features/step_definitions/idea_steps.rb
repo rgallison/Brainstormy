@@ -26,3 +26,15 @@ end
 Then /^(?:|I )should be on (.+)$/ do |page_name|
 	visit path_to(page_name)
 end
+ 
+#Rachel for edit profile features
+Given /^"([^\"]*)" is an image$/ do |image|
+end
+
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
+  end
+end

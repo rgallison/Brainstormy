@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       ["email2","password2"].each do |key| #delete the following keys - rg
         user_info.delete(key)
       end
+      user_info[:bio] = "" #adds a field for bio -rg
 	  	@user = User.new(user_info) # creates new database object - rg
 
 	  	 	respond_to do |format|

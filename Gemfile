@@ -10,7 +10,7 @@ group :development, :test do
 end
 #for iter 1-2.  to support BDD and TDD.  rg
 group :test, :development do
-	gem 'ZenTest'
+	gem 'ZenTest', '~> 4.4.2'
 	gem 'rspec-rails','~> 2.0'
 	gem 'database_cleaner'
 	gem 'capybara'
