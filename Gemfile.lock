@@ -157,7 +157,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest (~> 4.4.2)
+  ZenTest
   capybara
   coffee-rails (~> 3.2.1)
   cucumber-rails

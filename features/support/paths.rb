@@ -18,10 +18,13 @@ module NavigationHelpers
       '/home/index'
 
     #Colin added:
-    when /^the idea\s?page$/
+    when /^the idea page$/
       '/ideas/:id'
 
-    when /^the profile page^/
+    when /^the ideas page$/  
+      ideas_path
+
+    when /^the profile page/
       '/users/:id'
     
     # Add more mappings here.
