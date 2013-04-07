@@ -21,7 +21,8 @@ module NavigationHelpers
     when /^the idea\s?page$/
       '/ideas/:id'
 
-    when /^the profile page^/
+    #Renee added:
+    when /^the profile\s?page$^/
       '/users/:id'
     
     # Add more mappings here.
