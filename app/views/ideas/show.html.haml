@@ -1,0 +1,19 @@
+-# in app/views/movies/show.html.haml
+
+%h2 Details about #{@idea.title}
+
+%ul#details
+  %li
+    Created By:
+    = @idea.user_id
+  %li
+    Rank:
+    = @idea.rank
+
+%h3 Description:
+
+%p#description= @idea.description
+
+= link_to 'Edit', edit_idea_path(@idea)
+= button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to idea list', ideas_path
