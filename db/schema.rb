@@ -11,19 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406225246) do
+ActiveRecord::Schema.define(:version => 20130407062352) do
 
   create_table "comments", :force => true do |t|
-    t.string   "text"
-    t.string   "rank"
-    t.integer  "user_id"
-    t.integer  "idea_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "comments", :force => true do |t|
-    t.string   "comment_id"
     t.string   "text"
     t.string   "rank"
     t.integer  "user_id"
@@ -33,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20130406225246) do
   end
 
   create_table "ideas", :force => true do |t|
-    t.string   "idea_id"
     t.string   "title"
     t.string   "description"
     t.string   "rank"
@@ -45,13 +34,13 @@ ActiveRecord::Schema.define(:version => 20130406225246) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "user_id"
     t.string   "username"
     t.string   "name"
     t.string   "email"
     t.string   "password"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "bio"
   end
 
 end
