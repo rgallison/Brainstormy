@@ -54,9 +54,3 @@ Then /^I should be on the edit page for the idea: "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
 end
-
-# Repetitive:  throws ambiguous case exception
-#Rachel
-# And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-#   fill_in(field, :with => value)
-# end

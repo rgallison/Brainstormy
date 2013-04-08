@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
-  # def index
-
-  # end
 
   def create
- 		if @user = User.create(params[:user])
-      redirect_to(@user, :notice => 'User was successfully created.')
+ 		if @user = User.create(params[:user])#gets params, tries to add to user database, and checks if successful -rg
+      redirect_to(@user, :notice => 'User was successfully created.')#redirects to profile page with successful flash -rg
     else
-      flash[:warning] = "Please try again"
-      redirect_to root_path
+      flash[:warning] = "Please try again"#sets warning flash for failed add -rg
+      redirect_to (root_path, :warning =>"Please"#redirects to home page -rg
     end
   end
 
