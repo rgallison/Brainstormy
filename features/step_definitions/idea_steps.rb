@@ -43,3 +43,9 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
     assert page.has_content?(text)
   end
 end
+
+#Colin for new idea feature:
+Then /^I should be on the page for the idea: "([^\"]*)"$/ do |idea_title|
+  idea = Idea.find_by_title(idea_title)
+  assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
+end

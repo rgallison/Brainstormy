@@ -17,9 +17,7 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/home/index'
 
-    #Colin added:
-    when /^the idea page$/
-      '/ideas/:id'
+
 
 
     # Add more mappings here.

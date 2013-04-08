@@ -5,7 +5,7 @@
   %ul#details
     %li
       Created By:
-      = @user.name
+      = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
 
     %li
       Points:
@@ -15,6 +15,11 @@
 
   %p#description= @idea.description
   %header
-    = link_to 'Edit', edit_idea_path(@idea)
-    = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+    -if @active_user==@user
+      = link_to 'Edit', edit_idea_path(@idea)
+      = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+    -else
+      = link_to 'home', home_index_path
+      = link_to 'Edit', edit_idea_path(@idea)
+
 = link_to 'Back to idea list', ideas_path
