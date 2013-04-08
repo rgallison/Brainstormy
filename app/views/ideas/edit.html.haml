@@ -2,9 +2,7 @@
 %div{:name=>"centralIdea", :class => "centralIdea"} 
   = form_tag idea_path(@idea), :method => :put do
 
-
-    =#%h2 
-    = text_field :idea, 'title' #{@idea.title}
+    = text_field :idea, 'title'
 
     %ul#details
       %li
@@ -17,11 +15,9 @@
 
     %h3 Description:
 
-
-    =#%p#description= @idea.description
     = text_area :idea, 'description', :size => '30x7' 
     Make Private
-    = check_box_tag "Make Private", 1, 0, :id=>"privacy"
+    = check_box_tag "Make Private", 1, false, :id=>"privacy"
 
     =submit_tag 'Save and Post'
   %header
