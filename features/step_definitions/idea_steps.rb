@@ -28,9 +28,9 @@ Given /the following idea exists/ do |idea_table|
   end
 end
 
-#When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
-#  fill_in(field, :with => value)
-#end
+When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
 
 When /^(?:|I )press "([^\"]*)"$/ do |button|
   click_button(button)
@@ -84,6 +84,13 @@ end
  When /^(?:|I )uncheck "([^"]*)"$/ do |field|
    uncheck(field)
  end
+
+ Given /^I have logged in to Brainstormy with username"([^\"]*)"$/ do |username|
+  user=User.find_by_username(username)
+  @current_user=user
+end
+
+
 
 
 # Repetitive:  throws ambiguous case exception

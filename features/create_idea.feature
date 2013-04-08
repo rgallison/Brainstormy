@@ -12,7 +12,7 @@ Given the following user exists:
 
 Scenario: Create a new idea from home page
 
-#Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username "testuser"
 And I am on the home page
 When I fill in "Post an idea" with "awesome new idea"
 And I press "Post"
