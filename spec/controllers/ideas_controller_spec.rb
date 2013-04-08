@@ -5,7 +5,7 @@ describe IdeasController do
 
 	describe 'add new idea' do
     	before :each do
-     	 @fake_results = [mock('idea1')]
+     		@fake_results = [mock('idea1')]
     	end
 
 		it 'should call the model method that creates a new idea' do
