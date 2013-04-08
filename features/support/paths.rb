@@ -15,17 +15,16 @@ module NavigationHelpers
 
     #Colin added:
     when /^the home\s?page$/
-      '/home/index'
+      '/'
 
-    #Colin added:
-    when /^the idea\s?page$/
-      '/ideas/:id'
+
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
+    when /^the \"(.*)\" profile page$/i
+      user_path(User.find_by_username($1))
 
     else
       begin

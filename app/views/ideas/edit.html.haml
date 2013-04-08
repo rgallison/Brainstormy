@@ -1,0 +1,31 @@
+-# in app/views/ideas/show.html.haml
+%div{:name=>"centralIdea", :class => "centralIdea"} 
+  = form_tag idea_path(@idea), :method => :put do
+
+    = text_field :idea, 'title'
+
+    %ul#details
+      %li
+        Created By:
+        = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
+
+      %li
+        Points:
+        = @idea.rank
+
+    %h3 Description:
+
+    = text_area :idea, 'description', :size => '30x7' 
+    Make Private
+    = check_box_tag "Make Private", 1, false, :id=>"privacy"
+
+    =submit_tag 'Save and Post'
+  %header
+    -if @current_user==@user
+      = link_to 'Edit', edit_idea_path(@idea)
+      = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+    -else
+      = link_to 'home', home_index_path
+
+
+= link_to 'Back to idea list', ideas_path
