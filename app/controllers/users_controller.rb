@@ -8,12 +8,12 @@ class UsersController < ApplicationController
       redirect_to(@user, :notice => 'User was successfully created.')
     else
       flash[:warning] = "Please try again"
-      redirect_to home_index_path
+      redirect_to root_path
     end
   end
 
   def show
-    @user=User.find(params[:id])#gets user from database - rg
+    @user ||= User.find(params[:id])#gets user from database - rg
   end
 
 #Rachel - updates attributes of user from params[]

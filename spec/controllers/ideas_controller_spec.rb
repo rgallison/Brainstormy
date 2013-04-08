@@ -7,6 +7,7 @@ describe IdeasController do
     	before :each do
      	 @fake_results = mock('idea1')
      	 @fake_results.stub(:id).and_return(1)
+
     	end
 
 		it 'should call the model method that creates a new idea' do
