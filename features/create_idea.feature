@@ -23,10 +23,10 @@ And I should see "Jane Doe"
 
 Scenario: Fill in additional idea information after initial creation
 Given that the following idea exists:
-| title                 | id          | user_id          |
-| awesome new idea      | 5           | 1                |
-Given I am on the edit page for the idea "awesome new idea"
-Then I fill in "Description" with "this is the best idea ever"
+| title                 | user_id          |
+| awesome new idea      | 1                |
+Given I am now on the edit page for idea with title "awesome new idea"
+Then I fill in "description" with "this is the best idea ever"
 And I uncheck "Make Private"
-And I click "Save and Post"
-Then I should be on the idea page for the idea "awesome new idea"
+And I press "Save and Post"
+Then I should be on the idea page for the idea with title "awesome new idea"
