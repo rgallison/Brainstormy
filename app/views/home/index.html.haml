@@ -28,7 +28,7 @@
 				= f.submit 'Sign Up'
 	- else
 		%div{:name => "postIdea", :class => "postIdea"}
-			%b Post an Idea
+			%b Post An Idea
 			%br
 			= form_for :idea, :url => {:action => "create", :controller => "ideas"} do |f|
 				= f.text_area :title, :placeholder => 'Enter your idea.', :size => "30x5"
@@ -39,20 +39,25 @@
 	%b Popular Ideas
 
 %div{:name => 'panel3', :class =>'panel3'}
-	%div{:name => 'aboutSite', :class => 'aboutSite'}
-		%b About Brainstormy
-		%br
-		%p Brainstormy is a collaborative brainstorming and idea refinement tool that lets you work together with friends, colleagues, or strangers to take your ideas from an initial glimmer to a full-fledged actionable project.  Our easy-to-use features provide a powerful means for an initial concept to be debated, expanded, and improved upon via an innovative vote-based framework.
-		%p Sign up for an account today and then…
-		%p	
-			%b Post 
-			a new idea and get feedback, insights, and advice from other users.
-		%p 
-			%b Connect 
-			with experts from your field and benefit from their perspective and experience.
-		%p
-			%b Join 
-			an idea in progress and enhance it with your unique viewpoint and vision. 
-		%p
-			%b Boost 
-			your company’s creative productivity by launching a private idea network and taking full advantage of your employees’ brainpower.
+	-if !@current_user
+		%div{:name => 'aboutSite', :class => 'aboutSite'}
+			%b About Brainstormy
+			%br
+			%p Brainstormy is a collaborative brainstorming and idea refinement tool that lets you work together with friends, colleagues, or strangers to take your ideas from an initial glimmer to a full-fledged actionable project.  Our easy-to-use features provide a powerful means for an initial concept to be debated, expanded, and improved upon via an innovative vote-based framework.
+			%p Sign up for an account today and then…
+			%p	
+				%b Post 
+				a new idea and get feedback, insights, and advice from other users.
+			%p 
+				%b Connect 
+				with experts from your field and benefit from their perspective and experience.
+			%p
+				%b Join 
+				an idea in progress and enhance it with your unique viewpoint and vision. 
+			%p
+				%b Boost 
+				your company’s creative productivity by launching a private idea network and taking full advantage of your employees’ brainpower.
+
+	-else
+		%div{:name => 'newsFeed', :class => 'newsFeed'}
+			%b News Feed
