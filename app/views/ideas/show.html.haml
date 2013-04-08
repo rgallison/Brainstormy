@@ -1,19 +1,25 @@
--# in app/views/movies/show.html.haml
+-# in app/views/ideas/show.html.haml
+%div{:name=>"centralIdea", :class => "centralIdea"} 
+  %h2 #{@idea.title}
 
-%h2 Details about #{@idea.title}
+  %ul#details
+    %li
+      Created By:
+      = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
 
-%ul#details
-  %li
-    Created By:
-    = @idea.user_id
-  %li
-    Rank:
-    = @idea.rank
+    %li
+      Points:
+      = @idea.rank
 
-%h3 Description:
+  %h3 Description:
 
-%p#description= @idea.description
+  %p#description= @idea.description
+  %header
+    -if @active_user==@user
+      = link_to 'Edit', edit_idea_path(@idea)
+      = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+    -else
+      = link_to 'home', home_index_path
+      = link_to 'Edit', edit_idea_path(@idea)
 
-= link_to 'Edit', edit_idea_path(@idea)
-= button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
 = link_to 'Back to idea list', ideas_path

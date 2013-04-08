@@ -14,6 +14,6 @@ Scenario: Create a new idea from home page
 
 #Given I have logged in to Brainstormy
 And I am on the home page
-When I fill in "Post an idea" with "new idea"
+When I fill in "Post an idea" with "awesome new idea"
 And I press "Post"
-Then I should be on the idea page
+Then I should be on the page for the idea "awesome new idea"

@@ -17,9 +17,8 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-    #Colin added:
-    when /^the idea\s?page$/
-      '/ideas/:id'
+
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
