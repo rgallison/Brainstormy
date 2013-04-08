@@ -21,7 +21,7 @@
 
     =submit_tag 'Save and Post'
   %header
-    -if @active_user==@user
+    -if @current_user==@user
       = link_to 'Edit', edit_idea_path(@idea)
       = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
     -else
