@@ -9,6 +9,7 @@
   %body
   %header
   = image_tag "logo_example.jpg", :size => "250x70", :alt => "Brainstormy logo"
+  = link_to 'Logout', application_logout_user_path
   = submit_tag 'Search', :class => 'search'
   = text_field_tag :search, nil, :size => 20, :class => 'search'
   #main
