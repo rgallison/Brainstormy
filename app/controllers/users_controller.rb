@@ -15,5 +15,14 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])#gets user from database - rg
   end
+
+#Rachel - updates attributes of user from params[]
+  def update
+    @user = User.find params[:id]
+    @user.update_attributes!(params[:user])
+    flash[:notice] = "#{@user.name} was successfully updated."
+    redirect_to user_path
+  end
+
   
 end

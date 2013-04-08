@@ -16,7 +16,7 @@ Scenario: I want to change my name
 Given I have logged in to Brainstormy
 And I am on the profile page
 When I press "Edit Profile"
-And I enter "Sarah Yuli" in the name field
+And I fill in name with "Sarah Yuli"
 And I press "Submit"
 Then I should see "Sarah Yuli" in the name field
 
@@ -25,27 +25,27 @@ Scenario: I want to change my e-mail
 Given I have logged in to Brainstormy
 And I am on the profile page
 When I press "Edit Profile"
-And I enter "Bob@gmail.com" in the e-mail field
+And I fill in email1 with "Sarah@gmail.com"
+And I fill in email2 with "Sarah@gmail.com"
 And I press "Submit"
-Then I should see "Bob@gmail.com" in the e-mail field
+Then I should see "Sarah@gmail.com" in the e-mail field
 
 Scenario: I want to change my password
 
 Given I have logged in to Brainstormy
 And I am on the profile page
 When I press "Edit Profile"
-And I enter "giggles" in the password field 1
-And I enter "giggles" in the password field 2
+And I fill in password1 with "giggles"
+And I fill in password2 with "giggles"
 And I press "Submit"
-Then I should see "giggles" in the password field
+Then I should not see "giggles" in the password field
 
 Scenario: I want to change my credential
 
 Given I have logged in to Brainstormy
 And I am on the profile page
 When I press "Edit Profile"
-And I enter "Ruby on Rails programmer" in the credential field
-And I press "Submit"
+And I fill in credential with "Ruby on Rails programmer"
 Then I should see "Ruby on Rails programmer" in the credential field
 
 Scenario: I want to add a credential
@@ -54,7 +54,7 @@ Given I have logged in to Brainstormy
 And I am on the profile page
 When I press "Edit Profile"
 And I press "Add New Credential"
-And I enter "Bird watcher of 15 years" in the credentials field
+And I fill in credential with "Bird watcher of 15 years"
 And I press "Submit"
 Then I should see "Bird watcher of 15 years" in the credentials field
 
@@ -63,7 +63,7 @@ Scenario: I want to change my biography
 Given I have logged in to Brainstormy
 And I am on the profile page
 When I press "Edit Bio"
-And I enter "My birdwatching has taken me all over the globe." in the bio field
+And I fill in bio with "My birdwatching has taken me all over the globe."
 And I press "Submit"
 Then I should see "My birdwatching has taken me all over the globe." in the bio field
 

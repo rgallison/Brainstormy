@@ -40,6 +40,7 @@ end
 Given /^"([^\"]*)" is an image$/ do |image|
 end
 
+#Rachel
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
@@ -53,3 +54,7 @@ Then /^I should be on the edit page for the idea: "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
 end
+
+#Rachel
+And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
