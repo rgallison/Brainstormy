@@ -46,6 +46,6 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
 end
 
 #Rachel
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
