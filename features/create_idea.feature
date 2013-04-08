@@ -17,6 +17,16 @@ And I am on the home page
 When I fill in "Post an idea" with "awesome new idea"
 And I press "Post"
 Then I should be on the edit page for the idea "awesome new idea"
+And I should see "awesome new idea"
 And I should see "Jane Doe"
-Then I fill in "Description" with "this is the best idea ever"
 
+
+Scenario: Fill in additional idea information after initial creation
+Given that the following idea exists:
+| title                 | id          | user_id          |
+| awesome new idea      | 5           | 1                |
+Given I am on the edit page for the idea "awesome new idea"
+Then I fill in "Description" with "this is the best idea ever"
+And I uncheck "Make Private"
+And I click "Save and Post"
+Then I should be on the idea page for the idea "awesome new idea"

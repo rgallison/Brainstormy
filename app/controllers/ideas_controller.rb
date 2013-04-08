@@ -9,7 +9,7 @@ class IdeasController < ApplicationController
 
   def create
   	@idea=Idea.create!(params[:idea])
-  	redirect_to idea_path(@idea.id)
+  	redirect_to edit_idea_path(@idea.id)
   end
 
   def edit

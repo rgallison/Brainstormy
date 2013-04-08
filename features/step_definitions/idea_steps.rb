@@ -6,6 +6,11 @@ Given /^PENDING/ do
   pending
 end
 
+#Colin for new idea feature:
+Then /^I am on the edit page for the idea: "([^\"]*)"$/ do |idea_title|
+  idea = Idea.find_by_title(idea_title)
+  assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
+end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
@@ -16,6 +21,15 @@ Given /the following user exists/ do |user_table|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
     User.create(user)
+  end
+end
+
+#Colin added on 4/8:
+Given /the following idea exists/ do |idea_table|
+  idea_table.hashes.each do |idea|
+    # each returned element will be a hash whose key is the table header.
+    # you should arrange to add that movie to the database here.
+    Idea.create(idea)
   end
 end
 
@@ -49,12 +63,17 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   end
 end
 
-#Colin for new idea feature:
-Then /^I should be on the edit page for the idea: "([^\"]*)"$/ do |idea_title|
+
+
+#Colin added on 4/8:
+Then /^I should be on the idea page for the idea: "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
 end
 
+
 #Rachel
 And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
+end
+
