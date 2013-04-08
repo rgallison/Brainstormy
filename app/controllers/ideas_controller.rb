@@ -3,15 +3,8 @@ class IdeasController < ApplicationController
   end
 
   def show
-    if session[:user] != nil
-      @active_user=session[:user]
-    else
-      @active_user=nil
-    end
-
-
-  	id=params[:id]
-  	@idea=Idea.find(id)
+    @active_user=session[:user]
+  	@idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)
   end
 
@@ -21,13 +14,8 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    if session[:user] != nil
-      @active_user=session[:user]
-    else
-      @active_user=nil
-    end
-    id=params[:id]
-    @idea=Idea.find(id)
+    @active_user=session[:user]
+    @idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)
   end
 
