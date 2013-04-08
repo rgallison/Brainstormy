@@ -2,6 +2,10 @@
 #Note: When using regexp "([^"]*)" use this instead "([^\"]*)"
 #This includes the backslash to escape the " and maintain the correct color
 
+Given /^PENDING/ do
+  pending
+end
+
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
