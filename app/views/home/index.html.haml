@@ -2,7 +2,7 @@
 %div{:name=>"signIn", :class => "signIn"} 
 	%b Sign In
 	%br
-	= form_tag home_index_path do
+	= form_tag "/" do
 		= text_field_tag :username, nil, :placeholder => 'Username', :size => 30 
 		%br
 		= password_field_tag :password, nil, :placeholder => 'Password', :size => 30 
@@ -17,11 +17,11 @@
 		%br
 		= f.text_field :email, :placeholder => 'E-mail', :size => 30
 		%br
-		= f.text_field :email2, :placeholder => 'Re-enter E-mail', :size => 30
+		= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
 		%br
 		= f.password_field :password, :placeholder => 'Password', :size => 30
 		%br
-		= f.password_field :password2, :placeholder => 'Re-enter Password', :size => 30
+		= f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
 		%br
 		= f.submit 'Sign Up'
 
