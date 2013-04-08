@@ -3,7 +3,6 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @active_user=session[:user]
   	@idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)
   end
@@ -14,7 +13,6 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @active_user=session[:user]
     @idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)
   end
