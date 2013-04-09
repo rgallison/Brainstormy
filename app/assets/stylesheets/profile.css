@@ -11,7 +11,7 @@ div.hide {
 	display: none;
 }
 
-div.signIn {
+/*div.signIn {
 	margin: 10px 20px 10px 40px;
 	border-style: ridge;
 	border-color: #006a89;
@@ -22,9 +22,9 @@ div.signIn {
 	padding: 10px 20px 10px 20px;
 	line-height: 210%;
 	float: left;
-}
+}*/
 
-div.popularIdeas {
+/*div.popularIdeas {
 	margin: 10px 15px 10px 15px;
 	border-style: ridge;
 	border-color: #006a89;
@@ -36,9 +36,9 @@ div.popularIdeas {
 	padding: 10px 20px 10px 20px;
 	line-height: 200%;
 	float: left;
-}
+}*/
 
-div.aboutSite {
+/*div.aboutSite {
 	margin: 10px 40px 10px 20px;
 	border-style: ridge;
 	border-color: #006a89;
@@ -49,9 +49,9 @@ div.aboutSite {
 	min-width: 250px;
 	padding: 10px 20px 10px 20px;
 	float: left;
-}
+}*/
 
-.aboutSite p {
+/*.aboutSite p {
 	font-size: 90%;
 }
 
@@ -91,4 +91,4 @@ p.flashwarning{
 
 .floatR {
 	float: right;
-}
+}*/
