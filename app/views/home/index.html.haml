@@ -8,6 +8,7 @@
 				%br
 				= f.password_field :password_login, :placeholder => 'Password', :size => 30 
 				%br
+				= f.hidden_field :login, :value => true
 				= f.submit 'Login'
 
 			%hr

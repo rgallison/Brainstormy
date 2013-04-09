@@ -2,12 +2,13 @@ class UsersController < ApplicationController
 
   def create
  		if @user = User.create!(params[:user])#gets params, tries to add to user database, and checks if successful -rg
-      flash[:notice] = 'User was successfully created.'#redirects to profile page with successful flash
-      params[:user][:username_login] = params[:user][:username]
-      create_session
+      session[:user_id] = @user.id if @user
+      set_current_user#sets sets @current_user if user was found -rg
+      flash[:notice] = "You have successfully been added.  Please fill out your profile."
+      redirect_to user_path(@user.id)#redirects to home page -rg      
     else
-      flash[:warning] = "Please try again"#sets warning flash for failed add -rg
-      redirect_to root_path#redirects to home page -rg
+      flash[:warning] = "There is an invalid entry.  Please try again"#sets warning flash for failed add -rg
+      redirect_to root_path
     end
   end
 
