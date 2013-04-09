@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-  	@current_user ||= session[:user]#sets @current_user to valid session user if nil
+  	@current_user ||= session[:user]#sets @current_user to valid session user if nil -rg
   end
 
   def logout_user
