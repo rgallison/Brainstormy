@@ -1,3 +1,4 @@
+
 %div{:name => "panel1", :class => "panel1"}
 	- if !@current_user
 		%div{:name => "login", :class => "login"} 
@@ -41,6 +42,19 @@
 
 %div{:name => 'panel2', :class => 'panel2'}
 	%b Popular Ideas
+	//Christie - Listing ideas
+	%tbody
+		- if @pop_ideas
+			-@pop_ideas.each do |idea|
+				%br
+				%tr
+					%td= link_to "#{idea.title}", idea_path(idea)
+					%td= "" if !idea.description
+					%td= idea.rank
+		-else
+			%br
+			%tr
+				%tr= There are no such users or ideas
 
 %div{:name => 'panel3', :class =>'panel3'}
 	-if !@current_user

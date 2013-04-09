@@ -6,6 +6,7 @@ Brainstormy::Application.routes.draw do
 
   match '/application/create_session' => 'application#create_session'
   match '/application/logout_user' => 'application#logout_user'
+  match '/home/index' => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
