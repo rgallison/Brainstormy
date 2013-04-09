@@ -1,5 +1,5 @@
 
-=button_to 'Edit Profile', { :action => 'show', :id => :user_id, :showform => true }
+=button_to 'Edit Profile', { :action => 'show', :id => @current_user, :flag => true}, :method => :get
 %br
 
 %div{:name => 'profile_picture', :class => 'profile_picture'}
