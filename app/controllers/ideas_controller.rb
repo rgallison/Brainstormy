@@ -9,6 +9,7 @@ class IdeasController < ApplicationController
 
   def create
     #raise params.inspect
+    params[:idea][:user_id]=params[:user_id]
   	@idea=Idea.create!(params[:idea])
   	redirect_to edit_idea_path(@idea.id)
   end

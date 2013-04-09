@@ -32,7 +32,7 @@
 			%br
 			= form_for :idea, :url => {:action => "create", :controller => "ideas"} do |f|
 				=#Colin added hidden_field_tag needed to credit idea to correct user 
-				=# hidden_field_tag(:user_id, @current_user.id)
+				= hidden_field_tag(:user_id, @current_user)
 				= f.text_area :title, :placeholder => 'Enter your idea.', :size => "30x5", :id => 'title'
 				%br
 				= f.submit 'Post an Idea'

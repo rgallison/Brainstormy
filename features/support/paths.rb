@@ -22,6 +22,8 @@ module NavigationHelpers
       edit_idea_path(Idea.find_by_id($1))
     when /^the idea page for the idea with title "([^\"]*)"$/
       idea_path(Idea.find_by_title($1))
+    when /^the edit page for the idea "([^\"]*)"$/
+      idea_path(Idea.find_by_title($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -4,12 +4,16 @@ class ApplicationController < ActionController::Base
   before_filter :set_current_user
 
   def create_session
-  	#gets params and finds user with such a username and password, then sets user to session -rg
-  	if session[:user_id] = User.find_by_username(params[:user][:username]).id
-  		set_current_user#sets sets @current_user if user was found -rg
-  	else
-  		flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
-  	end
+    #if creating a new use, don't try to find in DB -Colin
+    if (params[:action] != "create" and params[:controller] != "users")
+  	  #gets params and finds user with such a username and password, then sets user to session -rg
+  	  if session[:user_id] = User.find_by_username(params[:user][:username_login]).id
+       # session[:user_id]=User.find_by_username(params[:user][:username_login]).id
+  	 	  set_current_user#sets sets @current_user if user was found -rg
+  	  else
+  		  flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
+  	 end
+    end
   	redirect_to root_path#and to the home page! -rg
   end
 
