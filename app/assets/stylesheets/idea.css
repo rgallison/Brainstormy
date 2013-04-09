@@ -1,4 +1,5 @@
 div.panel2 {
 	margin-left: 450px;
-	height: 50px;
+	min-height: 250px;
+	height: auto;
 }
