@@ -1,3 +1,0 @@
-%h3 Comment
-%p#text= @comment.text
-= link_to 'Back', idea_path

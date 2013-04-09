@@ -1,3 +1,0 @@
-= label :comment, :text, 'Your Text here:'
-= text_field :comment, :text 
-%br
