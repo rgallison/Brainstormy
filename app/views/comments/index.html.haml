@@ -1,0 +1,20 @@
+-#some of the the aspects of the table are for debugging
+
+%h1 Listing userblogs for #{@idea.title}
+
+%table#comments
+  %thread
+    %tr
+      %th Text
+      %th Rank
+      %th Idea id
+      %th User id
+    %tbody
+    - @comments.each do |comment|
+      %tr
+        %td= comment.text
+        %td= comment.rank
+        %td= comment.idea_id
+        %td= comment.user_id
+
+= link_to 'Back to idea list', ideas_path

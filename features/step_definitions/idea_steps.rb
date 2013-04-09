@@ -99,4 +99,9 @@ Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
   end
 end
 
+#Lindsey Basic link following
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
+
 
