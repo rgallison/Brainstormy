@@ -3,21 +3,8 @@ body {
     height:90%;
 }
 
-div.signIn {
-	margin: 10px 20px 10px 40px;
-	border-style: ridge;
-	border-color: #006a89;
-	min-height: 450px;
-	height: 90%;
-	width: 26%;
-	min-width: 250px;
-	padding: 10px 20px 10px 20px;
-	line-height: 210%;
-	float: left;
-}
-
-div.popularIdeas {
-	margin: 10px 15px 10px 15px;
+div.panel1, div.panel2, div.panel3{
+	margin: 10px 20px 10px 20px;
 	border-style: ridge;
 	border-color: #006a89;
 	min-height: 450px;
@@ -26,21 +13,11 @@ div.popularIdeas {
 	width: 26%;
 	min-width: 250px;
 	padding: 10px 20px 10px 20px;
-	line-height: 200%;
 	float: left;
 }
 
-div.aboutSite {
-	margin: 10px 40px 10px 20px;
-	border-style: ridge;
-	border-color: #006a89;
-	min-height: 450px;
-	
-	height: 90%;
-	width: 26%;
-	min-width: 250px;
-	padding: 10px 20px 10px 20px;
-	float: left;
+div.panel1 {
+	line-height: 210%;
 }
 
 .aboutSite p {

@@ -17,8 +17,11 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-
-
+    #Colin added 4/8 for create_ideas.feature:
+    when /^the edit page for idea number (.+)$/
+      edit_idea_path(Idea.find_by_id($1))
+    when /^the idea page for the idea with title "([^\"]*)"$/
+      idea_path(Idea.find_by_title($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -15,7 +15,7 @@
 
     %h3 Description:
 
-    = text_area :idea, 'description', :size => '30x7' 
+    = text_area :idea, 'description', :size => '30x7', :id => 'description' 
     Make Private
     = check_box_tag "Make Private", 1, false, :id=>"privacy"
 
@@ -25,7 +25,7 @@
       = link_to 'Edit', edit_idea_path(@idea)
       = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
     -else
-      = link_to 'home', home_index_path
+      = link_to 'home', root_path
 
 
 = link_to 'Back to idea list', ideas_path

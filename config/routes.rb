@@ -4,8 +4,8 @@ Brainstormy::Application.routes.draw do
   resources :ideas
   resources :users
 
-  # match 'home/index' => 'home#index'
-  # match 'users/new' => 'users#new'
+  match '/application/create_session' => 'application#create_session'
+  match '/application/logout_user' => 'application#logout_user'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
