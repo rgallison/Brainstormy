@@ -15,7 +15,7 @@ Given /the following user exists/ do |user_table|
   user_table.hashes.each do |user|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    User.create(user)
+    User.create!(user)
   end
 end
 
@@ -24,7 +24,7 @@ Given /the following idea exists/ do |idea_table|
   idea_table.hashes.each do |idea|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    Idea.create(idea)
+    Idea.create!(idea)
   end
 end
 
