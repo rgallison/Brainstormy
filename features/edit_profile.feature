@@ -13,15 +13,15 @@ Given the following user exists:
 
 Scenario: I want to change my name
 
-Given I have logged in to Brainstormy
-And I am on the profile page
+Given I have logged in to Brainstormy with username"jsmith"
+And I am on the user page
 When I press "Edit Profile"
 When I fill in "name" with "Sarah Yuli"
 And I press "Submit"
 Then I should see "Sarah Yuli"
 Scenario: I want to change my e-mail
 
-Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username"jsmith"
 And I am on the profile page
 When I press "Edit Profile"
 When I fill in "email" with "Sarah@gmail.com"
@@ -31,7 +31,7 @@ Then I should see "Sarah@gmail.com"
 
 Scenario: I want to change my password
 
-Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username"jsmith"
 And I am on the profile page
 When I press "Edit Profile"
 When I fill in "password" with "giggles"
@@ -41,7 +41,7 @@ Then I should not see "giggles"
 
 Scenario: I want to change my credential
 #PENDING
-Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username"jsmith"
 And I am on the profile page
 When I press "Edit Profile"
 When I fill in credential with "Ruby on Rails programmer"
@@ -49,7 +49,7 @@ Then I should see "Ruby on Rails programmer" in the credential field
 
 Scenario: I want to add a credential
 #PENDING
-Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username"jsmith"
 And I am on the profile page
 When I press "Edit Profile"
 And I press "Add New Credential"
@@ -59,7 +59,7 @@ Then I should see "Bird watcher of 15 years" in the credentials field
 
 Scenario: I want to change my biography
 
-Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username"jsmith"
 And I am on the profile page
 When I press "Edit Bio"
 When I fill in "bio" with "My birdwatching has taken me all over the globe."
@@ -68,7 +68,7 @@ Then I should see "My birdwatching has taken me all over the globe."
 
 Scenario: I want to change my profile picture
 #PENDING
-Given I have logged in to Brainstormy
+Given I have logged in to Brainstormy with username"jsmith"
 And img_1 is an image
 And I am on the profile page
 When I press "Edit Profile"
