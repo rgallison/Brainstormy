@@ -1,11 +1,9 @@
-
 #Note: When using regexp "([^"]*)" use this instead "([^\"]*)"
 #This includes the backslash to escape the " and maintain the correct color
 
 Given /^PENDING/ do
   pending
 end
-
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
@@ -40,7 +38,7 @@ end
 Given /^"([^\"]*)" is an image$/ do |image|
 end
 
-#Rachel
+#Rachel for edit profile features
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
@@ -55,6 +53,11 @@ Then /^I should be on the edit page for the idea: "([^\"]*)"$/ do |idea_title|
   assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
 end
 
-#Rachel
-And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-  fill_in(field, :with => value)
+#Rachel for edit profile features
+Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
+  end
+end
