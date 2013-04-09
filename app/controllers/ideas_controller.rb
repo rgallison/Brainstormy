@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
   end
 
   def create
+    #raise params.inspect
   	@idea=Idea.create!(params[:idea])
   	redirect_to edit_idea_path(@idea.id)
   end

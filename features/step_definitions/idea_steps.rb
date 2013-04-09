@@ -85,9 +85,11 @@ end
    uncheck(field)
  end
 
- Given /^I have logged in to Brainstormy with username"([^\"]*)"$/ do |username|
+#Colin added on 4/8:
+ Given /^I have logged in to Brainstormy with username "([^\"]*)"$/ do |username|
   user=User.find_by_username(username)
   @current_user=user
+  cookies[:user]=@current_user.id
 end
 
 

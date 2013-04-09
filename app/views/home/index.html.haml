@@ -17,7 +17,7 @@
 				%br
 				= f.text_field :name, :placeholder => 'Name', :size => 30 
 				%br
-				= f.text_field :email, :placeholder => 'E-mail', :size => 30
+				= f.text_field :email, :placeholder => 'E-mail', :size => 30, :id =>'email'
 				%br
 				= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
 				%br
@@ -31,7 +31,9 @@
 			%b Post An Idea
 			%br
 			= form_for :idea, :url => {:action => "create", :controller => "ideas"} do |f|
-				= f.text_area :title, :placeholder => 'Enter your idea.', :size => "30x5"
+				=#Colin added hidden_field_tag needed to credit idea to correct user 
+				=# hidden_field_tag(:user_id, @current_user.id)
+				= f.text_area :title, :placeholder => 'Enter your idea.', :size => "30x5", :id => 'title'
 				%br
 				= f.submit 'Post an Idea'
 
