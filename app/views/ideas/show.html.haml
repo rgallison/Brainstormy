@@ -21,4 +21,11 @@
     -else
       = link_to 'home', root_path
 
+-#Lindsey Stratton
+-#Making a box for comments
+
+%div{:name=>"commentbox", :class => "commentbox"}
+  = link_to 'Post comment', new_idea_comment_path(@idea.id)
+  = link_to 'All comments', idea_comment_path(@idea.id)
+
 = link_to 'Back to home page', root_path
