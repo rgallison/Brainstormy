@@ -1,11 +1,9 @@
-
 #Note: When using regexp "([^"]*)" use this instead "([^\"]*)"
 #This includes the backslash to escape the " and maintain the correct color
 
 Given /^PENDING/ do
   pending
 end
-
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
@@ -63,7 +61,7 @@ end
 Given /^"([^\"]*)" is an image$/ do |image|
 end
 
-#Rachel
+#Rachel for edit profile features
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
@@ -89,3 +87,14 @@ end
   user=User.find_by_username(username)
   @current_user=user
 end
+
+#Rachel for edit profile features
+Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
+  end
+end
+
+

@@ -1,28 +1,57 @@
-//Rachel
 html,
 body {
     height:90%;
 }
 
-div.profile_picture {
-	margin: 10px 0px 0px 10px;
-	width: 30%;
+div.show {
+	display: all;
+}
+
+div.hide {
+	display: none;
+}
+
+div.signIn {
+	margin: 10px 20px 10px 40px;
+	border-style: ridge;
+	border-color: #006a89;
+	min-height: 450px;
+	height: 90%;
+	width: 26%;
+	min-width: 250px;
+	padding: 10px 20px 10px 20px;
+	line-height: 210%;
 	float: left;
 }
 
-div.profile_info {
-	margin: 10px 10px 0px 0px;
-	width: 60%;
+div.popularIdeas {
+	margin: 10px 15px 10px 15px;
+	border-style: ridge;
+	border-color: #006a89;
+	min-height: 450px;
+	height: 90%;
+	overflow: auto;
+	width: 26%;
+	min-width: 250px;
+	padding: 10px 20px 10px 20px;
+	line-height: 200%;
 	float: left;
 }
 
-div.bio {
-	margin: 0px 10px 10px 10px;
-	width: 100%;
+div.aboutSite {
+	margin: 10px 40px 10px 20px;
+	border-style: ridge;
+	border-color: #006a89;
+	min-height: 450px;
+	
+	height: 90%;
+	width: 26%;
+	min-width: 250px;
+	padding: 10px 20px 10px 20px;
 	float: left;
 }
 
-.profile_info, .bio p {
+.aboutSite p {
 	font-size: 90%;
 }
 
