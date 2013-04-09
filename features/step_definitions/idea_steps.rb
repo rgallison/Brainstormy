@@ -19,6 +19,15 @@ Given /the following user exists/ do |user_table|
   end
 end
 
+#Colin added on 4/8:
+Given /the following idea exists/ do |idea_table|
+  idea_table.hashes.each do |idea|
+    # each returned element will be a hash whose key is the table header.
+    # you should arrange to add that movie to the database here.
+    Idea.create(idea)
+  end
+end
+
 When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -36,6 +45,20 @@ Then /^(?:|I )should be on "([^\"]*)" profile page/ do |username|
   assert_equal "/users/#{user.id}", URI.parse(current_url).path
 end
 
+#Colin for new idea feature:
+Given /^I am now on the edit page for idea with title "([^\"]*)"$/ do |idea_title|
+  idea = Idea.find_by_title(idea_title)
+  #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
+  visit path_to('the edit page for idea number '+(idea.id).to_s)
+end
+
+Given /^I should be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
+  idea = Idea.find_by_title(idea_title)
+  #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
+  visit path_to('the idea page for idea number '+(idea.id).to_s)
+end
+
+
 #Rachel for edit profile features
 Given /^"([^\"]*)" is an image$/ do |image|
 end
@@ -49,8 +72,20 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   end
 end
 
-#Colin for new idea feature:
-Then /^I should be on the edit page for the idea: "([^\"]*)"$/ do |idea_title|
+
+
+#Colin added on 4/8:
+Then /^I should be on the idea page for the idea: "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
+end
+
+#Colin added on 4/8:
+ When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+   uncheck(field)
+ end
+
+ Given /^I have logged in to Brainstormy with username"([^\"]*)"$/ do |username|
+  user=User.find_by_username(username)
+  @current_user=user
 end
