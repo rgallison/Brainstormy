@@ -1,9 +1,10 @@
 Feature: User can login to their account on the site
 
-Background
-	Given PENDING: the following user exists:
-	| username                 | name          | email           | password |
-	| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
+Background: A user account has been created
+
+Given the following user exists:
+| username                 | name          | email           | password |
+| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
 
 Scenario: Login to Brainstormy
 	Given I am on the home page

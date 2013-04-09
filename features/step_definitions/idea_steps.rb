@@ -1,11 +1,9 @@
-
 #Note: When using regexp "([^"]*)" use this instead "([^\"]*)"
 #This includes the backslash to escape the " and maintain the correct color
 
 Given /^PENDING/ do
   pending
 end
-
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
@@ -15,7 +13,7 @@ Given /the following user exists/ do |user_table|
   user_table.hashes.each do |user|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    User.create(user)
+    User.create!(user)
   end
 end
 
@@ -24,7 +22,7 @@ Given /the following idea exists/ do |idea_table|
   idea_table.hashes.each do |idea|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    Idea.create(idea)
+    Idea.create!(idea)
   end
 end
 
@@ -63,7 +61,7 @@ end
 Given /^"([^\"]*)" is an image$/ do |image|
 end
 
-#Rachel
+#Rachel for edit profile features
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
@@ -91,3 +89,14 @@ end
   @current_user=user
   cookies[:user]=@current_user.id
 end
+
+#Rachel for edit profile features
+Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
+  end
+end
+
+
