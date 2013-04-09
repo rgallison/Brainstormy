@@ -91,12 +91,3 @@ end
   @current_user=user
   cookies[:user]=@current_user.id
 end
-
-
-
-
-# Repetitive:  throws ambiguous case exception
-#Rachel
-# And /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
-#   fill_in(field, :with => value)
-# end

@@ -1,6 +1,6 @@
 %div{:name => "panel1", :class => "panel1"}
 	- if !@current_user
-		%div{:name => "signIn", :class => "signIn"} 
+		%div{:name => "login", :class => "login"} 
 			%b Sign In
 			%br
 			= form_for :user, :url => {:action => "create_session", :controller => "application"} do |f|
@@ -8,7 +8,7 @@
 				%br
 				= f.password_field :password_login, :placeholder => 'Password', :size => 30 
 				%br
-				= f.submit 'Sign In'
+				= f.submit 'Login'
 
 			%hr
 			%b Sign Up
