@@ -1,0 +1,6 @@
+%h2 Post new comment: 
+= form_tag idea_comments_path (@idea.id), :method => :post do
+	=render :partial => 'form'  
+	= hidden_field :comment, :idea_id, value: @idea.id 
+	= hidden_field :comment, :rank, value: 0  
+	= submit_tag 'Post'
