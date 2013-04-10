@@ -20,7 +20,7 @@ class HomeController < ApplicationController
         end
       end
     flash[:notice] = "Nothing found by that name!" if results
-    @pop_ideas = results
+    @pop_ideas = results if results
     end
   end
 end
