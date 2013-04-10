@@ -6,15 +6,15 @@ So that I can change what other user's can see on my profile page
 I want to edit the content of my profile
 
 Background: A user account has been created and an image exists
-
-Given the following user exists:
-| username                 | name          | email           | password |
-| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
+	Given the following user exists:
+	| username                 | name          | email           | password |
+	| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
+	| testuser2                | John Doe      | jdoe@gmails.com | spot4    |
 
 Scenario: I want to change my name
 
-Given I have logged in to Brainstormy with username "testuser"
-And I am on the "testuser" profile page
+Given I have logged in to Brainstormy with username "testuser2"
+And I am on the "testuser2" profile page
 When I press "Edit Profile"
 When I fill in "name" with "Sarah Yuli"
 And I press "Submit"
