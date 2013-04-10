@@ -1,5 +1,7 @@
 Feature:  User can browse though all ideas with a public privacy setting
 
+Backgroud: An idea has been created
+
 Given the following user exists:
 | username                 | name          | email           | password |
 | testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |

@@ -1,5 +1,11 @@
 class IdeasController < ApplicationController
   def index
+    @idea=Idea.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @idea}
+    end
   end
 
   def show
