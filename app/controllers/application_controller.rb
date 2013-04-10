@@ -6,11 +6,10 @@ class ApplicationController < ActionController::Base
   def create_session
   	#gets params and finds user with such a username and password, then sets user to session -rg
   	user = User.find_by_username(params[:user][:username_login])
-  	if (session[:user_id] = user.id if user)
+    if user.password == params[:user][:password_login] and (session[:user_id] = user.id if user)
   		set_current_user#sets sets @current_user if user was found -rg
-  	else
-  		flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
   	end
+    flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
   	redirect_to root_path#and to the home page! -rg
   end
 

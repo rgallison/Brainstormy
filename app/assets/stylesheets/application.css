@@ -11,6 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+ html,
+body {
+    height:90%;
+}
+
 div.panel1, div.panel2, div.panel3{
 	margin: 10px 20px 10px 20px;
 	border-style: ridge;
@@ -20,33 +26,59 @@ div.panel1, div.panel2, div.panel3{
 	overflow: auto;
 	width: 26%;
 	min-width: 250px;
-	padding: 10px 20px 10px 20px;
+	padding: 10px 20px 25px 20px;
 	float: left;
 }
 
 p.flashnotice {
-	position: absolute;
-	left: 40%;
-	top: 20px;
+	margin-left: 40%;
 	background-color: #fed05e;
 	font-size: 80%;
 	width: 20%;
 	text-align: center;
 }
 
-p.flashwarning{
-	position: absolute;
-	left: 40%;
-	top: 20px;
+p.flashwarning {
+	margin-left: 40%;
 	background-color: #fe5e5e;
 	font-size: 80%;
 	width: 20%;
 	text-align: center;
 }
 
-.search {
+.logoPos {
+	float: left;
+	width: 250px;
+}
+
+.usernamePos {
+	float: left;
+	width: 200px;
+	margin: 1.5% 10%;
+	font-size: 80%;
+}
+.username {
+	font-size: 300%;
+	font-style: normal;
+}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: underline; color: red;}
+
+.searchPos {
 	float: right;
-	margin-top: 25px;
+	width: 300px;
+	margin: 2% .5%;
+
+}
+
+#main {
+    clear: both;
+}
+
+.break {
+	float: clear;
 }
 
 .floatL {

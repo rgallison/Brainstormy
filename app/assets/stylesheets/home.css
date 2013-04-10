@@ -1,10 +1,7 @@
-html,
-body {
-    height:90%;
-}
 
 div.panel1 {
 	line-height: 210%;
+	min-height: 180px
 }
 
 .aboutSite p {
@@ -12,5 +9,5 @@ div.panel1 {
 }
 
 hr {
-	margin: 20px 0px 10px 0px;
+	margin: 25px 0px 20px 0px;
 }
