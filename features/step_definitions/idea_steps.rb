@@ -86,8 +86,8 @@ end
 #Colin added on 4/8:
  Given /^I have logged in to Brainstormy with username "([^\"]*)"$/ do |username|
   user=User.find_by_username(username)
-  @current_user=user
-  cookies[:user]=@current_user.id
+  cookies[:user] = user.id
+  @current_user = cookies[:user]
 end
 
 #Rachel for edit profile features
@@ -100,7 +100,7 @@ Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
 end
 
 #Lindsey Basic link following
-When /^(?:|I )follow "([^"]*)"$/ do |link|
+When /^(?:|I )follow "([^\"]*)"$/ do |link|
   click_link(link)
 end
 
