@@ -79,7 +79,7 @@ Then /^I should be on the idea page for the idea: "([^\"]*)"$/ do |idea_title|
 end
 
 #Colin added on 4/8:
- When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+ When /^(?:|I )uncheck "([^\"]*)"$/ do |field|
    uncheck(field)
  end
 

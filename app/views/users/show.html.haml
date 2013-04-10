@@ -1,5 +1,7 @@
 
-=button_to 'Edit Profile', { :action => 'show', :id => @current_user, :flag => true}, :method => :get
+=form_tag user_path(@current_user), :method => :get do |f|
+	= hidden_field_tag(:flag, true)
+	= submit_tag "Edit Profile"
 %br
 
 %div{:name => 'profile_picture', :class => 'profile_picture'}
@@ -20,7 +22,7 @@
 
 %div{:name=>"edit_profile_info", :class => @showform} 
 	%b Edit Profile
-	=form_for :user, :url => { :action => "update", :controller => "users"} do |f|
+	=form_for :user, :url => { :action => "update", :controller => "users"}, :method => :put do |f|
 		= f.text_field :username, :placeholder => 'Username', :size => 30
 		%br
 		= f.text_field :name, :placeholder => 'Name', :size => 30 
@@ -36,7 +38,7 @@
 		-#Rachel - added a text area for the bio to be edited in the same form
 		= f.text_area :bio, :placeholder => 'Biography', :size => 30
 		%br
-		= f.submit 'Sign Up'
+		= f.submit 'Update'
 
 %div{:name => 'bio', :class => 'bio'}
 	%b Biography

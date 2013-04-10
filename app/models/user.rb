@@ -5,6 +5,5 @@ class User < ActiveRecord::Base
 	has_many :ideas #ideas user has posted
 
 	validates :password, :email, :confirmation => true
-
 	validates :username, :email, :password, :name, :presence => true
 end
