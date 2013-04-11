@@ -1,5 +1,5 @@
 -# in app/views/ideas/show.html.haml
-%div{:name=>"centralIdea", :class => "centralIdea"} 
+%div{:name=>"panel2", :class => "idea panel2"} 
   %h2 #{@idea.title}
 
   %ul#details
@@ -21,11 +21,12 @@
     -else
       = link_to 'home', root_path
 
+-#broke the view
 -#Lindsey Stratton
 -#Making a box for comments
 
-%div{:name=>"commentbox", :class => "commentbox"}
-  = link_to 'Post comment', new_idea_comment_path(@idea.id)
-  = link_to 'All comments', idea_comment_path(@idea.id)
+/ %div{:name=>"commentbox", :class => "commentbox"}
+/   = link_to 'Post comment', new_idea_comment_path(@idea.id)
+/   = link_to 'All comments', idea_comment_path(@idea.id)
 
 = link_to 'Back to home page', root_path

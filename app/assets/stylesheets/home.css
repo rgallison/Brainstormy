@@ -1,10 +1,7 @@
-html,
-body {
-    height:90%;
-}
 
 div.panel1 {
 	line-height: 210%;
+	min-height: 180px
 }
 
 .aboutSite p {
@@ -12,5 +9,32 @@ div.panel1 {
 }
 
 hr {
-	margin: 20px 0px 10px 0px;
+	margin: 25px 0px 20px 0px;
+	width: 85%
+}
+
+table#mainIdeas {
+	padding-top: 10px;
+	font-size: 85%
+}
+
+table#mainIdeas td{
+	border-top: thin solid gray;
+	padding: 5px;
+}
+
+table#mainIdeas td:first-child {
+	width: 90%;
+}
+
+div#content {
+	margin-left: 10%
+}
+
+div#content2 {
+	margin-top: 5px;
+}
+
+div#content3 {
+	margin-top: 5px;
 }

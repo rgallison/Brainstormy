@@ -14,11 +14,11 @@ class UsersController < ApplicationController
 
   def show
     @user ||=User.find(params[:id])#gets user from database - rg
-    if params.present? # - if there are params now, we don't need form anymore
+    if !params[:flag] # - if there are params now, we don't need form anymore
       @showform = 'hide'
       @showlist = 'show'
-    end
-    if !params.present?
+      @flag = false;
+    else
       @showform = 'show'
       @showlist = 'hide'
     end
