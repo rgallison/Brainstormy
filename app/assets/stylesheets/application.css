@@ -18,15 +18,16 @@ body {
 }
 
 div.panel1, div.panel2, div.panel3{
-	margin: 10px 20px 10px 20px;
+	margin: 10px 1.1% 10px 2.4%;
 	border-style: ridge;
 	border-color: #006a89;
+	padding: 10px 2% 25px 2%;
 	min-height: 450px;
+	max-height: 450px;
 	height: 90%;
 	overflow: auto;
-	width: 26%;
-	min-width: 250px;
-	padding: 10px 20px 25px 20px;
+	width: 25%;
+	min-width: 320px;
 	float: left;
 }
 

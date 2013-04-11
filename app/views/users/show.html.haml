@@ -31,10 +31,10 @@
 			%br
 			= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
 			%br
-			= f.password_field :password, :placeholder => 'Password', :size => 30
-			%br
-			= f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
-			%br
+			/ = f.password_field :password, :placeholder => 'Password', :size => 30
+			/ %br
+			/ = f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
+			/ %br
 			-#Rachel - added a text area for the bio to be edited in the same form
 			= f.text_area :bio, :placeholder => 'Biography', :size => 30
 			%br
