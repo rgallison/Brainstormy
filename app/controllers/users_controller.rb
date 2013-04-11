@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def create
  		if @user = User.create!(params[:user])#gets params, tries to add to user database, and checks if successful -rg
-      session[:user_id] = @user.id if @user
+      session[:user_id] = @user.id if @user#assings id to session
       set_current_user#sets sets @current_user if user was found -rg
       flash[:notice] = "You have successfully been added.  Please fill out your profile."
       redirect_to user_path(@user.id)#redirects to home page -rg      
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
+  skip_before_filter :set_current_user
   def show
     @user ||=User.find(params[:id])#gets user from database - rg
     if !params[:flag] # - if there are params now, we don't need form anymore
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   end
 
 #Rachel - updates attributes of user from params[]
+  skip_before_filter :set_current_user
   def update
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
