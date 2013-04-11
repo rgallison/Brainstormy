@@ -13,11 +13,15 @@ Background: A user account has been created and an image exists
 
 Scenario: I want to change my name
 
-Given I have logged in to Brainstormy with username "testuser2"
-And I am on the "testuser2" profile page
+Given I am on the home page
+When I fill in "user_username_login" with "testuser"
+And I fill in "user_password_login" with "1234"
+And I press "Login"
+And I follow "testuser"
+And I am on the "testuser" profile page
 When I press "Edit Profile"
-When I fill in "name" with "Sarah Yuli"
-And I press "Submit"
+When I fill in "user_name" with "Sarah Yuli"
+And I press "Update"
 Then I should see "Sarah Yuli"
 
 

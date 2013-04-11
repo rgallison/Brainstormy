@@ -24,8 +24,12 @@ module NavigationHelpers
       idea_path(Idea.find_by_title($1))
     when /^the edit page for the idea "([^\"]*)"$/
       idea_path(Idea.find_by_title($1))
+    
+    #path for user profile page - report if failed or passed
+    #trouble getting it to pass with some scenarios -rg
     when /^the "([^\"]*)" profile page$/i
       user_path(User.find_by_username($1))
+      # raise User.find_by_username($1).inspect
 
 	#Lindsey Stratton
 	#April 7 2013
