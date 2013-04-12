@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    flash[:notice] = params[:id].inspect.to_s
+    # flash[:notice] = params[:id].inspect.to_s
     @user ||=User.find(params[:id])#gets user from database - rg
-    if params.present? # - if there are params now, we don't need form anymore
+    if !params[:flag] # - if there are params now, we don't need form anymore
       @showform = 'hide'
       @showlist = 'show'
     else
