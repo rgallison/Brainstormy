@@ -5,6 +5,8 @@ gem 'haml' #support haml -RG, 3/20
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+
+
 group :development, :test do
   gem 'sqlite3'
 end
@@ -15,6 +17,7 @@ group :test, :development do
 	gem 'database_cleaner'
 	gem 'capybara'
 	gem 'launchy'
+	gem 'factory_girl_rails'
 end
 
 group :test do
@@ -23,7 +26,7 @@ group :test do
 end
 
 group :production do
-  # gem 'pg', '~> 0.14.1'
+  gem 'pg', '~> 0.14.1'
 end
 
 # Gems used only for assets and not required
