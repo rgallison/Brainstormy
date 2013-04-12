@@ -9,7 +9,7 @@ Given /^(?:|that I |I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Given /the following user exists/ do |user_table|
+Given /the following user(?:|s) exist(?:|s)/ do |user_table|
   user_table.hashes.each do |user|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
@@ -89,6 +89,14 @@ end
   cookies[:user] = user.id
   @current_user = cookies[:user]
 end
+
+#Colin added on 4/12 for customize_idea.feature:
+And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |table|
+  idea=Idea.find_by_title(table.$2)
+  user=User.find_by_username(table.$1)
+  idea.collaborators << user
+end
+
 
 #Rachel for edit profile features
 Then /^(?:|that I |I )should not see "([^\"]*)"$/ do |text|
