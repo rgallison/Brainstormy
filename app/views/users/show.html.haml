@@ -1,7 +1,4 @@
-
-=form_tag user_path(@current_user), :method => :get do |f|
-	= hidden_field_tag(:flag, true)
-	= submit_tag "Edit Profile"
+=button_to 'Edit Profile', { :action => 'show', :id => @current_user}, :method => :get
 %br
 %div{:class => 'panel1'}
 	%div{:name => 'profile_picture', :class => 'profile_picture'}
