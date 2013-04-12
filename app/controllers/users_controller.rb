@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
+  skip_before_filter :set_current_user
   def show
     # flash[:notice] = params[:id].inspect.to_s
     @user ||=User.find(params[:id])#gets user from database - rg
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   end
 
 #Rachel - updates attributes of user from params[]
+  skip_before_filter :set_current_user
   def update
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])

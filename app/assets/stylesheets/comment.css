@@ -1,0 +1,12 @@
+div.commentbox {
+	margin: 10px 100px 100px 300px;
+	border-style: ridge;
+	border-color: #006a89;
+	min-height: 50px;
+	height: 90%;
+	width: 26%;
+	min-width: 250px;
+	padding: 10px 20px 10px 20px;
+	line-height: 100%;
+	float: left;
+}

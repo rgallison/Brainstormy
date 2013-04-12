@@ -3,6 +3,6 @@ class Idea < ActiveRecord::Base
 	belongs_to :user #User who created the idea
 
 	#4/4 Colin deleted : after :class_name (previously read ":class_name: => ")
-	has_many :commented_users, :class_name => 'User', :through => :comments #users who commented
+	has_many :collaborators, :class_name => 'User', :through => :comments #users who commented
 	has_many :comments #idea comments
 end

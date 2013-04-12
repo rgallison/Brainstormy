@@ -23,8 +23,6 @@ div.panel1, div.panel2, div.panel3{
 	border-color: #006a89;
 	padding: 0 2% 25px 2%;
 	min-height: 450px;
-/*	max-height: 450px;
-	height: 90%;*/
 	overflow: auto;
 	width: 25%;
 	min-width: 320px;
