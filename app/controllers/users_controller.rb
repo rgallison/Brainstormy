@@ -12,9 +12,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # skip_before_filter :set_current_user
   def show
-    flash[:notice] = @current_user.nil?.to_s
     @user ||=User.find(params[:id])#gets user from database - rg
     if !params[:flag] # - if there are params now, we don't need form anymore
       @showform = 'hide'
@@ -26,8 +24,8 @@ class UsersController < ApplicationController
   end
 
 #Rachel - updates attributes of user from params[]
-  # skip_before_filter :set_current_user
   def update
+    @flag = false#set flag to false.  No longer need edit form. -rg
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
     flash[:notice] = "#{@user.name} was successfully updated."

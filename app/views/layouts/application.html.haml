@@ -9,7 +9,6 @@
   %body
   %div#container
     %header
-      / %div{:class => 'logoPos'}
       = link_to(image_tag("logo_example.jpg", :size => "250x70", :alt => "Brainstormy logo"), root_path, :id => "logo")
       - [:notice, :warning].each do |key|
         -if flash[key]
@@ -25,5 +24,6 @@
       %footer
         %div{:class => 'usernamePos'}
           = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
-          = link_to 'Logout', application_logout_user_path
+        = link_to(image_tag("64_logout.png", :size => "25x25", :alt => "Log out"), application_logout_user_path, :id => "logout")
+        / # = link_to 'Logout', application_logout_user_path, :id => "logout"
 

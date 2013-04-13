@@ -57,8 +57,8 @@ div.panel1, div.panel2, div.panel3{
 	border-style: ridge;
 	border-color: #006a89;
 	padding: 0 2% 25px 2%;
-	min-height: 445px;
-	height: 445px;
+	/*min-height: 455px;*/
+	height: 455px;
 	overflow: auto;
 	width: 25%;
 	min-width: 320px;
@@ -98,6 +98,13 @@ p.flashwarning {
 	font-size: 275%;
 	font-style: normal;
 }
+
+#logout {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
 a.username:visited {color: #006a89;}
 a:link {text-decoration: none}
 a:visited {text-decoration: none}
@@ -108,11 +115,6 @@ a:hover {text-decoration: underline; color: red;}
 	float: right;
 	width: 250px;
 	margin: 2% .5%;
-}
-
-
-.break {
-	float: clear;
 }
 
 .floatL {
