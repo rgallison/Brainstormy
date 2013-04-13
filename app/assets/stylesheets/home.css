@@ -28,13 +28,14 @@ table#mainIdeas td:first-child {
 }
 
 div#content {
+	margin-top: 10px;
 	margin-left: 10%
 }
 
 div#content2 {
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 div#content3 {
-	margin-top: 5px;
+	margin-top: 15px;
 }

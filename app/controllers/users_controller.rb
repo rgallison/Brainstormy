@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     end
   end
 
-  skip_before_filter :set_current_user
+  # skip_before_filter :set_current_user
   def show
-    # flash[:notice] = params[:id].inspect.to_s
+    flash[:notice] = @current_user.nil?.to_s
     @user ||=User.find(params[:id])#gets user from database - rg
     if !params[:flag] # - if there are params now, we don't need form anymore
       @showform = 'hide'
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
 #Rachel - updates attributes of user from params[]
-  skip_before_filter :set_current_user
+  # skip_before_filter :set_current_user
   def update
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
@@ -34,5 +34,4 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
-  
 end
