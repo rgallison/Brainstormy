@@ -70,6 +70,16 @@ Then /^(?:|that I |I )should see "([^\"]*)"$/ do |text|
   end
 end
 
+#Find a list of text on a page -rg 4/13
+Then /^I should see the following: "([^\"]*)"/ do |text_list|
+  text_list.split('", "').each do |text|
+    if page.respond_to? :should
+      page.should have_content(text)
+    else
+      assert page.has_content(text)
+    end
+  end
+end
 
 
 #Colin added on 4/8:
@@ -83,19 +93,19 @@ end
    uncheck(field)
  end
 
-#Colin added on 4/8:
+#Colin added on 4/8: broken?
  Given /^(?:|that I |I )have logged in to Brainstormy with username "([^\"]*)"$/ do |username|
   user=User.find_by_username(username)
   cookies[:user] = user.id
   @current_user = cookies[:user]
 end
 
-#Colin added on 4/12 for customize_idea.feature:
-And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |table|
-  idea=Idea.find_by_title(table.$2)
-  user=User.find_by_username(table.$1)
-  idea.collaborators << user
-end
+# #Colin added on 4/12 for customize_idea.feature:
+# And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |table|
+#   idea=Idea.find_by_title(table.$2)
+#   user=User.find_by_username(table.$1)
+#   idea.collaborators << user
+# end
 
 
 #Rachel for edit profile features

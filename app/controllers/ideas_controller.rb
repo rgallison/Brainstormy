@@ -7,7 +7,7 @@ class IdeasController < ApplicationController
       format.json { render json: @idea}
     end
   end
-
+  
   def show
   	@idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)

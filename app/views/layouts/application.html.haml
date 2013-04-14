@@ -7,20 +7,26 @@
     =csrf_meta_tags
 
   %body
-  %header
-    %div{:class => 'logoPos'}
-      = link_to(image_tag("logo_example.jpg", :size => "250x70", :alt => "Brainstormy logo"), root_path)
-    %div{:class => 'usernamePos'}
-      -if @current_user
-        =link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
-        = link_to 'Logout', application_logout_user_path
-    %div{:class => 'searchPos'}
-      = form_tag('/home/index') do
-        = submit_tag 'Search'
-        = search_field_tag 'search', nil, :size => 20
-  #main
-    - [:notice, :warning].each do |key|
-      -if flash[key]
-        %p{:class => "flash#{key}"}= flash[key]
-    = yield
+  %div#container
+    %header
+      = link_to(image_tag("logo_example.jpg", :size => "250x70", :alt => "Brainstormy logo"), root_path, :id => "logo")
+      - [:notice, :warning].each do |key|
+        -if flash[key]
+          %p{:class => "flash#{key} flash"}= flash[key]
+      %div{:class => 'search'}
+        = form_tag('/home/index') do
+          = submit_tag 'Search'
+          = search_field_tag 'search', nil, :size => 20
+    #main    
+      = yield
+
+    -if @current_user
+      %footer
+        %div{:class => 'usernamePos'}
+          = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
+        = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon")
+        = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), nil, :id => "icon")
+        = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), nil, :id => "icon2")
+        = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), nil, :id => "icon2")
+
 

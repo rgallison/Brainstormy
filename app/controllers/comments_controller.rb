@@ -3,38 +3,37 @@
 #making the comment controller
 #(yet I don't have to make the model because someone already made it?)
 class CommentsController < ApplicationController
-    def index
+  def index
     @comments = Comment.all
     @idea = Idea.find(params[:idea_id])
-    end
+  end
 
-    def show
+  def show
     @comment = Comment.find(params[:idea_id])
     @idea = Idea.find(params[:idea_id])
-    end
+  end
 
-    def new
+  def new
     @idea = Idea.find(params[:idea_id])
-    end
+  end
 
-    def edit
-    end
+  def edit
+  end
 
-    def create
+  def create
     @comment = Comment.new(params[:comment])
     @comment.save
     redirect_to idea_comment_path(@comment.idea_id,@comment.id), notice: 'Comment was sucessfuly posted'
-    end
+  end
 
-    def update
+  def update
     @comment = Comment.find(params[:id])
     @comment.update_attributes(params[:comment])
     redirect_to idea_comment_path(@comment.idea_id,@comment.id), notice: 'Comment was sucessfuly edited' 
-    end
+  end
 
-    def destroy
+  def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    #redirect_to user_userblog_path
-    end
+  end
 end

@@ -11,77 +11,122 @@
  *= require_self
  *= require_tree .
  */
+article, aside, figure, footer, header, hgroup,
+menu, nav, section { display: block; }
 
+/* Layout ------------------ */
  html,
 body {
-    height:90%;
+	margin: 0;
+	padding: 0;
+	height: 100%;
 }
 
+#container {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	min-height: 100%;
+	position: relative;
+}
+
+/* Header ------------------ */
+header {
+	height: 65px;
+}
+
+p.flash {
+	float: left;
+	margin-top: 25px;
+	margin-left: 20%;
+	font-size: 80%;
+	width: 20%;
+	text-align: center;
+}
+
+p.flashnotice {
+	background-color: #fed05e;
+
+}
+
+p.flashwarning {
+	background-color: #fe5e5e;
+}
+
+#logo {
+	float: left;
+	width: 250px;
+}
+
+.search {
+	float: right;
+	width: 250px;
+	margin: 2% .5%;
+}
+
+/* body ------------------ */
+#main {
+    clear: both;
+    padding: 0;
+    padding-bottom: 40px;
+}
 div.panel1, div.panel2, div.panel3{
-	margin: 10px 1.1% 10px 2.4%;
+	margin: 0 1.1% 10px 2.4%;
 	border-style: ridge;
 	border-color: #006a89;
-	padding: 10px 2% 25px 2%;
-	min-height: 450px;
-	max-height: 450px;
-	height: 90%;
+	padding: 0 2% 25px 2%;
+	/*min-height: 455px;*/
+	height: 455px;
 	overflow: auto;
 	width: 25%;
 	min-width: 320px;
 	float: left;
 }
 
-p.flashnotice {
-	margin-left: 40%;
-	background-color: #fed05e;
-	font-size: 80%;
-	width: 20%;
-	text-align: center;
-}
-
-p.flashwarning {
-	margin-left: 40%;
-	background-color: #fe5e5e;
-	font-size: 80%;
-	width: 20%;
-	text-align: center;
-}
-
-.logoPos {
-	float: left;
-	width: 250px;
+/* Footer ------------------ */
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: white;
+/*	border-top: solid;
+	border-top-style: ridge;
+	border-top-color: #006a89;*/
 }
 
 .usernamePos {
 	float: left;
 	width: 200px;
-	margin: 1.5% 10%;
+	margin-left: 45%;
 	font-size: 80%;
 }
 .username {
-	font-size: 300%;
+	font-size: 275%;
 	font-style: normal;
 }
+
+#icon {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+#icon2 {
+	float: right;
+	margin-top: 6px;
+	margin-right: 10px;
+}
+
+/* Links ------------------ */
+a.username:visited {color: #006a89;}
 a:link {text-decoration: none}
 a:visited {text-decoration: none}
 a:active {text-decoration: none}
 a:hover {text-decoration: underline; color: red;}
 
-.searchPos {
-	float: right;
-	width: 300px;
-	margin: 2% .5%;
 
-}
-
-#main {
-    clear: both;
-}
-
-.break {
-	float: clear;
-}
-
+/* Generic ------------------ */
 .floatL {
 	float: left;
 }

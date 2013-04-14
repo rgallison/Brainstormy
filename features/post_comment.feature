@@ -9,6 +9,9 @@ I want to make comments on another person's idea that can be seen by that person
 
 Background: I already have an idea
 
+Given PENDING 
+#I might be overhauling the current comment system so the above until I can get it work
+
 Given the following user exists:
 | username                 | name          | email           | password |
 | testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |

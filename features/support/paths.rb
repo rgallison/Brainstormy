@@ -29,7 +29,6 @@ module NavigationHelpers
     #trouble getting it to pass with some scenarios -rg
     when /^the "([^\"]*)" profile page$/i
       user_path(User.find_by_username($1))
-      # raise User.find_by_username($1).inspect
 
 	#Lindsey Stratton
 	#April 7 2013
