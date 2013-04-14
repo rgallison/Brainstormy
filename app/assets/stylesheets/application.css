@@ -14,6 +14,7 @@
 article, aside, figure, footer, header, hgroup,
 menu, nav, section { display: block; }
 
+/* Layout ------------------ */
  html,
 body {
 	margin: 0;
@@ -29,40 +30,9 @@ body {
 	position: relative;
 }
 
+/* Header ------------------ */
 header {
 	height: 65px;
-	/*padding: 10px;*/
-}
-
-#main {
-    clear: both;
-    padding: 0;
-    padding-bottom: 40px;
-}
-
-
-footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 45px;
-	background-color: white;
-/*	border-top: solid;
-	border-top-style: ridge;
-	border-top-color: #006a89;*/
-}
-
-div.panel1, div.panel2, div.panel3{
-	margin: 0 1.1% 10px 2.4%;
-	border-style: ridge;
-	border-color: #006a89;
-	padding: 0 2% 25px 2%;
-	/*min-height: 455px;*/
-	height: 455px;
-	overflow: auto;
-	width: 25%;
-	min-width: 320px;
-	float: left;
 }
 
 p.flash {
@@ -88,6 +58,43 @@ p.flashwarning {
 	width: 250px;
 }
 
+.search {
+	float: right;
+	width: 250px;
+	margin: 2% .5%;
+}
+
+/* body ------------------ */
+#main {
+    clear: both;
+    padding: 0;
+    padding-bottom: 40px;
+}
+div.panel1, div.panel2, div.panel3{
+	margin: 0 1.1% 10px 2.4%;
+	border-style: ridge;
+	border-color: #006a89;
+	padding: 0 2% 25px 2%;
+	/*min-height: 455px;*/
+	height: 455px;
+	overflow: auto;
+	width: 25%;
+	min-width: 320px;
+	float: left;
+}
+
+/* Footer ------------------ */
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: white;
+/*	border-top: solid;
+	border-top-style: ridge;
+	border-top-color: #006a89;*/
+}
+
 .usernamePos {
 	float: left;
 	width: 200px;
@@ -99,24 +106,27 @@ p.flashwarning {
 	font-style: normal;
 }
 
-#logout {
+#icon {
 	float: right;
 	margin-top: 10px;
 	margin-right: 10px;
 }
 
+#icon2 {
+	float: right;
+	margin-top: 6px;
+	margin-right: 10px;
+}
+
+/* Links ------------------ */
 a.username:visited {color: #006a89;}
 a:link {text-decoration: none}
 a:visited {text-decoration: none}
 a:active {text-decoration: none}
 a:hover {text-decoration: underline; color: red;}
 
-.search {
-	float: right;
-	width: 250px;
-	margin: 2% .5%;
-}
 
+/* Generic ------------------ */
 .floatL {
 	float: left;
 }

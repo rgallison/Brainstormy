@@ -32,30 +32,31 @@ Scenario: the nav bar should be visible on an idea page
 
 Scenario: the nav bar should have...
 	Given that I am on the home page
-	Then I should see the following: "testuser", "logout", "ideas", "messages", "settings" 
+	Then I should see the following: "testuser", "logout.png", "lightbulb.png", "mail.png", "settings.png" 
 
 Scenario: When I click on my username, I should be on my profile page
-	Given PENDING: that I am on the home page
+	Given that I am on the home page
 	And I follow "testuser"
-	Then I should be on "testuser" profile page
+	Then I should be on the "testuser" profile page
 
 Scenario: When I click the logout button, I should log out of my account
-	Given PENDING: that I am on the home page
-	And I click "logout"
+	Given that I am on the home page
+	And I follow "logout"
 	Then I should see "Sign In"
+	And I should not see "testuser"
 
 Scenario: When I click on the ideas button, I should see a list of ideas I'm involved with
-	Given PENDING: that I am on the home page
-	And I click "ideas"
+	Given that I am on the home page
+	And I follow "ideas"
 	Then I should see "awesome new idea"
 
 Scenario: When I click on the messages button, I should go to my inbox
 	Given PENDING: that I am on the home page
-	And I click "messages"
+	And I follow "messages"
 	Then I should be on "testuser" message page
 
 Scenario:
 	Given PENDING: that I am on the home page
 	And I click "settings"
-	Then I shoul be on the settings page
+	Then I should be on the settings page
 

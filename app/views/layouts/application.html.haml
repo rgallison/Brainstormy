@@ -24,6 +24,9 @@
       %footer
         %div{:class => 'usernamePos'}
           = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
-        = link_to(image_tag("64_logout.png", :size => "25x25", :alt => "Log out"), application_logout_user_path, :id => "logout")
-        / # = link_to 'Logout', application_logout_user_path, :id => "logout"
+        = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon")
+        = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), nil, :id => "icon")
+        = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), nil, :id => "icon2")
+        = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), nil, :id => "icon2")
+
 
