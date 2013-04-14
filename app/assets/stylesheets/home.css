@@ -1,23 +1,7 @@
-html,
-body {
-    height:90%;
-}
-
-div.panel1, div.panel2, div.panel3{
-	margin: 10px 20px 10px 20px;
-	border-style: ridge;
-	border-color: #006a89;
-	min-height: 450px;
-	height: 90%;
-	overflow: auto;
-	width: 26%;
-	min-width: 250px;
-	padding: 10px 20px 10px 20px;
-	float: left;
-}
 
 div.panel1 {
 	line-height: 210%;
+	/*height: 180px*/
 }
 
 .aboutSite p {
@@ -25,39 +9,33 @@ div.panel1 {
 }
 
 hr {
-	margin: 20px 0px 10px 0px;
+	margin: 25px 0px 20px 0px;
+	width: 85%
 }
 
-
-p.flashnotice {
-	position: absolute;
-	left: 40%;
-	top: 20px;
-	background-color: #fed05e;
-	font-size: 80%;
-	width: 20%;
-	text-align: center;
+table#mainIdeas {
+	padding-top: 10px;
+	font-size: 85%
 }
 
-p.flashwarning{
-	position: absolute;
-	left: 40%;
-	top: 20px;
-	background-color: #fe5e5e;
-	font-size: 80%;
-	width: 20%;
-	text-align: center;
+table#mainIdeas td{
+	border-top: thin solid gray;
+	padding: 5px;
 }
 
-.search {
-	float: right;
-	margin-top: 25px;
+table#mainIdeas td:first-child {
+	width: 90%;
 }
 
-.floatL {
-	float: left;
+div#content {
+	margin-top: 10px;
+	margin-left: 10%
 }
 
-.floatR {
-	float: right;
+div#content2 {
+	margin-top: 15px;
+}
+
+div#content3 {
+	margin-top: 15px;
 }

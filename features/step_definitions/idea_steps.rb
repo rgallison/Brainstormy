@@ -5,15 +5,15 @@ Given /^PENDING/ do
   pending
 end
 
-Given /^(?:|I )am on (.+)$/ do |page_name|
+Given /^(?:|that I |I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Given /the following user exists/ do |user_table|
+Given /the following user(?:|s) exist(?:|s)/ do |user_table|
   user_table.hashes.each do |user|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    User.create(user)
+    User.create!(user)
   end
 end
 
@@ -22,35 +22,35 @@ Given /the following idea exists/ do |idea_table|
   idea_table.hashes.each do |idea|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
-    Idea.create(idea)
+    Idea.create!(idea)
   end
 end
 
-When /^(?:|I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
+When /^(?:|that I |I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
-When /^(?:|I )press "([^\"]*)"$/ do |button|
+When /^(?:|that I |I )press "([^\"]*)"$/ do |button|
   click_button(button)
 end
 
-Then /^(?:|I )should be on (.+)$/ do |page_name|
+Then /^(?:|that I |I )should be on (.+)$/ do |page_name|
 	visit path_to(page_name)
 end
 
-Then /^(?:|I )should be on "([^\"]*)" profile page/ do |username|
-  user = User.find(:username => username)
-  assert_equal "/users/#{user.id}", URI.parse(current_url).path
-end
+# Then /^(?:|I )should be on "([^\"]*)" profile page/ do |username|
+#   user = User.find(:username => username)
+#   assert_equal "/users/#{user.id}", URI.parse(current_url).path
+# end
 
 #Colin for new idea feature:
-Given /^I am now on the edit page for idea with title "([^\"]*)"$/ do |idea_title|
+Given /^(?:|that I |I )am now on the edit page for idea with title "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
   visit path_to('the edit page for idea number '+(idea.id).to_s)
 end
 
-Given /^I should be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
+Given /^(?:|that I |I ) should be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
   visit path_to('the idea page for idea number '+(idea.id).to_s)
@@ -62,7 +62,7 @@ Given /^"([^\"]*)" is an image$/ do |image|
 end
 
 #Rachel for edit profile features
-Then /^(?:|I )should see "([^\"]*)"$/ do |text|
+Then /^(?:|that I |I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
@@ -70,26 +70,46 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   end
 end
 
+#Find a list of text on a page -rg 4/13
+Then /^I should see the following: "([^\"]*)"/ do |text_list|
+  text_list.split('", "').each do |text|
+    if page.respond_to? :should
+      page.should have_content(text)
+    else
+      assert page.has_content(text)
+    end
+  end
+end
 
 
 #Colin added on 4/8:
-Then /^I should be on the idea page for the idea: "([^\"]*)"$/ do |idea_title|
+Then /^(?:|that I |I )should be on the idea page for the idea: "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   assert_equal "/ideas/#{idea.id}", URI.parse(current_url).path
 end
 
 #Colin added on 4/8:
- When /^(?:|I )uncheck "([^"]*)"$/ do |field|
+ When /^(?:|that I |I )uncheck "([^\"]*)"$/ do |field|
    uncheck(field)
  end
 
- Given /^I have logged in to Brainstormy with username"([^\"]*)"$/ do |username|
+#Colin added on 4/8: broken?
+ Given /^(?:|that I |I )have logged in to Brainstormy with username "([^\"]*)"$/ do |username|
   user=User.find_by_username(username)
-  @current_user=user
+  cookies[:user] = user.id
+  @current_user = cookies[:user]
 end
 
+# #Colin added on 4/12 for customize_idea.feature:
+# And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |table|
+#   idea=Idea.find_by_title(table.$2)
+#   user=User.find_by_username(table.$1)
+#   idea.collaborators << user
+# end
+
+
 #Rachel for edit profile features
-Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
+Then /^(?:|that I |I )should not see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
   else
@@ -97,4 +117,11 @@ Then /^(?:|I )should not see "([^\"]*)"$/ do |text|
   end
 end
 
+#Lindsey Basic link following
+When /^(?:|that I |I )follow "([^\"]*)"$/ do |link|
+  click_link(link)
+end
 
+When /^(?:|that I |I )go to (.+)$/ do |page_name|
+ visit path_to(page_name)
+end
