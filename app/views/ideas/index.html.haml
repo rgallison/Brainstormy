@@ -1,0 +1,21 @@
+%div.panel1
+	%b My Ideas
+	%table#mainIdeas
+		%tbody
+			- if @ideas_created
+				-@ideas_created.each do |idea|
+					%tr
+						%td= link_to "#{idea.title}", idea_path(idea)
+						/ %td= "" if !idea.description I don't think this is nessecary and there is no room.  We can talk about it more
+						%td= idea.rank
+
+%div.panel2
+	%b My Comments
+	%table#mainIdeas
+		%tbody
+			- if @ideas_commented
+				- @ideas_commented.each do |idea|
+					%tr
+						%td= link_to "#{idea.title}", idea_path(idea)
+						/ %td= "" if !idea.description I don't think this is nessecary and there is no room.  We can talk about it more
+						%td= idea.rank

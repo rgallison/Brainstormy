@@ -57,6 +57,6 @@ Scenario: When I click on the messages button, I should go to my inbox
 
 Scenario:
 	Given PENDING: that I am on the home page
-	And I click "settings"
+	And I follow "settings"
 	Then I should be on the settings page
 
