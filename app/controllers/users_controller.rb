@@ -6,6 +6,7 @@ class UsersController < ApplicationController
       set_current_user#sets sets @current_user if user was found -rg
       flash[:notice] = "You have successfully been added.  Please fill out your profile."
       redirect_to user_path(@user.id)#redirects to home page -rg      
+
     else
       flash[:warning] = "There is an invalid entry.  Please try again"#sets warning flash for failed add -rg
       redirect_to root_path
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
     flash[:notice] = "#{@user.name} was successfully updated."
-    redirect_to user_path
+    redirect_to user_path(@user)
   end
 
 end

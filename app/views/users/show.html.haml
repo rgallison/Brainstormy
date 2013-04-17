@@ -41,6 +41,14 @@
 				%br
 				= f.submit 'Update'
 
-		%div.bio
-			%b Biography
-			#{@user.bio}
+	%div{:name => 'bio', :class => 'bio'}
+		%b Biography
+		#{@user.bio}
+//Rachel
+%div{:class => 'panel2'}
+	%b Ideas Created
+	%br
+	%br
+	-@user.ideas.each do |idea|
+		=link_to "#{idea.title}", idea_path(idea)
+		%br
