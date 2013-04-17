@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
   def index
-    @ideas_created = User.find_by_id(@current_user).ideas
-    @ideas_commented = User.find_by_id(@current_user).commented_ideas
+    @ideas_created = User.find_by_id(@current_user).ideas#gets all the ideas user created -rg 4/15
+    @ideas_commented = User.find_by_id(@current_user).commented_ideas#gets all ideas that the user commented on -rg 4/15
   end
   
   def show

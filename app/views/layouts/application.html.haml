@@ -25,8 +25,8 @@
         %div.usernamePos
           = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
         = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon")
-        = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), nil, :id => "icon")
-        = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), nil, :id => "icon2")
+        = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), edit_user_path(@current_user), :id => "icon")
+        = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), message_path(@current_user), :id => "icon2")
         = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), ideas_path, :id => "icon2")
 
 

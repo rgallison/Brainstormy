@@ -29,6 +29,13 @@ module NavigationHelpers
     #trouble getting it to pass with some scenarios -rg
     when /^the "([^\"]*)" profile page$/i
       user_path(User.find_by_username($1))
+    #path for user messages page - rg 4/16
+    when /^the "([^\"]*)" message page$/i
+      message_path(User.find_by_username($1))
+    #path to the settings page -rg 4/17
+    when /^the "([^\"]*)" settings page$/
+      edit_user_path(User.find_by_username($1))
+    
 
 	#Lindsey Stratton
 	#April 7 2013
