@@ -23,7 +23,11 @@ class IdeasController < ApplicationController
 
   def update
     @idea=Idea.find(params[:id])
-    @idea.update_attributes!(params[:idea])
+    if params[:collaborator] != nil
+      @idea.collaborators<< User.find_by_username(params[:collaborator])
+    else
+      @idea.update_attributes!(params[:idea])
+    end
     redirect_to idea_path(@idea.id)
   end
 
