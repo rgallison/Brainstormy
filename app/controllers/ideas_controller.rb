@@ -1,11 +1,7 @@
 class IdeasController < ApplicationController
   def index
-    @idea=Idea.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @idea}
-    end
+    @ideas_created = User.find_by_id(@current_user).ideas#gets all the ideas user created -rg 4/15
+    @ideas_commented = User.find_by_id(@current_user).commented_ideas#gets all ideas that the user commented on -rg 4/15
   end
   
   def show

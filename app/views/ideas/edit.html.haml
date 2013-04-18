@@ -1,5 +1,5 @@
 -# in app/views/ideas/show.html.haml
-%div{:name=>"centralIdea", :class => "centralIdea"} 
+%div.centralIdea
   = form_tag idea_path(@idea), :method => :put do
 
     = text_field :idea, 'title'

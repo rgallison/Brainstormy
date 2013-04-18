@@ -5,10 +5,9 @@ gem 'haml' #support haml -RG, 3/20
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#Colin added April 12:
-#gem 'acts_as_votable', '~> 0.5.0'
-#gem 'acts_as_commentable_with_threading'
-
+gem 'acts_as_votable', '~> 0.5.0'
+gem 'acts_as_commentable_with_threading'
+gem 'simplecov'
 
 group :development, :test do
   gem 'sqlite3'

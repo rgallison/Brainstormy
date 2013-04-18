@@ -4,42 +4,51 @@
 		= submit_tag "Edit Profile" 
 	%br
 
-%div{:class => 'panel1'}
-	%div{:name => 'profile_picture', :class => 'profile_picture'}
-		%b Profile picture
+%div.panel1
+	%div.content
+		%div.profile_picture
+			%b Profile picture
 
-	//Rachel - page that shows user information and will dynamically change to a form to edit the profile page
-	%div{:name=>"profile_info", :class => @showlist} 
-		%ul
-		Username
-		%li #{@user.username}
-		Name
-		%li #{@user.name}
-		Email
-		%li #{@user.email}
-		Password
-		%li
+		//Rachel - page that shows user information and will dynamically change to a form to edit the profile page
+		%div{:name=>"profile_info", :class => @showlist} 
+			%ul
+			Username
+			%li #{@user.username}
+			Name
+			%li #{@user.name}
+			Email
+			%li #{@user.email}
+			Password
+			%li
 
-	%div{:name=>"edit_profile_info", :class => @showform} 
-		%b Edit Profile
-		=form_for :user, :url => { :action => "update", :controller => "users"}, :method => :put do |f|
-			= f.text_field :username, :placeholder => 'Username', :size => 30
-			%br
-			= f.text_field :name, :placeholder => 'Name', :size => 30 
-			%br
-			= f.text_field :email, :placeholder => 'E-mail', :size => 30
-			%br
-			= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
-			%br
-			/ = f.password_field :password, :placeholder => 'Password', :size => 30
-			/ %br
-			/ = f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
-			/ %br
-			-#Rachel - added a text area for the bio to be edited in the same form
-			= f.text_area :bio, :placeholder => 'Biography', :size => 30
-			%br
-			= f.submit 'Update'
+		%div{:name=>"edit_profile_info", :class => @showform} 
+			%b Edit Profile
+			=form_for :user, :url => { :action => "update", :controller => "users"}, :method => :put do |f|
+				= f.text_field :username, :placeholder => 'Username', :size => 30
+				%br
+				= f.text_field :name, :placeholder => 'Name', :size => 30 
+				%br
+				= f.text_field :email, :placeholder => 'E-mail', :size => 30
+				%br
+				= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
+				%br
+				/ = f.password_field :password, :placeholder => 'Password', :size => 30
+				/ %br
+				/ = f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
+				/ %br
+				-#Rachel - added a text area for the bio to be edited in the same form
+				= f.text_area :bio, :placeholder => 'Biography', :size => 30
+				%br
+				= f.submit 'Update'
 
 	%div{:name => 'bio', :class => 'bio'}
 		%b Biography
 		#{@user.bio}
+//Rachel
+%div{:class => 'panel2'}
+	%b Ideas Created
+	%br
+	%br
+	-@user.ideas.each do |idea|
+		=link_to "#{idea.title}", idea_path(idea)
+		%br
