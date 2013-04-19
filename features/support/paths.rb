@@ -23,7 +23,8 @@ module NavigationHelpers
     when /^the idea page for the idea with title "([^\"]*)"$/
       idea_path(Idea.find_by_title($1))
     when /^the edit page for the idea "([^\"]*)"$/
-      idea_path(Idea.find_by_title($1))
+      #Colin added edit to this path 4/19
+      edit_idea_path(Idea.find_by_title($1))
     
     #path for user profile page - report if failed or passed
     #trouble getting it to pass with some scenarios -rg

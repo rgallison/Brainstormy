@@ -18,12 +18,14 @@
 
       %h3 Description:
 
-      = text_area :idea, 'description', :size => '30x7', :id => 'description' 
+      = text_area :idea, 'description', :size => '30x7', :id => 'description'
+      %br 
       Make Private
-      = check_box_tag "Make Private", 1, false, :id=>"privacy"
+      = check_box_tag 'privacy', 1, (@idea.privacy=='private'), :id=>"privacy"
 
       =submit_tag 'Save and Post'
     =#Colin added 4/18 for showing existing collaborators if any exist
+    %br
     -if not @idea.collaborators.empty? 
       %table#collaborators
         %thead
