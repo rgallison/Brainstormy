@@ -10,7 +10,7 @@ Given that the following idea exists:
 | awesome new idea      | 1                |
 
 Scenario: add a tag to the idea
-Given I am on the idea page for the idea with title "awesome new idea"
+Given PENDING: I am on the idea page for the idea with title "awesome new idea"
 And I press "Add Tag"
 Then I should see "Enter your tag:"
 And I fill in "Enter your tag:" with "teleportation"
