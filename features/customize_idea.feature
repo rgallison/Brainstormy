@@ -60,3 +60,19 @@ And "testuser3" has been added as a collaborator to the idea with title "awesome
 And I am on the idea page for the idea with title "awesome new idea"
 Then I should see "awesome new idea"
 
+Scenario: Try to add collaborator that doesn't exist (sad path)
+
+Given that the following idea exists:
+| title                 | user_id          |
+| awesome new idea      | 1                |
+Given I am on the home page
+When I fill in "user_username_login" with "testuser"
+And I fill in "user_password_login" with "1234"
+And I press "Login"
+Given I am now on the edit page for idea with title "awesome new idea"
+Then I fill in "collaborator" with "testuserX"
+And I press "Add Collaborator"
+Then I will be on the edit page for idea with title "awesome new idea"
+Then I should not see "testuserX"
+
+

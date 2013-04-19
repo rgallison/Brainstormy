@@ -23,9 +23,19 @@ class IdeasController < ApplicationController
 
   def update
     @idea=Idea.find(params[:id])
+    #4/18 Colin added check for adding collaborators:
     if params[:collaborator] != nil
-      @idea.collaborators<< User.find_by_username(params[:collaborator])
-      #redirect_to edit_idea_path(@idea.id)
+      user=User.find_by_username(params[:collaborator])
+      if user != nil
+        if not @idea.collaborators.include? user
+          @idea.collaborators<< user
+          flash[:notice] ="User #{params[:collaborator]} added to Collaborators."
+        else
+          flash[:notice] ="User #{params[:collaborator]} already added to Collaborators."
+        end
+      else
+        flash[:notice] ="User #{params[:collaborator]} does not exist."
+      end
       redir=edit_idea_path(@idea.id)
     else
       @idea.update_attributes!(params[:idea])

@@ -24,7 +24,6 @@ Then I should see "Post An Idea"
 When I fill in "title" with "awesome new idea"
 And I press "Post an Idea"
 Then I should be on the edit page for the idea "awesome new idea"
-And I should see "awesome new idea"
 And I should see "Jane Doe"
 
 
