@@ -25,6 +25,13 @@ ideas = [{:title => 'A site that matches wines to meals', :rank => 54, :status =
 
 # messages = [{:subject => }]
 
+comments = [{:body => 'Insert awesome comment here', :user_id => 2, :commentable_id=>2},
+  {:body => 'I think that is so awesome', :user_id => 1, :commentable_id =>4},
+  {:body => 'A place for divers to upload pictures', :user_id => 3, :commentable_id => 4},
+  {:body => 'should include hats that create an illusion of some object', :user_id => 1, :commentable_id => 2},
+  {:body => 'What about hats to match tv show characters?', :user_id => 5, :commentable_id => 2},
+  {:body => 'Trollish Laughter', :user_id => 4, :commentable_id => 5}]
+
 User.send(:attr_accessible, :username, :name, :email, :password)
 users.each do |user|
   User.create!(user)
@@ -35,7 +42,7 @@ ideas.each do |idea|
   Idea.create!(idea)
 end
 
-#Comment.send(:attr_accessible, :text, :rank, :user_id, :idea_id)
-#comments.each do |comment|
-  #Comment.create!(comment)
-#end
+Comment.send(:attr_accessible, :body, :user_id, :commentable_id)
+comments.each do |comment|
+  Comment.create!(comment)
+end
