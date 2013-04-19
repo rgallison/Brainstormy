@@ -21,13 +21,13 @@
         = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
       -else
 
-  -#broke the view
+  -#The problem was indentation. If it happens again tell me via email asap
   -#Lindsey Stratton
   -#Making a box for comments
 
-  / %div{:name=>"commentbox", :class => "commentbox"}
-  /   = link_to 'Post comment', new_idea_comment_path(@idea.id)
-  /   = link_to 'All comments', idea_comment_path(@idea.id)
+%div{:name=>"commentbox", :class => "commentbox"}
+  = link_to 'Post comment', new_idea_comment_path(@idea.id)
+  = link_to 'All comments', idea_comments_path(@idea.id)
 -else
   %h2 You do not have permission to access this idea  
 
