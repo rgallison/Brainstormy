@@ -40,12 +40,12 @@ module NavigationHelpers
 	#Lindsey Stratton
 	#April 7 2013
 	#I'm hoping these are temporary and can be replaced by better paths later
-  	when /^an idea\s?page/
-  		'/ideas/1'
-  	when /^the Post New comment page/ 
-  		'/ideas/1/comments/new'
-  	when /^All Comments/
-  		'/ideas/1/comments/1'
+  	#when /^an idea\s?page/
+  		#'/ideas/1'
+  	#when /^the Post New comment page/ 
+  		#'/ideas/1/comments/new'
+  	#when /^All Comments/
+  		#'/ideas/1/comments/1'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
