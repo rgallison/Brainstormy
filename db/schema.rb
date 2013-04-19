@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(:version => 20130419203221) do
     t.integer  "rank"
   end
 
+  create_table "ideas_users", :force => true do |t|
+    t.string "user_id"
+    t.string "idea_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "name"

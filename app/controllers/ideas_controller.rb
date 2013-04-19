@@ -38,6 +38,11 @@ class IdeasController < ApplicationController
       end
       redir=edit_idea_path(@idea.id)
     else
+      if params[:privacy]=='1'
+        params[:idea][:privacy]='private'
+      else
+        params[:idea][:privacy]='public'
+      end
       @idea.update_attributes!(params[:idea])
       redir=idea_path(@idea.id)
     end
