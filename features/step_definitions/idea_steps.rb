@@ -100,12 +100,12 @@ end
   @current_user = cookies[:user]
 end
 
-# #Colin added on 4/12 for customize_idea.feature:
-# And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |table|
-#   idea=Idea.find_by_title(table.$2)
-#   user=User.find_by_username(table.$1)
-#   idea.collaborators << user
-# end
+#Colin added on 4/12 for customize_idea.feature:
+ And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |u, i|
+   idea=Idea.find_by_title(i)
+   user=User.find_by_username(u)
+   idea.collaborators << user
+ end
 
 
 #Rachel for edit profile features

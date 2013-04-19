@@ -25,10 +25,13 @@ class IdeasController < ApplicationController
     @idea=Idea.find(params[:id])
     if params[:collaborator] != nil
       @idea.collaborators<< User.find_by_username(params[:collaborator])
+      #redirect_to edit_idea_path(@idea.id)
+      redir=edit_idea_path(@idea.id)
     else
       @idea.update_attributes!(params[:idea])
+      redir=idea_path(@idea.id)
     end
-    redirect_to idea_path(@idea.id)
+    redirect_to redir
   end
 
   

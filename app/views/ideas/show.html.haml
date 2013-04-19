@@ -1,5 +1,5 @@
 -# in app/views/ideas/show.html.haml
--if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user 
+-if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
   %div.idea.panel2
     %h2 #{@idea.title}
 
@@ -29,5 +29,5 @@
   /   = link_to 'Post comment', new_idea_comment_path(@idea.id)
   /   = link_to 'All comments', idea_comment_path(@idea.id)
 -else
-  %h2 You do not have access to this page  
+  %h2 You do not have permission to access this idea  
 
