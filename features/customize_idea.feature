@@ -28,10 +28,7 @@ And I uncheck "Make Private"
 And I press "Save and Post"
 Then I should be on the idea page for the idea with title "awesome new idea"
 And I should see "this is the best idea ever"
-#Then I click "Add Collaborator"
-#And I fill in "Username" with "testuser2"
-#And I press "Add"
-#Then I should be on the idea page for the idea with title "awesome new idea"
+
 
 Scenario: Unapproved user cannot see private ideas
 Given that the following idea exists:
@@ -73,6 +70,25 @@ Given I am now on the edit page for idea with title "awesome new idea"
 Then I fill in "collaborator" with "testuserX"
 And I press "Add Collaborator"
 Then I will be on the edit page for idea with title "awesome new idea"
-Then I should not see "testuserX"
+Then I should see "User testuserX does not exist"
 
+
+Scenario: Try to add collaborator is already a collaborator (sad path)
+
+Given that the following idea exists:
+| title                 | user_id          |
+| awesome new idea      | 1                |
+Given I am on the home page
+When I fill in "user_username_login" with "testuser"
+And I fill in "user_password_login" with "1234"
+And I press "Login"
+Given I am now on the edit page for idea with title "awesome new idea"
+Then I fill in "collaborator" with "testuser3"
+And I press "Add Collaborator"
+Then I will be on the edit page for idea with title "awesome new idea"
+#Then I should not see "testuserX"
+Then I fill in "collaborator" with "testuser3"
+And I press "Add Collaborator"
+Then I will be on the edit page for idea with title "awesome new idea"
+And I should see "User testuser3 already added to Collaborators."
 

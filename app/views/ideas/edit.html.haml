@@ -20,8 +20,9 @@
 
       = text_area :idea, 'description', :size => '30x7', :id => 'description'
       %br 
-      Make Private
-      = check_box_tag 'privacy', 1, (@idea.privacy=='private'), :id=>"privacy"
+      
+      = label :idea, :privacy, "Make Private" 
+      = check_box_tag 'privacy', 1, (@idea.privacy=='private'), :id=>"Make Private"
 
       =submit_tag 'Save and Post'
     =#Colin added 4/18 for showing existing collaborators if any exist
@@ -39,13 +40,14 @@
     =#Colin added 4/18 for adding collaborators:
     =form_tag idea_path(@idea), :method => :put do
       =label :idea, :collaborator, "Add Collaborator:"
-      =text_field_tag :collaborator, 'Enter username'#, :collaborators<<
+      =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
       =submit_tag 'Add Collaborator'
 
+    =#Colin removed edit link since we are already on edit page 4/19:
     %header
+      %br
       -if @current_user==@user.id
-        = link_to 'Edit', edit_idea_path(@idea)
-        = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+        = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
       -else
         = link_to 'home', root_path
 

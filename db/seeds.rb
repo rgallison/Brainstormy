@@ -17,11 +17,11 @@ ideas = [{:title => 'A site that matches wines to meals', :rank => 54, :status =
 		{:title => 'A website that explores the ocean at 1000 ft', :rank => 26, :status => 'fledging', :privacy => 'public', :user_id => 2},
 		{:title => 'A product for pet owners', :rank => 77, :status => 'new', :privacy => 'public', :user_id => 4}]
 
-#comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
-			#{:text => 'how about a virtual tour', :rank => 10, :user_id => 1, :idea_id => 4},
-			#{:text => 'A place for divers to upload pictures', :rank => 23, :user_id => 3, :idea_id => 4},
-			#{:text => 'should include hats that create an illusion of some object', :rank => 6, :user_id => 1, :idea_id => 2},
-			#{:text => 'What about hats to match tv show characters?', :rank => 44, :user_id => 5, :idea_id => 2}]
+comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
+			{:text => 'how about a virtual tour', :rank => 10, :user_id => 1, :idea_id => 4},
+			{:text => 'A place for divers to upload pictures', :rank => 23, :user_id => 3, :idea_id => 4},
+			{:text => 'should include hats that create an illusion of some object', :rank => 6, :user_id => 1, :idea_id => 2},
+			{:text => 'What about hats to match tv show characters?', :rank => 44, :user_id => 5, :idea_id => 2}]
 
 # messages = [{:subject => }]
 
@@ -42,7 +42,7 @@ ideas.each do |idea|
   Idea.create!(idea)
 end
 
-Comment.send(:attr_accessible, :body, :user_id, :commentable_id)
+Comment.send(:attr_accessible, :text, :rank, :user_id, :idea_id)
 comments.each do |comment|
   Comment.create!(comment)
 end

@@ -9,5 +9,6 @@ class Idea < ActiveRecord::Base
 
 	has_many :comments #idea comments <no longer needed due to acts as commentable
 	
-	acts_as_commentable 
+
+	# acts_as_commentable 
 end

@@ -60,6 +60,37 @@ describe IdeasController do
 
 	end
 
+	#4/19 Colin added:
+	describe 'add a collaborator to an idea' do
+    	before :each do
+     	 @new_idea = mock('idea1')
+     	 @new_idea.stub(:id).and_return(1)
+     	 @user = mock_model(User).as_null_object
+     	 @user.stub(:id).and_return(3)
+     	 @collab = mock('collab 1')
+     	end
+
+     	it 'should call the model method to check if a collaborator exists' do
+			Idea.stub(:find).and_return(@new_idea)
+			User.stub(:find_by_username).and_return(@user)
+			@new_idea.stub(:collaborators).and_return(@collab)
+			@collab.should_receive(:include?).with(@user).and_return(false)
+			@collab.stub('<<')
+			post :update, {:collaborator => 'user1', :user_id => @user.id, :id => @new_idea.id}
+     	end
+		
+		it 'should call the model method to add a collaborator' do
+			
+			Idea.stub(:find).and_return(@new_idea)
+			User.stub(:find_by_username).and_return(@user)
+			@new_idea.stub(:collaborators).and_return(@collab)
+			@collab.stub(:include?).and_return(false)
+			@collab.should_receive('<<').with(@user)
+			post :update, {:collaborator => 'user1', :user_id => @user.id, :id => @new_idea.id}
+		end
+	end
+
+
 
 
 
