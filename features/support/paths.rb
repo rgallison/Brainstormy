@@ -23,22 +23,30 @@ module NavigationHelpers
     when /^the idea page for the idea with title "([^\"]*)"$/
       idea_path(Idea.find_by_title($1))
     when /^the edit page for the idea "([^\"]*)"$/
-      idea_path(Idea.find_by_title($1))
+      #Colin added edit to this path 4/19
+      edit_idea_path(Idea.find_by_title($1))
     
     #path for user profile page - report if failed or passed
     #trouble getting it to pass with some scenarios -rg
     when /^the "([^\"]*)" profile page$/i
       user_path(User.find_by_username($1))
+    #path for user messages page - rg 4/16
+    when /^the "([^\"]*)" message page$/i
+      message_path(User.find_by_username($1))
+    #path to the settings page -rg 4/16
+    when /^the "([^\"]*)" settings page$/
+      edit_user_path(User.find_by_username($1))
+    
 
 	#Lindsey Stratton
 	#April 7 2013
 	#I'm hoping these are temporary and can be replaced by better paths later
-  	when /^an idea\s?page/
-  		'/ideas/1'
-  	when /^the Post New comment page/ 
-  		'/ideas/1/comments/new'
-  	when /^All Comments/
-  		'/ideas/1/comments/1'
+  	#when /^an idea\s?page/
+  		#'/ideas/1'
+  	when /^the Post New comment page for the idea with title "([^\"]*)"$/
+  		new_idea_comment_path(Idea.find_by_title($1))
+  	#when /^All Comments/
+  		#'/ideas/1/comments/1'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

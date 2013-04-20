@@ -1,11 +1,7 @@
 class IdeasController < ApplicationController
   def index
-    @idea=Idea.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @idea}
-    end
+    @ideas_created = User.find_by_id(@current_user).ideas#gets all the ideas user created -rg 4/15
+    @ideas_commented = User.find_by_id(@current_user).commented_ideas#gets all ideas that the user commented on -rg 4/15
   end
   
   def show
@@ -27,8 +23,30 @@ class IdeasController < ApplicationController
 
   def update
     @idea=Idea.find(params[:id])
-    @idea.update_attributes!(params[:idea])
-    redirect_to idea_path(@idea.id)
+    #4/18 Colin added check for adding collaborators:
+    if params[:collaborator] != nil
+      user=User.find_by_username(params[:collaborator])
+      if user != nil
+        if not @idea.collaborators.include? user
+          @idea.collaborators<< user
+          flash[:notice] ="User #{params[:collaborator]} added to Collaborators."
+        else
+          flash[:notice] ="User #{params[:collaborator]} already added to Collaborators."
+        end
+      else
+        flash[:notice] ="User #{params[:collaborator]} does not exist."
+      end
+      redir=edit_idea_path(@idea.id)
+    else
+      if params[:privacy]=='1'
+        params[:idea][:privacy]='private'
+      else
+        params[:idea][:privacy]='public'
+      end
+      @idea.update_attributes!(params[:idea])
+      redir=idea_path(@idea.id)
+    end
+    redirect_to redir
   end
 
   

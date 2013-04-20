@@ -48,15 +48,15 @@ Scenario: When I click the logout button, I should log out of my account
 Scenario: When I click on the ideas button, I should see a list of ideas I'm involved with
 	Given that I am on the home page
 	And I follow "ideas"
-	Then I should see "awesome new idea"
+	Then I should be on the ideas page
 
 Scenario: When I click on the messages button, I should go to my inbox
-	Given PENDING: that I am on the home page
-	And I follow "messages"
-	Then I should be on "testuser" message page
+	Given that I am on the home page
+	And I follow "mail"
+	Then I should be on the "testuser" message page
 
 Scenario:
-	Given PENDING: that I am on the home page
-	And I click "settings"
-	Then I should be on the settings page
+	Given that I am on the home page
+	And I follow "settings"
+	Then I should be on the "testuser" settings page
 

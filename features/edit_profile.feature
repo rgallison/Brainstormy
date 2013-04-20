@@ -21,6 +21,8 @@ And I follow "testuser"
 And I am on the "testuser" profile page
 When I press "Edit Profile"
 When I fill in "user_name" with "Sarah Yuli"
+When I fill in "user_email" with "jdoe@mills.edu"
+When I fill in "user_email_confirmation" with "jdoe@mills.edu"
 And I press "Update"
 Then I should see "Sarah Yuli"
 

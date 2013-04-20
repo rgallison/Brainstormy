@@ -1,30 +1,33 @@
 -# in app/views/ideas/show.html.haml
-%div{:name=>"panel2", :class => "idea panel2"} 
-  %h2 #{@idea.title}
+-if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
+  %div.idea.panel2
+    %h2 #{@idea.title}
 
-  %ul#details
-    %li
-      Created By:
-      = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
+    %ul#details
+      %li
+        Created By:
+        = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
 
-    %li
-      Points:
-      = @idea.rank
+      %li
+        Points:
+        = @idea.rank
 
-  %h3 Description:
+    %h3 Description:
 
-  %p#description= @idea.description
-  %header
-    -if @current_user==@user.id
-      = link_to 'Edit', edit_idea_path(@idea)
-      = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-    -else
+    %p#description= @idea.description
+    %header
+      -if @current_user==@user.id
+        = link_to 'Edit', edit_idea_path(@idea)
+        = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+      -else
 
--#broke the view
--#Lindsey Stratton
--#Making a box for comments
+  -#The problem was indentation. If it happens again tell me via email asap
+  -#Lindsey Stratton
+  -#Making a box for comments
 
-/ %div{:name=>"commentbox", :class => "commentbox"}
-/   = link_to 'Post comment', new_idea_comment_path(@idea.id)
-/   = link_to 'All comments', idea_comment_path(@idea.id)
+  %div{:name=>"commentbox", :class => "commentbox"}
+    = link_to 'Post comment', new_idea_comment_path(@idea.id)
+    = link_to 'All comments', idea_comments_path(@idea.id)
+-else
+  %h2 You do not have permission to access this idea  
 

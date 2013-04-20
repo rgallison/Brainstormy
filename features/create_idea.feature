@@ -24,7 +24,6 @@ Then I should see "Post An Idea"
 When I fill in "title" with "awesome new idea"
 And I press "Post an Idea"
 Then I should be on the edit page for the idea "awesome new idea"
-And I should see "awesome new idea"
 And I should see "Jane Doe"
 
 
@@ -32,6 +31,10 @@ Scenario: Fill in additional idea information after initial creation
 Given that the following idea exists:
 | title                 | user_id          |
 | awesome new idea      | 1                |
+Given I am on the home page
+When I fill in "user_username_login" with "testuser"
+And I fill in "user_password_login" with "1234"
+And I press "Login"
 Given I am now on the edit page for idea with title "awesome new idea"
 Then I fill in "description" with "this is the best idea ever"
 And I uncheck "Make Private"

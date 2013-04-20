@@ -12,5 +12,5 @@ Scenario: Login to Brainstormy
 	And I fill in "user_password_login" with "1234"
 	And I press "Login"
 	Then I should see "Post An Idea"
-	And I should see "Logout"
+	And I should see "testuser"
 	And I should see "News Feed"

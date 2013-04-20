@@ -74,7 +74,7 @@ div.panel1, div.panel2, div.panel3{
 	margin: 0 1.1% 10px 2.4%;
 	border-style: ridge;
 	border-color: #006a89;
-	padding: 0 2% 25px 2%;
+	padding: 10px 2% 25px 2%;
 	/*min-height: 455px;*/
 	height: 455px;
 	overflow: auto;
