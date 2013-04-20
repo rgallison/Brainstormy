@@ -7,7 +7,7 @@ class Idea < ActiveRecord::Base
 	#has_many :collaborators, :class_name => 'User', :through => :comments #users who commented
 	has_and_belongs_to_many :collaborators, :class_name => 'User'
 
-	#has_many :comments #idea comments <no longer needed due to acts as commentable
+	has_many :comments #idea comments <no longer needed due to acts as commentable
 	
-	acts_as_commentable 
+	#acts_as_commentable 
 end
