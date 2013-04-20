@@ -32,7 +32,7 @@ module NavigationHelpers
       user_path(User.find_by_username($1))
     #path for user messages page - rg 4/16
     when /^the "([^\"]*)" message page$/i
-      message_path(User.find_by_username($1))
+      messages_path
     #path to the settings page -rg 4/16
     when /^the "([^\"]*)" settings page$/
       edit_user_path(User.find_by_username($1))
