@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   def show
     @user ||=User.find(params[:id])#gets user from database - rg
     if !params[:flag] # - if there are params now, we don't need form anymore

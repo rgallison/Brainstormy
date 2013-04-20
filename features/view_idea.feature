@@ -18,14 +18,14 @@ Given that the following idea exists:
 | super amazing idea    | 2                |
 | fantastic idea        | 1                |
 
-Given I am on my profile page
+Given PENDING: I am on my profile page
 Then I should see "amazing idea"
 And I should see "super amazing idea"
 And I should see "fantastic idea"
 
 Scenario: idea I have contributed to has been commented on by another user
 
-Given I am on my profile page
+Given PENDING: I am on my profile page
 And another user has commented on "amazing idea"
 Then I should see "amazing idea" as the first idea on my list
 And "amazing idea" should be highlighted
