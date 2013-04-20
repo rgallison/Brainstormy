@@ -35,7 +35,7 @@ ideas.each do |idea|
   Idea.create!(idea)
 end
 
-#Comment.send(:attr_accessible, :text, :rank, :user_id, :idea_id)
-#comments.each do |comment|
-  #Comment.create!(comment)
-#end
+Comment.send(:attr_accessible, :text, :rank, :user_id, :idea_id)
+comments.each do |comment|
+  Comment.create!(comment)
+end
