@@ -125,3 +125,12 @@ end
 When /^(?:|that I |I )go to (.+)$/ do |page_name|
  visit path_to(page_name)
 end
+
+#Rachel for seeing a link
+Then /^(?:|that I |I )should see the links (.+)$/ do |user|
+  if page.respond_to? :should
+    page.should have_selector(send("#{user.idea}_path"), idea_path(idea))
+  else
+    assert page.has_selector(send("#{user.idea}_path"), idea_path(idea))
+  end
+end
