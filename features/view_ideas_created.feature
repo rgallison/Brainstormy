@@ -21,3 +21,8 @@ Scenario: I want to view the ideas I've created
 
 Given I am on the "testuser" profile page
 Then I should see the link "Send Your Senator A Joke Day"
+
+Scenario: I want to go to an idea I've created
+Given I am on the "testuser" profile page
+When I follow "Send Your Senator A Joke Day"
+Then I should be on the idea page for the idea with title "Send Your Senator A Joke Day"
