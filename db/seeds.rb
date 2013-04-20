@@ -25,6 +25,13 @@ comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
 
 # messages = [{:subject => }]
 
+comments = [{:text => 'Insert awesome comment here', :user_id => 2, :idea_id=>2},
+  {:text => 'I think that is so awesome', :user_id => 1, :idea_id =>4},
+  {:text => 'A place for divers to upload pictures', :user_id => 3, :idea_id => 4},
+  {:text => 'should include hats that create an illusion of some object', :user_id => 1, :idea_id => 2},
+  {:text => 'What about hats to match tv show characters?', :user_id => 5, :idea_id => 2},
+  {:text => 'Trollish Laughter', :user_id => 4, :idea_id => 5}]
+
 User.send(:attr_accessible, :username, :name, :email, :password)
 users.each do |user|
   User.create!(user)

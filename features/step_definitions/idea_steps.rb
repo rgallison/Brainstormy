@@ -137,3 +137,12 @@ end
 When /^(?:|that I |I )go to (.+)$/ do |page_name|
  visit path_to(page_name)
 end
+
+#Rachel for seeing a link
+Then /^(?:|that I |I )should see the link "([^\"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_link(text)
+  else
+    assert page.has_link?(text)
+  end
+end
