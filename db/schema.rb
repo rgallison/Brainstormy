@@ -38,21 +38,6 @@ ActiveRecord::Schema.define(:version => 20130420022333) do
     t.string "idea_id"
   end
 
-  create_table "messages", :force => true do |t|
-    t.string   "subject"
-    t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "movieusers", :force => true do |t|
-    t.string   "name"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "name"
