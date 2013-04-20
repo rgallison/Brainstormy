@@ -62,12 +62,13 @@ describe IdeasController do
 
 	describe 'add a collaborator to an idea' do
     	before :each do
-     	 #@new_idea = mock('idea1')
-     	 #@new_idea.stub(:id).and_return(1)
-     	 #@new_idea.stub(:user_id).and_return(3)
-     	 #@new_idea.stub(:title).and_return('super fake idea')	
-     	 @new_idea=mock_model(Idea).as_null_object
-     	 @user = mock('user1')
+     	 @new_idea = mock('idea1')
+     	 @new_idea.stub(:id).and_return(1)
+     	 @new_idea.stub(:user_id).and_return(3)
+     	 @new_idea.stub(:title).and_return('super fake idea')
+     	 @new_idea.stub(:collaborators).and_return(mock_model(Collection).as_null_object)	
+     	 #@new_idea=mock_model(Idea).as_null_object
+     	 @user = mock_model(User).as_null_object
      	 @user.stub(:id).and_return(3)
      	end
 
@@ -76,7 +77,7 @@ describe IdeasController do
 			#Idea.stub(:collaborators)
 			Idea.stub(:find).and_return(@new_idea)
 			User.stub(:find_by_username).and_return(@user)
-			@new_idea.should_receive('collaborators<<').with(@user)
+			@new_idea.collaborators.should_receive(:collaborators.push).with(@user)
 			post :update, {:collaborator => 'user1', :user_id => @user.id, :id => @new_idea.id}
 		end
 	end
