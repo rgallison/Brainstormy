@@ -10,11 +10,11 @@ I want to make comments on another person's idea that can be seen by that person
 
 Background: I already have an idea
 
-Given PENDING: the following user exists:
+Given the following user exists:
 | username                 | name          | email           | password |
 | testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
 
-Given PENDING: the following idea exists:
+Given the following idea exists:
 |title     |user_id|
 |test title|1      | 
 
