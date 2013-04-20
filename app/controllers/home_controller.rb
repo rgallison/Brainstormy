@@ -22,5 +22,18 @@ class HomeController < ApplicationController
     flash[:notice] = "Nothing found by that name!" if results
     @pop_ideas = results if results
     end
+    if @current_user
+      all = []
+      all = get_current_user.collaborated_ideas.find(:all)#:updated_at => Time.now)
+      #written = get_current_user.collaborated_ideas
+      written = get_current_user.ideas
+      this = []
+      # written.each do |idea|
+      #   this += idea.comments#.find(:all)#:updated_at => Time.now)
+      # end
+      all += this
+
+      @updated = all if all
+    end
   end
 end

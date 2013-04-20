@@ -74,3 +74,9 @@
 	-else
 		%div.newsFeed
 			%b News Feed
+			%br
+			%br
+			-if @updated
+				-@updated.each do |idea|
+					=link_to "#{idea.title}", idea_path(idea)
+					%br

@@ -137,3 +137,11 @@ end
 When /^(?:|that I |I )go to (.+)$/ do |page_name|
  visit path_to(page_name)
 end
+
+#Christie for browse ideas feature
+Then /^I should see a list of ideas/ do 
+  assert page.all("table tbody tr").count.should == @pop_ideas.count
+end
+
+And /^I should see a list of ideas by "([^\"]*)"$/ do |value|
+end

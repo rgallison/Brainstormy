@@ -14,28 +14,28 @@ Scenario:  Browse all ideas
 
 Scenario: Browse all ideas by User1
 	Given PENDING: I am on the home page
-	When I fill in "Search" with "testuser
+	When I fill in "search" with "testuser"
 	And I press "Search"
 	Then I should be on the home page
-	And I should see a list of ideas by "testuser
+	And I should see a list of ideas by "testuser"
 
 Scenario:  Browse all ideas by User2, who doesn't exist(sad path)
-	Given PENDING: that I am on the home page
-	When I fill in "Search" with "testuser2"
-	And press "Search"
+	Given PENDING: I am on the home page
+	When I fill in "search" with "testuser2"
+	And press "search"
 	Then I should be on the home page
 	And I should see "There are no such ideas."
 
 Scenario: Browse all ideas by the tag, "Tag1"
 	Given PENDING: I am on the home page
-	When I fill in "Search" with "Tag2"
+	When I fill in "search" with "Tag1"
 	And I press "Search"
 	Then I should be on the home page
-	And I should see "There are no such ideas."
+	And I should see a list of ideas with "Tag1"
 
 Scenario:  Browse all ideas by "Tag2", that doesn't exist(sad path)
-	Given PENDING: that I am on the home page
-	When I fill in "Search" with "Tag2"
+	Given PENDING: I am on the home page
+	When I fill in "search" with "Tag2"
 	And press "Search"
 	Then I should be on the Brainstormy home page
 	And I should see "There are no such ideas."

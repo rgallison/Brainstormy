@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   	@user_who_commented = User.find_by_id(@current_user)
   	@comment = Comment.build_from(@idea, @user_who_commented.id, @comment_hash[:body])
     @comment.save!
-    redirect_to idea_path(@idea.id), notice: 'Comment was sucessfuly posted'
+    redirect_to idea_path(@idea.id), notice: 'Comment was sucessfully posted'
   end
 
   #def update
