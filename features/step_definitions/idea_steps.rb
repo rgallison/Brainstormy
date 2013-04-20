@@ -17,12 +17,6 @@ Given /the following user(?:|s) exist(?:|s)/ do |user_table|
   end
 end
 
-#Rachel 4/19
-#Given that testuser has created an idea titled "Send Your Senator A Joke Day" 
-Given /that (.+) has created an idea titled "([^\"]*)"$/ do |user, idea_title|
-  Idea.create!(idea_title)
-end
-
 #Colin added on 4/8:
 Given /the following idea exists/ do |idea_table|
   idea_table.hashes.each do |idea|
@@ -145,7 +139,7 @@ When /^(?:|that I |I )go to (.+)$/ do |page_name|
 end
 
 #Rachel for seeing a link
-Then /^(?:|that I |I )should see the links "([^\"]*)"$/ do |user|
+Then /^(?:|that I |I )should see the link "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_link(text)
   else

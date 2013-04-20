@@ -9,7 +9,13 @@ Background: A user account has been created and an idea has been created
 	Given the following user exists:
 	| username                 | name          | email           | password | 
 	| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
-	Given that testuser has created an idea titled "Send Your Senator A Joke Day" 
+	Given I am on the home page
+	When I fill in "user_username_login" with "testuser"
+	And I fill in "user_password_login" with "1234"
+	And I press "Login"
+	Given the following idea exists
+	| title                 			| user_id          |
+	| Send Your Senator A Joke Day      | 1                | 
 
 Scenario: I want to view the ideas I've created
 

@@ -74,14 +74,4 @@
 	-else
 		%div.newsFeed
 			%b News Feed
-//Rachel
-%div.panel4
-	-if !@current_user
-	-else
-		%b Ideas Created
-		%br
-		%br
-		-@user.ideas.each do |idea|
-			=link_to "#{idea.title}", idea_path(idea)
-			%br
 
