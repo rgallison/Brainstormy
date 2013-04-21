@@ -20,9 +20,7 @@ class HomeController < ApplicationController
           @searched_users<<users
         end
       end
-    if results and @searched_users == []
-      flash[:notice] = "Nothing found by that name!" 
-    end
+    flash[:notice] = "Nothing found by that name!" unless results || @searched_users
     @pop_ideas = results if results
     end
   end
