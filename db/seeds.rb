@@ -25,12 +25,12 @@ comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
 
 # messages = [{:subject => }]
 
-comments = [{:body => 'Insert awesome comment here', :user_id => 2, :commentable_id=>2},
-  {:body => 'I think that is so awesome', :user_id => 1, :commentable_id =>4},
-  {:body => 'A place for divers to upload pictures', :user_id => 3, :commentable_id => 4},
-  {:body => 'should include hats that create an illusion of some object', :user_id => 1, :commentable_id => 2},
-  {:body => 'What about hats to match tv show characters?', :user_id => 5, :commentable_id => 2},
-  {:body => 'Trollish Laughter', :user_id => 4, :commentable_id => 5}]
+comments = [{:text => 'Insert awesome comment here', :user_id => 2, :idea_id=>2},
+  {:text => 'I think that is so awesome', :user_id => 1, :idea_id =>4},
+  {:text => 'A place for divers to upload pictures', :user_id => 3, :idea_id => 4},
+  {:text => 'should include hats that create an illusion of some object', :user_id => 1, :idea_id => 2},
+  {:text => 'What about hats to match tv show characters?', :user_id => 5, :idea_id => 2},
+  {:text => 'Trollish Laughter', :user_id => 4, :idea_id => 5}]
 
 User.send(:attr_accessible, :username, :name, :email, :password)
 users.each do |user|
@@ -42,11 +42,7 @@ ideas.each do |idea|
   Idea.create!(idea)
 end
 
-<<<<<<< HEAD
-Comment.send(:attr_accessible, :body, :user_id, :commentable_id)
-=======
 Comment.send(:attr_accessible, :text, :rank, :user_id, :idea_id)
->>>>>>> fcd36ebf5a06eed882a93c62440757e800018d42
 comments.each do |comment|
   Comment.create!(comment)
 end

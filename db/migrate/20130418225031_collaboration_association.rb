@@ -1,8 +1,8 @@
 class CollaborationAssociation < ActiveRecord::Migration
   def up
   	create_table :ideas_users do |t|
-  		t.string :user_id
-  		t.string :idea_id
+  		t.integer :user_id
+  		t.integer :idea_id
   	end
 
   end

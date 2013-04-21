@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@pop_ideas = Idea.order('title')
+  	@pop_ideas = Idea.all(:order =>'title', :conditions => {:privacy => 'public'})
     # search_condition = "%" + params[:search] + "%"
     # @pop_ideas = Idea.find(:all, :conditions => ['title LIKE ?', search_condition])
     results = []
@@ -12,14 +12,15 @@ class HomeController < ApplicationController
           results<<ideas
         end
       end
+      @searched_users = []
       if users = User.find_by_username(params[:search])
         if users.is_a?Array
-          results + users
+          @searched_users = [users]
         else
-          results<<users
+          @searched_users<<users
         end
       end
-    flash[:notice] = "Nothing found by that name!" if results
+    flash[:notice] = "Nothing found by that name!" unless results || @searched_users
     @pop_ideas = results if results
     end
     if @current_user

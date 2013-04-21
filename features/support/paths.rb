@@ -32,7 +32,7 @@ module NavigationHelpers
       user_path(User.find_by_username($1))
     #path for user messages page - rg 4/16
     when /^the "([^\"]*)" message page$/i
-      message_path(User.find_by_username($1))
+      messages_path
     #path to the settings page -rg 4/16
     when /^the "([^\"]*)" settings page$/
       edit_user_path(User.find_by_username($1))
@@ -43,8 +43,8 @@ module NavigationHelpers
 	#I'm hoping these are temporary and can be replaced by better paths later
   	#when /^an idea\s?page/
   		#'/ideas/1'
-  	#when /^the Post New comment page/ 
-  		#'/ideas/1/comments/new'
+  	when /^the Post New comment page for the idea with title "([^\"]*)"$/
+  		new_idea_comment_path(Idea.find_by_title($1))
   	#when /^All Comments/
   		#'/ideas/1/comments/1'
 

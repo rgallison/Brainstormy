@@ -9,75 +9,47 @@ Background: A user account has been created and an image exists
 	Given the following user exists:
 	| username                 | name          | email           | password |
 	| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
-	| testuser2                | John Doe      | jdoe@gmails.com | spot4    |
+	Given I am on the home page
+	When I fill in "user_username_login" with "testuser"
+	And I fill in "user_password_login" with "1234"
+	And I press "Login"
+	And I follow "testuser"
+	And I am on the "testuser" profile page
 
 Scenario: I want to change my name
 
-Given I am on the home page
-When I fill in "user_username_login" with "testuser"
-And I fill in "user_password_login" with "1234"
-And I press "Login"
-And I follow "testuser"
-And I am on the "testuser" profile page
-When I press "Edit Profile"
-When I fill in "user_name" with "Sarah Yuli"
-When I fill in "user_email" with "jdoe@mills.edu"
-When I fill in "user_email_confirmation" with "jdoe@mills.edu"
-And I press "Update"
-Then I should see "Sarah Yuli"
+	When I press "Edit Profile"
+	When I fill in "user_name" with "Sarah Yuli"
+	When I fill in "user_email" with "jdoe@mills.edu"
+	When I fill in "user_email_confirmation" with "jdoe@mills.edu"
+	And I press "Update"
+	Then I should see "Sarah Yuli"
 
 
 Scenario: I want to change my e-mail
 
-Given PENDING: I have logged in to Brainstormy with username"jsmith"
-And I am on the profile page
-When I press "Edit Profile"
-When I fill in "email" with "Sarah@gmail.com"
-When I fill in "email_confirmation" with "Sarah@gmail.com"
-And I press "Submit"
-Then I should see "Sarah@gmail.com"
+	When I press "Edit Profile"
+	When I fill in "user_email" with "Sarah@gmail.com"
+	When I fill in "user_email_confirmation" with "Sarah@gmail.com"
+	And I press "Update"
+	Then I should see "Sarah@gmail.com"
 
-Scenario: I want to change my password
-
-Given PENDING: I have logged in to Brainstormy with username"jsmith"
-And I am on the profile page
-When I press "Edit Profile"
-When I fill in "password" with "giggles"
-When I fill in "password_confirmation" with "giggles"
-And I press "Submit"
-Then I should not see "giggles"
-
-Scenario: I want to change my credential
-Given PENDING: I have logged in to Brainstormy with username"jsmith"
-And I am on the profile page
-When I press "Edit Profile"
-When I fill in credential with "Ruby on Rails programmer"
-Then I should see "Ruby on Rails programmer" in the credential field
-
-Scenario: I want to add a credential
-Given PENDING: I have logged in to Brainstormy with username"jsmith"
-And I am on the profile page
-When I press "Edit Profile"
-And I press "Add New Credential"
-When I fill in credential with "Bird watcher of 15 years"
-And I press "Submit"
-Then I should see "Bird watcher of 15 years" in the credentials field
 
 Scenario: I want to change my biography
 
-Given PENDING: I have logged in to Brainstormy with username"jsmith"
-And I am on the profile page
-When I press "Edit Bio"
-When I fill in "bio" with "My birdwatching has taken me all over the globe."
-And I press "Submit"
-Then I should see "My birdwatching has taken me all over the globe."
+	When I press "Edit Profile"
+	When I fill in "user_bio" with "My birdwatching has taken me all over the globe."
+	When I fill in "user_email" with "Sarah@gmail.com"
+	When I fill in "user_email_confirmation" with "Sarah@gmail.com"
+	And I press "Update"
+	Then I should see "My birdwatching has taken me all over the globe."
 
 Scenario: I want to change my profile picture
 
-Given PENDING: I have logged in to Brainstormy with username"jsmith"
-And img_1 is an image
-And I am on the profile page
-When I press "Edit Profile"
-And I choose img_1
-And I press "Submit"
-Then I should see img_1
+	Given PENDING: I have logged in to Brainstormy with username"jsmith"
+	And img_1 is an image
+	And I am on the profile page
+	When I press "Edit Profile"
+	And I choose img_1
+	And I press "Submit"
+	Then I should see img_1

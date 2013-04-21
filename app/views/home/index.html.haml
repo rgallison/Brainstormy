@@ -50,6 +50,11 @@
 						%td= link_to "#{idea.title}", idea_path(idea)
 						/ %td= "" if !idea.description I don't think this is nessecary and there is no room.  We can talk about it more
 						%td= idea.rank
+			-if @searched_users
+				-@searched_users.each do |user|
+					%tr
+						%td= link_to "#{user.username}", user_path(user)
+						/ %td= "" if !user.description I don't think this is nessecary and there is no room.  We can talk about it more
 
 %div.panel3
 	-if !@current_user
