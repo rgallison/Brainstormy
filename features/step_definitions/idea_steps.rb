@@ -145,7 +145,7 @@ end
 
 And /^I should see a list of ideas by "([^\"]*)"$/ do |value|
 
-  
+
 #Rachel for seeing a link
 Then /^(?:|that I |I )should see the link "([^\"]*)"$/ do |text|
   if page.respond_to? :should
@@ -153,5 +153,4 @@ Then /^(?:|that I |I )should see the link "([^\"]*)"$/ do |text|
   else
     assert page.has_link?(text)
   end
->>>>>>> 978dd24ce243b14a4a686ab3fc94123f89cf2dc1
 end

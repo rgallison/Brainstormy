@@ -24,17 +24,26 @@ class HomeController < ApplicationController
     @pop_ideas = results if results
     end
     if @current_user
-      all = []
-      all = get_current_user.collaborated_ideas.find(:all)#:updated_at => Time.now)
-      #written = get_current_user.collaborated_ideas
-      written = get_current_user.ideas
-      this = []
+      @updated = get_current_user.ideas.all(:conditions => {:updated_at => '2013-04-20 03:30:34'})
+      # written = get_current_user.collaborated_ideas
+      # written = get_current_user.ideas
+      # this = []
       # written.each do |idea|
-      #   this += idea.comments#.find(:all)#:updated_at => Time.now)
+      #   # written.comments.find(:all, :conditions => {:created_at => Time.now}) do |comment|
+      #   written.comments.find(:all) do |comment|
+      #     if comment.created_at < get_current_user.last_seen
+      #       this += comment
+      #     end
+      #   end
       # end
-      all += this
+      # all += written
+    end
+  end
 
-      @updated = all if all
+  def last_seen
+    if DateTime.now < get_current_user.last_seen
+      get_current_user.last_seen = DateTime.now
+      get_current_user.save
     end
   end
 end
