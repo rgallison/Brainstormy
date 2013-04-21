@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@pop_ideas = Idea.all(:order =>'title')
+  	@pop_ideas = Idea.all(:order =>'title', :conditions => {:privacy => 'public'})
     # search_condition = "%" + params[:search] + "%"
     # @pop_ideas = Idea.find(:all, :conditions => ['title LIKE ?', search_condition])
     results = []
