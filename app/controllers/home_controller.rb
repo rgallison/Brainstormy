@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   	if !params[:search].nil?
 	  	if ideas = Idea.find_by_title(params[:search])
         if ideas.is_a?Array
-          results + ideas
+          results += ideas
         else
           results<<ideas
         end
@@ -15,16 +15,22 @@ class HomeController < ApplicationController
       @searched_users = []
       if users = User.find_by_username(params[:search])
         if users.is_a?Array
-          @searched_users = [users]
+          @searched_users += users
         else
-          @searched_users<<users
+          (@searched_users<<users).flatten
         end
       end
     flash[:notice] = "Nothing found by that name!" unless results || @searched_users
     @pop_ideas = results if results
     end
     if @current_user
-      @updated = get_current_user.ideas.all(:conditions => {:updated_at => '2013-04-20 03:30:34'})
+      user = get_current_user
+      @updated = []
+      @updated += user.commented_ideas.where("ideas.updated_at >= :date", date: user.last_login).all
+      @updated += user.collaborated_ideas.where("updated_at >= :date", date: user.last_login).all
+
+
+
       # written = get_current_user.collaborated_ideas
       # written = get_current_user.ideas
       # this = []

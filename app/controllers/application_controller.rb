@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logout_user
+    get_current_user.update_attributes(:last_login => Time.now)
   	reset_session#resets session -rg
   	@current_user = nil
   	redirect_to root_path

@@ -83,6 +83,21 @@ div.panel1, div.panel2, div.panel3, div.panel4{
 	float: left;
 }
 
+/* Tables ------------------ */
+table#main {
+	padding-top: 10px;
+	font-size: 85%
+}
+
+table#main td{
+	border-top: thin solid gray;
+	padding: 5px;
+}
+
+table#main td:first-child {
+	width: 90%;
+}
+
 /* Footer ------------------ */
 footer {
 	position: absolute;

@@ -7,20 +7,6 @@ hr {
 	width: 85%
 }
 
-table#mainIdeas {
-	padding-top: 10px;
-	font-size: 85%
-}
-
-table#mainIdeas td{
-	border-top: thin solid gray;
-	padding: 5px;
-}
-
-table#mainIdeas td:first-child {
-	width: 90%;
-}
-
 div.login {
 	margin-top: 10px;
 	margin-left: 10%;

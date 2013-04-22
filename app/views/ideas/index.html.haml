@@ -1,6 +1,6 @@
 %div.panel1
 	%b My Ideas
-	%table#mainIdeas
+	%table#main
 		%tbody
 			- if @ideas_created
 				-@ideas_created.each do |idea|
@@ -11,7 +11,7 @@
 
 %div.panel2
 	%b My Comments
-	%table#mainIdeas
+	%table#main
 		%tbody
 			- if @ideas_commented
 				- @ideas_commented.each do |idea|

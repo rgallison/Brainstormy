@@ -42,7 +42,7 @@
 %div.panel2
 	%b Popular Ideas
 	//Christie - Listing ideas
-	%table#mainIdeas
+	%table#main
 		%tbody
 			- if @pop_ideas
 				-@pop_ideas.each do |idea|
@@ -80,8 +80,9 @@
 		%div.newsFeed
 			%b News Feed
 			%br
-			%br
-			-if @updated
-				-@updated.each do |idea|
-					=link_to "#{idea.title}", idea_path(idea)
-					%br
+			%table#main
+				%tbody
+				-if @updated
+					-@updated.each do |idea| 
+						%tr
+							%td= link_to "#{idea.title}", idea_path(idea)
