@@ -1,3 +1,4 @@
+#Colin
 Feature: post a new idea
 
 As a user, 

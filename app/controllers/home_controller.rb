@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   	if !params[:search].nil?
 	  	if ideas = Idea.find_by_title(params[:search])
         if ideas.is_a?Array
-          results += ideas
+          results + ideas
         else
           results<<ideas
         end
@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       @searched_users = []
       if users = User.find_by_username(params[:search])
         if users.is_a?Array
-          @searched_users += users
+          @searched_users = [users]
         else
           (@searched_users<<users).flatten
         end

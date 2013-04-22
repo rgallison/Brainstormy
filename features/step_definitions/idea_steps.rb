@@ -143,7 +143,7 @@ Then /^I should see a list of ideas/ do
   assert page.all("table tbody tr").count.should == @pop_ideas.count
 end
 
-And /^I should see a list of ideas by "([^\"]*)"$/ do |value|
+# And /^I should see a list of ideas by "([^\"]*)"$/ do |value|
 
 
 #Rachel for seeing a link

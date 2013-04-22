@@ -1,3 +1,4 @@
+#Renee
 Feature: Sign up to the site
 
 As a potiential user
