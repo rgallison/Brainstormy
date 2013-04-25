@@ -24,33 +24,18 @@ ActiveRecord::Schema.define(:version => 20130422001029) do
 
   create_table "ideas", :force => true do |t|
     t.string   "title"
+    t.string   "description"
+    t.string   "rank"
     t.string   "status"
     t.string   "privacy"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.text     "description"
-    t.integer  "rank"
   end
 
   create_table "ideas_users", :force => true do |t|
     t.integer "user_id"
     t.integer "idea_id"
-  end
-
-  create_table "messages", :force => true do |t|
-    t.string   "subject"
-    t.text     "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "movieusers", :force => true do |t|
-    t.string   "name"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -60,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20130422001029) do
     t.string   "password"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.text     "bio"
+    t.string   "bio"
     t.datetime "last_login"
   end
 

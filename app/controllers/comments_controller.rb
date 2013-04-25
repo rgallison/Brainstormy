@@ -5,7 +5,7 @@
 class CommentsController < ApplicationController
   def index
     @idea = Idea.find(params[:idea_id]) 
-		@comments=Comment.where("commentable_id = ?", params[:idea_id])
+		@comments=Comment.where("idea_id = ?", params[:idea_id])
   end
 
   #def show
@@ -21,11 +21,10 @@ class CommentsController < ApplicationController
   #end
 
   def create
-    @comment_hash = params[:comment]
-		@idea = Idea.find(params[:comment][:commentable_id])
-  	@user_who_commented = User.find_by_id(@current_user)
-  	@comment = Comment.build_from(@idea, @user_who_commented.id, @comment_hash[:body])
-    @comment.save!
+    params[:comment][:idea_id]=params[:idea_id]
+    @comment = Comment.create(params[:comment])
+    @idea = Idea.find(params[:idea_id])
+    @comment.save
     redirect_to idea_path(@idea.id), notice: 'Comment was sucessfully posted'
   end
 
