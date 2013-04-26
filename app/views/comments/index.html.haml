@@ -13,10 +13,10 @@
     %tbody
     - @comments.each do |comment|
       %tr
-        %td= comment.body
+        %td= comment.text
         -#%td= comment.rank
 
-        %td= comment.commentable_id
+        %td= comment.idea_id
         %td= comment.user_id
 
 = link_to 'Back to idea list', ideas_path(@idea.id)
