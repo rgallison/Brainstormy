@@ -8,10 +8,10 @@ Feature: display list of movies sorted by different criteria
 Background: ideas have been added to database
   
 Given that the following idea exists:
-| title                 | user_id          | rank
-| amazing idea          | 1                | 45
-| super amazing idea    | 2                | 2
-| fantastic idea        | 1                | 32
+| title                 | user_id          | rank |
+| amazing idea          | 1                | 45   |
+| super amazing idea    | 2                | 2    |
+| fantastic idea        | 1                | 32   |
 
 Scenario: sort ideas alphabetically by title
   Given PENDING: I am on the home page
