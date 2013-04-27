@@ -1,4 +1,4 @@
-Feature:  User can browse though all ideas with a public privacy setting
+Feature:  User can browse through all ideas with a public privacy setting
 
 Backgroud: An idea has been created
 
