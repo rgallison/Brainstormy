@@ -19,16 +19,16 @@ Given the following idea exists:
 |test title|1      | 
 
 Scenario: Post a comment
-  Given PENDING: I am on the home page
+  Given I am on the home page
   When I fill in "user_username_login" with "testuser"
   And I fill in "user_password_login" with "1234"
   And I press "Login"
 
-  Given PENDING: I am on the idea page for the idea with title "test title"
+  Given I am on the idea page for the idea with title "test title"
   When I follow "Post comment"
   Then I should be on the Post New comment page for the idea with title "test title"
-  When I fill in "Body" with "test text"
-  And press "Add comment"
+  When I fill in "Comment" with "test text"
+  And press "Add Comment"
   Then I should be on the idea page for the idea with title "test title"
   When I follow "All comments"
   Then I should see "test text"

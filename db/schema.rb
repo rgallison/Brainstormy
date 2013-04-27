@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20130425015716) do
   end
 
   create_table "ideas_users", :force => true do |t|
-    t.integer "user_id"
-    t.integer "idea_id"
+    t.string "user_id"
+    t.string "idea_id"
   end
 
   create_table "messages", :force => true do |t|

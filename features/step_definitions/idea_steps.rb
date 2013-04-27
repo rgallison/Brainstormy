@@ -34,7 +34,7 @@ When /^(?:|that I |I )press "([^\"]*)"$/ do |button|
   click_button(button)
 end
 
-Then /^(?:|that I |I )should be on (.+)$/ do |page_name|
+Then /^(?:|I )should be on (.+)$/ do |page_name|
 	visit path_to(page_name)
 end
 
@@ -69,7 +69,7 @@ Given /^"([^\"]*)" is an image$/ do |image|
 end
 
 #Rachel for edit profile features
-Then /^(?:|that I |I )should see "([^\"]*)"$/ do |text|
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
