@@ -11,4 +11,19 @@ describe CommentsController do
     it 'PENDING: resort view' do
     end#resort
   end#describe upvoting and downvoting
+
+	#Christie
+	describe 'add new comment' do
+    	before :each do
+     	 @a_comment = mock('comment1')
+     	 @a_comment.stub(:id).and_return(1)
+
+    	end
+
+		it 'PENDING: should call the model method that creates a new comment' do
+			Idea.should_receive(:create!).with({"title" => 'fake comment', "user_id" => "1"}).and_return(@fake_results)
+			post :create, {:comment => {:title => 'fake comment'}, :user_id => 1}
+		end
+
+	end
 end#describe Comments Controller
