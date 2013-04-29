@@ -1,2 +1,21 @@
-%div.panel1
+%div.panelHalf
 	%b My Messages
+	%table#messages
+		%tbody
+			- if @messages
+				-@messages.each do |message|
+					%tr
+						%td= message.subject
+						%td= User.find_by_id(message.sender).username
+						%td= message.created_at.to_formatted_s
+
+
+%div.panelHalf
+	%b New Message
+	%div.newMessage
+		=form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f|
+			=f.text_field :receiver, :placeholder => 'To: Username', :size => 30
+			=f.text_field :subject, :placeholder => 'Subject', :size => 30
+			=f.text_area :message, :placeholder => 'Enter your message.', :size => "40x20"
+			%br
+			=f.submit 'Send'

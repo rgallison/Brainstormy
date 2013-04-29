@@ -2,7 +2,7 @@
 %div.panel1
 	- if !@current_user
 		%b Sign In
-		%div.login
+		%div.content
 			= form_for :user, :url => {:action => "create_session", :controller => "application"} do |f|
 				= f.text_field :username_login, :placeholder => 'Username', :size => 30 
 				%br
