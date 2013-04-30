@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
   def show
   	@idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)
+    @comments = Comment.where("idea_id = ?", params[:id])
   end
 
   def create

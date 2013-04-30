@@ -1,22 +1,23 @@
 -#some of the the aspects of the table are for debugging
 
-%h1 Listing commments for #{@idea.title}
+-#%h1 Listing commments for #{@idea.title}
 
 %table#comments
   %thread
     %tr
+      %th User
       %th Body
-      -#%th Rank
+      %th Rank
       
-      %th Idea id      
-      %th User id
+      -#%th Idea id      
+      
     %tbody
     - @comments.each do |comment|
       %tr
+        %td= comment.user.name
         %td= comment.text
-        -#%td= comment.rank
+        %td= comment.rank
+        -#%td= comment.idea_id
+        
 
-        %td= comment.idea_id
-        %td= comment.user_id
-
-= link_to 'Back to idea list', ideas_path(@idea.id)
+-#= link_to 'Back to idea list', ideas_path(@idea.id)
