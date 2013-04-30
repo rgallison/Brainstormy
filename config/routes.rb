@@ -9,6 +9,9 @@ Brainstormy::Application.routes.draw do
 
   match '/application/create_session' => 'application#create_session'
   match '/application/logout_user' => 'application#logout_user'
+  # get '/messages/:id' => 'messages#index', :as => :message
+  # get '/messages' => 'messages#index', :as => :messages
+  # get '/messages/new' => 'messages#create', :as => :new_message
   # match '/home/index' => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

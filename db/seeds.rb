@@ -23,8 +23,8 @@ comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
 			{:text => 'should include hats that create an illusion of some object', :rank => 6, :user_id => 1, :idea_id => 2},
 			{:text => 'What about hats to match tv show characters?', :rank => 44, :user_id => 5, :idea_id => 2}]
 
-messages = [{:subject => "Meeting time", :message => "We should meet up at 9 on Friday", :status => "unread", :sender => 1},
-			{:subject => "Boss man?", :message => "Have you run it by the boss man yet?", :status => "read", :sender => 2}]
+# messages = [{:subject => "Meeting time", :message => "We should meet up at 9 on Friday", :status => "unread", :sender => 1},
+# 			{:subject => "Boss man?", :message => "Have you run it by the boss man yet?", :status => "read", :sender => 2}]
 
 comments = [{:text => 'Insert awesome comment here', :user_id => 2, :idea_id=>2},
   {:text => 'I think that is so awesome', :user_id => 1, :idea_id =>4},
@@ -43,10 +43,10 @@ ideas.each do |idea|
   Idea.create!(idea)
 end
 
-Message.send(:attr_accessible, :subject, :message, :status, :sender)
-messages.each do |message|
-	Message.create!(message)
-end
+# Message.send(:attr_accessible, :subject, :message, :status, :sender)
+# messages.each do |message|
+# 	Message.create!(message)
+# end
 
 Comment.send(:attr_accessible, :text, :rank, :user_id, :idea_id)
 comments.each do |comment|
