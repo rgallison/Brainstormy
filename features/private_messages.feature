@@ -8,9 +8,9 @@ Background: Two users have joined the site
 	| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
 	| testuser2                | John Doe      | jdoe@gmails.com | spot4    |
 	And the following messages exist:
-	| subject                  | message                                    |
-	| message1                 | this is a message                          |
-	| message2                 | this is another message				    |
+	| subject                  | body	                | sender	| receiver	|
+	| message1                 | this is a message      | 2         | 1 		|
+	| message2                 | this is another message| 1		    | 2			|
 	And I am on the home page
 	And I fill in "user_username_login" with "testuser"
 	And I fill in "user_password_login" with "1234"

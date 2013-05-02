@@ -26,6 +26,15 @@ Given /the following idea exists/ do |idea_table|
   end
 end
 
+Given /^the following messages exist:$/ do |message_table|
+  message_table.hashes.each do |message|
+    @receiver = message.delete("receiver")
+    @message = Message.create!(message)
+    @message.received<<User.find_by_id(@receiver)
+  end
+end
+
+
 When /^(?:|that I |I )fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
