@@ -1,4 +1,4 @@
-class MessageReceivers < ActiveRecord::Migration
+class CreateMessageReceivers < ActiveRecord::Migration
 def change
   	create_table :messages_users do |t|
   		t.string :message_id
@@ -6,3 +6,4 @@ def change
   	end
   end
 end
+
