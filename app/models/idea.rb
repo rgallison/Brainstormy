@@ -7,6 +7,9 @@ class Idea < ActiveRecord::Base
 	#has_many :collaborators, :class_name => 'User', :through => :comments #users who commented
 	has_and_belongs_to_many :collaborators, :class_name => 'User'
 
+	#5/1 Colin added:
+	has_and_belongs_to_many :tags
+
 	has_many :comments #idea comments <no longer needed due to acts as commentable
 	
 

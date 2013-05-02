@@ -90,6 +90,15 @@ describe IdeasController do
 		end
 	end
 
+	describe 'add a tag to an idea' do
+
+     	end
+		 it 'should call the model method to check if a tag exists' do
+
+		 end
+
+		 it 'should call the model method to add a tag'
+
 
 
 

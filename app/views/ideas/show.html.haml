@@ -15,6 +15,14 @@
     %h3 Description:
 
     %p#description= @idea.description
+    -#5/2 Colin added;
+    %br
+    -if not @tags.empty? 
+      %table#collaborators
+        %tbody
+          - @tags.each do |tag|
+            %tr
+              %td= tag.category
     %header
       -if @current_user==@user.id
         = link_to 'Edit', edit_idea_path(@idea)

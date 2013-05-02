@@ -43,6 +43,11 @@
         =label :idea, :collaborator, "Add Collaborator:"
         =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
         =submit_tag 'Add Collaborator'
+      =#Colin added 5/2 for adding tags:
+      =form_tag idea_path(@idea), :method => :put do
+        =label :idea, :tag, "Add topic tag:"
+        =text_field_tag :tag, nil, :placeholder => 'Enter topic'
+        =submit_tag 'Add Tag'    
 
       =#Colin removed edit link since we are already on edit page 4/19:
       %header
@@ -53,4 +58,4 @@
           = link_to 'home', root_path
 
 
-  = link_to 'Back to idea list', ideas_path
+    = link_to 'Back to idea list', ideas_path

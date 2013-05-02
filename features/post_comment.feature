@@ -30,5 +30,4 @@ Scenario: Post a comment
   When I fill in "Comment" with "test text"
   And press "Add Comment"
   Then I should be on the idea page for the idea with title "test title"
-  When I follow "All comments"
-  Then I should see "test text"
+  And I should see "test text"

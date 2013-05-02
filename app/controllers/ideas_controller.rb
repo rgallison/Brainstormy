@@ -8,6 +8,7 @@ class IdeasController < ApplicationController
   	@idea=Idea.find(params[:id])
     @user=User.find_by_id(@idea.user_id)
     @comments = Comment.where("idea_id = ?", params[:id])
+    @tags=@idea.tags
   end
 
   def create
@@ -37,6 +38,14 @@ class IdeasController < ApplicationController
       else
         flash[:notice] ="User #{params[:collaborator]} does not exist."
       end
+      redir=edit_idea_path(@idea.id)
+    #5/2 Colin added tags:
+    elsif params[:tag] != nil
+      tag=Tag.find_by_category(params[:tag])
+      if tag == nil
+        tag = Tag.create!(:category => params[:tag])
+      end
+      @idea.tags<< tag
       redir=edit_idea_path(@idea.id)
     else
       if params[:privacy]=='1'
