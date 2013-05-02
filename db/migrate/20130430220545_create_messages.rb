@@ -5,8 +5,8 @@ class CreateMessages < ActiveRecord::Migration
   		t.string :subject
   		t.string :status
   		t.integer :sender
-  		t.integer :parent
-  		t.integer :child
+  		t.integer :parent_id
+  		t.integer :child_id
       t.timestamps
   	end
   end
