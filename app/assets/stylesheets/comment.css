@@ -14,7 +14,7 @@ div.commentbox {
 }
 
 
-table#comments,th, td
+table#comments th, table#comments td
 {
 border: 1px solid black;
 }
