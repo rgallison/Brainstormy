@@ -8,10 +8,9 @@ div.commentbox {
 	min-width: 300px;
 	padding: 10px 20px 10px 20px;
 	line-height: 100%;
-	float: right;
-	position:fixed;
-	top:90px;
-	right:0px;	
+	float: center;
+	position:relative;
+	left:400px;	
 }
 
 
