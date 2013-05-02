@@ -25,3 +25,4 @@ Then I should be on the idea page for the idea with title "awesome new idea"
 And I should see "You are now subscribed to 'awesome new idea'"
 
 
+
