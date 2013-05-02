@@ -1,6 +1,8 @@
 -# in app/views/ideas/show.html.haml
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
   %div.idea.panel2
+    -#Colin added 5/2
+    = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put
     %h2 #{@idea.title}
 
     %ul#details
@@ -18,11 +20,10 @@
     -#5/2 Colin added;
     %br
     -if not @tags.empty? 
-      %table#collaborators
+      %table#taglist
         %tbody
           - @tags.each do |tag|
-            %tr
-              %td= tag.category
+            %td= tag.category
     %header
       -if @current_user==@user.id
         = link_to 'Edit', edit_idea_path(@idea)
