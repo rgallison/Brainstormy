@@ -14,13 +14,13 @@
 		%p From: #{link_to "#{User.find_by_id(@message.sender).username}", user_path(@message.sender)}
 		%p Subject: #{@message.subject}
 		%hr
-		%p= @message.message
-		=form_tag(:action => 'create', :controller => 'messages', :method => :get) do
-			=text_area_tag("message[message]", nil, :placeholder => 'Enter your message.', :size => '40x5')
-			=hidden_field_tag("message[subject]", "RE:#{@message.subject}")
-			=hidden_field_tag("message[parent]", @message.id)
-			=hidden_field_tag("message[receiver]", @message.sender)
-			=submit_tag 'Reply'
+		%p= @message.body
+		=form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f|
+			=f.text_area :body, :placeholder => 'Enter your message.', :size => '40x5'
+			=f.hidden_field :subject, value: "RE:#{@message.subject}"
+			=f.hidden_field :parent, value: @message.id
+			=f.hidden_field :receiver, value: @message.sender
+			=f.submit 'Reply'
 
 -else
 	%div.panel1
