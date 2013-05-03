@@ -39,7 +39,10 @@ class IdeasController < ApplicationController
       end
       if user != nil
         if not @idea.collaborators.include? user
-          @idea.collaborators<< user
+          @idea.collaborators<<user
+          #Colin added message on 5/2:
+          message=Message.create!(:subject => "You have been added to #{@idea.title}", :body => "You are now subscribed to this idea and are welcome to contribute your thoughts!", :status => 'unread', :sender => @idea.user_id)
+          message.received<< user
           flash[:notice] ="User #{user.username} added to #{flashtext}."
         else
           flash[:notice] ="User #{user.username} already added to #{flashtext}."

@@ -1,0 +1,40 @@
+.newMessage{
+	line-height: 210%;
+	margin-top: 10px;
+	margin-left: 5%;
+}
+
+div.panelHalf {
+	margin: 0 1.1% 10px 2.4%;
+	border-style: ridge;
+	border-color: #006a89;
+	padding: 10px 2% 25px 2%;
+	/*min-height: 455px;*/
+	height: 455px;
+	overflow: auto;
+	width: 35%;
+	min-width: 320px;
+	float: left;
+}
+
+/* Table ----------------------------*/
+table#messages {
+	padding-top: 10px;
+	font-size: 85%
+}
+
+table#messages td{
+	border-top: thin solid gray;
+	padding: 5px;
+}
+
+table#messages td:first-child {
+	width: 46%;
+}
+table#messages td:nth-child(2) {
+	width: 31%;
+}
+
+.highlight {
+	font-weight: bold;
+}

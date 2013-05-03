@@ -44,18 +44,19 @@ ActiveRecord::Schema.define(:version => 20130502155244) do
   end
 
   create_table "messages", :force => true do |t|
+    t.text     "body"
     t.string   "subject"
-    t.text     "message"
+    t.string   "status"
+    t.integer  "sender"
+    t.integer  "parent"
+    t.integer  "child"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "movieusers", :force => true do |t|
-    t.string   "name"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "messages_users", :force => true do |t|
+    t.string  "message_id"
+    t.integer "user_id"
   end
 
   create_table "tags", :force => true do |t|
@@ -71,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20130502155244) do
     t.string   "password"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.text     "bio"
     t.datetime "last_login"
+    t.text     "bio"
   end
 
 end

@@ -54,7 +54,7 @@ Scenario: When I click on the ideas button, I should see a list of ideas I'm inv
 Scenario: When I click on the messages button, I should go to my inbox
 	Given that I am on the home page
 	And I follow "mail"
-	Then I should be on the "testuser" message page
+	Then I should be on the messages page
 
 Scenario:
 	Given that I am on the home page
