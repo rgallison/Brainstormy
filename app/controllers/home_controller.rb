@@ -20,6 +20,10 @@ class HomeController < ApplicationController
           (@searched_users<<users).flatten
         end
       end
+      #Colin added 5/2:
+      if tag = Tag.find_by_category(params[:search])
+        results=results+tag.ideas
+      end
     flash[:notice] = "Nothing found by that name!" unless results || @searched_users
     @pop_ideas = results if results
     end

@@ -18,7 +18,7 @@ Given /the following user(?:|s) exist(?:|s)/ do |user_table|
 end
 
 #Colin added on 4/8:
-Given /the following idea exists/ do |idea_table|
+Given /the following idea(?:|s) exist(?:|s)/ do |idea_table|
   idea_table.hashes.each do |idea|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
@@ -119,6 +119,21 @@ end
  #Colin added on 4/19:
  Then /^the following flash message will be displayed "([^\"]*)"$/ do |msg|
   flash.should contain msg
+end
+
+#Colin added on 5/2
+And /^the idea "([^\"]*)" has been tagged with "([^\"]*)"$/ do |title, tag|
+  idea=Idea.find_by_title(title)
+  newtag = Tag.find_by_category(tag)
+  if !newtag
+    newtag=Tag.create!(:category => tag)
+  end
+  idea.tags<<newtag
+end
+
+#Colin added on 5/2
+Then /^(?:|I )should now be on (.+)$/ do |page_name|
+  current_path.should == root_path
 end
 
 

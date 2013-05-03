@@ -16,7 +16,7 @@
 		%hr
 		%p= @message.body
 		=form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f|
-			=f.text_area :body, :placeholder => 'Enter your message.', :size => '40x5'
+			=f.text_area :body, :value => '', :placeholder => 'Enter your message.', :size => '40x5'
 			=f.hidden_field :subject, value: "RE:#{@message.subject}"
 			=f.hidden_field :parent, value: @message.id
 			=f.hidden_field :receiver, value: @message.sender

@@ -26,16 +26,21 @@ Then I should see "teleportation"
 
 
 Scenario: click on a tag to see related ideas
-Given that the following ideas exist:
-| title                 | user_id          | 
-| awesome new idea      | 1                |
-| pretty bad idea       | 1                |
+Given the following ideas exist:
+| title                 | user_id          | privacy  |
+| awesome new idea      | 1                | public   |
+| pretty bad idea       | 1                | public   |
+| mediocre idea         | 1                | public   |
+And the idea "awesome new idea" has been tagged with "teleportation"
+And the idea "mediocre idea" has been tagged with "teleportation"
 Given I am on the home page
 When I fill in "user_username_login" with "testuser"
 And I fill in "user_password_login" with "1234"
 And I press "Login"
-Given PENDING: I am on the idea page for the idea with title "awesome new idea"
+Given I am on the idea page for the idea with title "mediocre idea"
 And I follow "teleportation"
-Then I should be on the search page
-And I should see 
+Then I should now be on the home page
+And I should see "awesome new idea"
+And I should see "mediocre idea"
+And I should not see "pretty bad idea"
 

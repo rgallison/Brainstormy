@@ -24,7 +24,7 @@
       %table#taglist
         %tbody
           - @tags.each do |tag|
-            %td= tag.category
+            %td= link_to tag.category, root_path(:search => tag.category)
     %header
       -if @current_user==@user.id
         = link_to 'Edit', edit_idea_path(@idea)
