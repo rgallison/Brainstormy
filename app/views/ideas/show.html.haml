@@ -2,7 +2,8 @@
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
   %div{:name=>"idea", :class => "idea"}
     -#Colin added 5/2
-    = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put
+    -if @current_user
+      = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put
 
     %h2 #{@idea.title}
 
