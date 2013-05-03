@@ -57,10 +57,12 @@ Then /^(?:|that I |I )will be on the edit page for idea with title "([^\"]*)"$/ 
   current_path.should == path_to('the edit page for idea number '+(idea.id).to_s)
 end
 
-Given /^(?:|that I |I ) should be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
+#Colin changed "should" to "will" to avoid conflicts, 5/2
+Then /^(?:|that I |I )will be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
-  current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
+  #current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
+  current_path.should == path_to('the idea page for the idea with title "'+idea_title+'"')
 end
 
 
