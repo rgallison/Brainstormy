@@ -17,7 +17,7 @@ Background: Two users have joined the site
 	And I press "Login"
 
 Scenario: So that I can see the messages I have recieved
-	Given PENDING: that I am on the "testuser" messages page
+	Given that I am on the "testuser" messages page
 	Then I should see "message1"
 
 Scenario: So that I can send a message
