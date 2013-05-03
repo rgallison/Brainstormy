@@ -78,7 +78,7 @@ Given /^"([^\"]*)" is an image$/ do |image|
 end
 
 #Rachel for edit profile features
-Then /^(?:|I )should see "([^\"]*)"$/ do |text|
+Then /^I (?:|should )see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
@@ -162,4 +162,8 @@ Then /^(?:|that I |I )should see the link "([^\"]*)"$/ do |text|
   else
     assert page.has_link?(text)
   end
+end
+
+Then /^I should see alert: "([^\"]*)"$/ do |alert|
+  page.should have_css('flashnotice', text: "Message was successfully sent")
 end

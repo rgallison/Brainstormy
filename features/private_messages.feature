@@ -17,29 +17,27 @@ Background: Two users have joined the site
 	And I press "Login"
 
 Scenario: So that I can see the messages I have recieved
-	Given that I am on the "testuser" messages page
+	Given that I am on the messages page
 	Then I should see "message1"
 
 Scenario: So that I can send a message
-	Given PENDING: that I am on the "testuser" messages page
-	When I press "New Message"
-	And I am on the new message page
-	And I fill in "user" with "testuser2"
-	And I fill in "subject" with "message3"
-	And I fill in "message" with "yet another message"
+	Given PENDING: that I am on the messages page
+	And I fill in "message_receiver" with "testuser2"
+	And I fill in "message_subject" with "message3"
+	And I fill in "message_body" with "yet another message"
 	And I press "Send"
-	Then I should be on the "testuser" message page
-	And I should see "Message successfully sent."
+	Then I should be on the messages page
+	And I should see alert: "Message successfully sent."
 
 Scenario: So that I can read a given message
-	Given PENDING: that I am on the "testuser" messages page
+	Given that I am on the messages page
 	And I see "message1"
 	When I follow "message1"
 	Then I should be on the "message1" message page
 	And I should see "this is a message"
 
 Scenario: So that I can reply to a given message
-	Given PENDING: that I am on the "testuser" messages page
+	Given that I am on the messages page
 	And I follow "message1"
 	And I am on the "message1" message page
 	When I press "Reply"
@@ -49,7 +47,7 @@ Scenario: So that I can reply to a given message
 
 
 Scenario: So that I can send someone a message after viewing their profile
-	Given PENDING: that I am on the "testuser2" messages page
+	Given PENDING: that I am on the messages page
 	When I press "Message"
 	Then I should be on the new message page
 

@@ -33,7 +33,10 @@ module NavigationHelpers
     #path to the settings page -rg 4/16
     when /^the "([^\"]*)" settings page$/
       edit_user_path(User.find_by_username($1))
-    
+    when /^the "([^\"]*)" message page$/
+      message_path(Message.find_by_subject($1))  
+
+      # the "testuser" messages page 
 
 	#Lindsey Stratton
 	#April 7 2013
