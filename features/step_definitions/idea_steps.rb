@@ -18,7 +18,7 @@ Given /the following user(?:|s) exist(?:|s)/ do |user_table|
 end
 
 #Colin added on 4/8:
-Given /the following idea exists/ do |idea_table|
+Given /the following idea(?:|s) exist(?:|s)/ do |idea_table|
   idea_table.hashes.each do |idea|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
@@ -66,10 +66,12 @@ Then /^(?:|that I |I )will be on the edit page for idea with title "([^\"]*)"$/ 
   current_path.should == path_to('the edit page for idea number '+(idea.id).to_s)
 end
 
-Given /^(?:|that I |I ) should be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
+#Colin changed "should" to "will" to avoid conflicts, 5/2
+Then /^(?:|that I |I )will be on the idea page for idea with title "([^\"]*)"$/ do |idea_title|
   idea = Idea.find_by_title(idea_title)
   #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
-  current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
+  #current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
+  current_path.should == path_to('the idea page for the idea with title "'+idea_title+'"')
 end
 
 #Renee added
@@ -124,7 +126,7 @@ end
 end
 
 #Colin added on 4/12 for customize_idea.feature:
- And /^"([^\"]*)" has been added as a collaborator to the idea with title "([^\"]*)"$/ do |u, i|
+ And /^([^\"]*) has been added as a collaborator to the idea with title "([^\"]*)"$/ do |u, i|
    idea=Idea.find_by_title(i)
    user=User.find_by_username(u)
    idea.collaborators << user
@@ -133,6 +135,21 @@ end
  #Colin added on 4/19:
  Then /^the following flash message will be displayed "([^\"]*)"$/ do |msg|
   flash.should contain msg
+end
+
+#Colin added on 5/2
+And /^the idea "([^\"]*)" has been tagged with "([^\"]*)"$/ do |title, tag|
+  idea=Idea.find_by_title(title)
+  newtag = Tag.find_by_category(tag)
+  if !newtag
+    newtag=Tag.create!(:category => tag)
+  end
+  idea.tags<<newtag
+end
+
+#Colin added on 5/2
+Then /^(?:|I )should now be on (.+)$/ do |page_name|
+  current_path.should == root_path
 end
 
 

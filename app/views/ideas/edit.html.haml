@@ -43,6 +43,17 @@
         =label :idea, :collaborator, "Add Collaborator:"
         =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
         =submit_tag 'Add Collaborator'
+      =#Colin added 5/2 for showing existing tags if any exist
+      %br
+      -if not @idea.tags.empty? 
+        %table#taglist
+          %thead
+            %tr
+              %th Tags
+          %tbody
+            - @idea.tags.each do |tag|
+              %tr
+                %td= tag.category        
       =#Colin added 5/2 for adding tags:
       =form_tag idea_path(@idea), :method => :put do
         =label :idea, :tag, "Add topic tag:"
