@@ -37,6 +37,7 @@
             - @idea.collaborators.each do |user|
               %tr
                 %td= user.name
+                %td= link_to '(x)', idea_path(@idea, :delete_collaborator => user.id), :method => :put
 
       =#Colin added 4/18 for adding collaborators:
       =form_tag idea_path(@idea), :method => :put do
@@ -53,7 +54,8 @@
           %tbody
             - @idea.tags.each do |tag|
               %tr
-                %td= tag.category        
+                %td= tag.category 
+                %td= link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
       =#Colin added 5/2 for adding tags:
       =form_tag idea_path(@idea), :method => :put do
         =label :idea, :tag, "Add topic tag:"
