@@ -65,6 +65,8 @@ describe IdeasController do
     	before :each do
      	 @new_idea = mock('idea1')
      	 @new_idea.stub(:id).and_return(1)
+     	 @new_idea.stub(:title).and_return('fake title')
+     	 @new_idea.stub(:user_id).and_return(1)
      	 @user = mock_model(User).as_null_object
      	 @user.stub(:id).and_return(3)
      	 @collab = mock('collab 1')
@@ -89,15 +91,34 @@ describe IdeasController do
 			post :update, {:collaborator => 'user1', :user_id => @user.id, :id => @new_idea.id}
 		end
 	end
-
+	#Colin added:
 	describe 'add a tag to an idea' do
-
+		before :each do
+     	  @new_idea = mock('idea1')
+     	  @new_idea.stub(:id).and_return(1)
+     	  @new_idea.stub(:tags).and_return([])
+     	  @tag=mock('tab1')
+     	  @tag.stub(:category).and_return('fake category')
      	end
-		 it 'should call the model method to check if a tag exists' do
+		it 'should call the model method to check if a tag exists' do
+		 	Tag.stub(:find_by_category).and_return(nil)
+		 	Idea.stub(:find).and_return(@new_idea)
+		 	Tag.should_receive(:find_by_category).with('monkeys')
 
-		 end
+		 	post :update, {:tag => 'monkeys', :id => @new_idea.id}
 
-		 it 'should call the model method to add a tag'
+
+		end
+
+		it 'should call the model method to add a tag' do
+		 	Tag.stub(:find_by_category).and_return(nil)
+		 	Idea.stub(:find).and_return(@new_idea)
+		 	Tag.should_receive(:find_by_category).with('monkeys')
+		 	Tag.should_receive(:create!).and_return(@tag)
+		 	post :update, {:tag => 'monkeys', :id => @new_idea.id}		
+		end
+
+	end
 
 
 

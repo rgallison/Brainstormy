@@ -64,6 +64,10 @@ Then /^(?:|that I |I )will be on the idea page for idea with title "([^\"]*)"$/ 
   #current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
   current_path.should == path_to('the idea page for the idea with title "'+idea_title+'"')
 end
+#Colin added 5/3:
+Then /^I click the 'x' next to "([^\"]*)"$/ do | to_delete |
+  click_link("(x)")
+end
 
 
 #Rachel for edit profile features

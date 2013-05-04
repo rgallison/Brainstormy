@@ -44,3 +44,18 @@ And I should see "awesome new idea"
 And I should see "mediocre idea"
 And I should not see "pretty bad idea"
 
+Scenario: delete a tag
+Given the following ideas exist:
+| title                 | user_id          | privacy  |
+| awesome new idea      | 1                | public   |
+| pretty bad idea       | 1                | public   |
+| mediocre idea         | 1                | public   |
+And the idea "awesome new idea" has been tagged with "teleportation"
+Given I am on the home page
+When I fill in "user_username_login" with "testuser"
+And I fill in "user_password_login" with "1234"
+And I press "Login"
+Given I am now on the edit page for idea with title "awesome new idea"
+Then I click the 'x' next to "teleportation"
+Then I will be on the edit page for idea with title "awesome new idea"
+Then I should see "teleportation deleted from tags"
