@@ -72,6 +72,13 @@ Given /^(?:|that I |I ) should be on the idea page for idea with title "([^\"]*)
   current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
 end
 
+#Renee added
+Then /^(?:|that I |I )will be on the messages page for idea with title "([^\"]*)"$/ do |idea_title|
+  idea = Idea.find_by_title(idea_title)
+  #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
+  current_path.should == path_to('the edit page for idea number '+(idea.id).to_s)
+end
+
 
 #Rachel for edit profile features
 Given /^"([^\"]*)" is an image$/ do |image|
@@ -166,4 +173,8 @@ end
 
 Then /^I should see alert: "([^\"]*)"$/ do |alert|
   page.should have_css('flashnotice', text: "Message was successfully sent")
+end
+
+And /^I have a new message/ do
+  assert Message.exists?(:status => 'unread')
 end

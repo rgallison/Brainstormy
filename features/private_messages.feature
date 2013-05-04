@@ -8,9 +8,9 @@ Background: Two users have joined the site
 	| testuser                 | Jane Doe      | jdoe@mills.edu  | 1234     |
 	| testuser2                | John Doe      | jdoe@gmails.com | spot4    |
 	And the following messages exist:
-	| subject                  | body	                | sender	| receiver	|
-	| message1                 | this is a message      | 2         | 1 		|
-	| message2                 | this is another message| 1		    | 2			|
+	| subject                  | body	                | sender	| receiver	| status	|
+	| message1                 | this is a message      | 2         | 1 		| unread	|
+	| message2                 | this is another message| 1		    | 2			| read		|
 	And I am on the home page
 	And I fill in "user_username_login" with "testuser"
 	And I fill in "user_password_login" with "1234"
@@ -21,13 +21,13 @@ Scenario: So that I can see the messages I have recieved
 	Then I should see "message1"
 
 Scenario: So that I can send a message
-	Given PENDING: that I am on the messages page
+	Given that I am on the messages page
 	And I fill in "message_receiver" with "testuser2"
 	And I fill in "message_subject" with "message3"
 	And I fill in "message_body" with "yet another message"
 	And I press "Send"
 	Then I should be on the messages page
-	And I should see alert: "Message successfully sent."
+	And PENDING: I should see alert: "Message was successfully sent."
 
 Scenario: So that I can read a given message
 	Given that I am on the messages page
@@ -40,18 +40,16 @@ Scenario: So that I can reply to a given message
 	Given that I am on the messages page
 	And I follow "message1"
 	And I am on the "message1" message page
-	When I press "Reply"
-	Then I should be on the new message page
-	And I should see "testuser2"
-	And i should see "Send"
-
+	And I fill in "message_body" with "no more messages"
+	And I press "Reply"
+	Then I should see "Message was successfully sent."
 
 Scenario: So that I can send someone a message after viewing their profile
-	Given PENDING: that I am on the messages page
+	Given PENDING: that I am on tthe "testuser" profile page
 	When I press "Message"
 	Then I should be on the new message page
 
 Scenario: So that I know that I have unread messages
-	Given PENDING: that I am on the Brainstormy home page
+	Given that I am on the home page
 	And I have a new message
 	Then I should see "mail_new.png"

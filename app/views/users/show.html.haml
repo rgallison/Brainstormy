@@ -1,14 +1,12 @@
--if @current_user == @user.id
-	=form_tag user_path(@current_user), :method => :get do
-		= hidden_field_tag(:flag, true)
-		= submit_tag "Edit Profile" 
-	%br
-
 %div.panel1
-	%div.content
-		%div.profile_picture
-			%b Profile picture
 
+	-if @current_user == @user.id
+		=form_tag user_path(@current_user), :method => :get do
+			= hidden_field_tag(:flag, true)
+			= submit_tag "Edit Profile"
+
+	%b Profile
+	%div.content
 		//Rachel - page that shows user information and will dynamically change to a form to edit the profile page
 		%div{:name=>"profile_info", :class => @showlist} 
 			%ul
@@ -44,6 +42,7 @@
 	%div{:name => 'bio', :class => 'bio'}
 		%b Biography
 		#{@user.bio}
+
 //Rachel
 %div{:class => 'panel2'}
 	%b Ideas Created
