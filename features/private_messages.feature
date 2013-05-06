@@ -26,8 +26,7 @@ Scenario: So that I can send a message
 	And I fill in "message_subject" with "message3"
 	And I fill in "message_body" with "yet another message"
 	And I press "Send"
-	Then I should be on the messages page
-	And PENDING: I should see alert: "Message was successfully sent."
+	And I should see "Message was successfully sent."
 
 Scenario: So that I can read a given message
 	Given that I am on the messages page
@@ -44,12 +43,7 @@ Scenario: So that I can reply to a given message
 	And I press "Reply"
 	Then I should see "Message was successfully sent."
 
-Scenario: So that I can send someone a message after viewing their profile
-	Given PENDING: that I am on tthe "testuser" profile page
-	When I press "Message"
-	Then I should be on the new message page
-
 Scenario: So that I know that I have unread messages
 	Given that I am on the home page
 	And I have a new message
-	Then I should see "mail_new.png"
+	Then I should see the image "mail_new.png"
