@@ -61,6 +61,16 @@ class IdeasController < ApplicationController
       end
       @idea.tags<< tag
       redir=edit_idea_path(@idea.id)
+    elsif params[:delete_tag] != nil
+      tag=Tag.find_by_id(params[:delete_tag])
+      @idea.tags.delete(tag)
+      redir=edit_idea_path(@idea.id)
+      flash[:notice]="#{tag.category} deleted from tags."
+    elsif params[:delete_collaborator] != nil
+      collab=User.find_by_id(params[:delete_collaborator])
+      @idea.collaborators.delete(collab)
+      redir=edit_idea_path(@idea.id)     
+      flash[:notice]="#{collab.name} deleted from subscribers."
     else
       if params[:privacy]=='1'
         params[:idea][:privacy]='private'
@@ -72,6 +82,13 @@ class IdeasController < ApplicationController
     end
     redirect_to redir
   end
+
+  #Colin added 5/3:
+  def destroy
+    Idea.find(params[:id]).destroy
+    redirect_to root_path
+  end
+
 
   
 end

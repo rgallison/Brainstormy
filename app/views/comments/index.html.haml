@@ -8,8 +8,8 @@
       %th User
       %th Body
       %th Rank
-      
-      -#%th Idea id      
+      %th Upvote
+      %th Downvote   
       
     %tbody
     - @comments.each do |comment|
@@ -17,7 +17,8 @@
         %td= comment.user.name
         %td= comment.text
         %td= comment.rank
-        -#%td= comment.idea_id
+        %td= link_to "+", comments_upvote_path(:id => comment.id)
+        %td= link_to "-", comments_downvote_path(:id => comment.id)
         
 
 -#= link_to 'Back to idea list', ideas_path(@idea.id)

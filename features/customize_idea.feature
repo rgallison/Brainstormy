@@ -53,7 +53,7 @@ Given I am on the home page
 When I fill in "user_username_login" with "testuser3"
 And I fill in "user_password_login" with "1234"
 And I press "Login"
-And "testuser3" has been added as a collaborator to the idea with title "awesome new idea"
+And testuser3 has been added as a collaborator to the idea with title "awesome new idea"
 #And I have logged in to Brainstormy with username "testuser3"
 And I am on the idea page for the idea with title "awesome new idea"
 Then I should see "awesome new idea"
@@ -92,4 +92,19 @@ Then I fill in "collaborator" with "testuser3"
 And I press "Add Collaborator"
 Then I will be on the edit page for idea with title "awesome new idea"
 And I should see "User testuser3 already added to Collaborators."
+
+Scenario: Delete a collaborator
+Given that the following idea exists:
+| title                 | user_id          |
+| awesome new idea      | 1                |
+Given testuser3 has been added as a collaborator to the idea with title "awesome new idea"
+Given I am on the home page
+When I fill in "user_username_login" with "testuser"
+And I fill in "user_password_login" with "1234"
+And I press "Login"
+Given I am now on the edit page for idea with title "awesome new idea"
+Then I click the 'x' next to "Jess Doe"
+Then I will be on the edit page for idea with title "awesome new idea"
+Then I should see "Jess Doe deleted from subscribers"
+
 

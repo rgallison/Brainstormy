@@ -71,6 +71,10 @@ Given /^(?:|that I |I ) should be on the idea page for idea with title "([^\"]*)
   #assert_equal "/ideas/#{idea.id}/edit", URI.parse(current_url).path
   current_path.should == path_to('the idea page for idea number '+(idea.id).to_s)
 end
+#Colin added 5/3:
+Then /^I click the 'x' next to "([^\"]*)"$/ do | to_delete |
+  click_link("(x)")
+end
 
 #Renee added:
 Then /^I should see the image "(.+)"$/ do |image|

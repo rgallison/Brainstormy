@@ -2,7 +2,7 @@
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
   %div{:name=>"idea", :class => "idea"}
     -#Colin added 5/2
-    -if @current_user
+    -if @current_user and not @idea.collaborator_ids.include? @current_user and ! (@current_user == @idea.user_id)
       = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put
 
     %h2 #{@idea.title}
@@ -21,17 +21,18 @@
     %p#description= @idea.description
     -#5/2 Colin added;
     %br
-    -if not @tags.empty? 
-      %table#taglist
-        %tbody
-          - @tags.each do |tag|
-            %td= link_to tag.category, root_path(:search => tag.category)
+
     %header
       -if @current_user==@user.id
         = link_to 'Edit', edit_idea_path(@idea)
         = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
       -else
-
+    -if not @tags.empty?
+      Tags: 
+      %table#taglist
+        %tbody
+          - @tags.each do |tag|
+            %td= link_to tag.category, root_path(:search => tag.category)
   -#The problem was indentation. If it happens again tell me via email asap
   -#Lindsey Stratton
   -#Making a box for comments
