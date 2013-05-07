@@ -26,6 +26,12 @@ Given /the following idea exists/ do |idea_table|
   end
 end
 
+Given /the following comment(?:|s) exists(?:|s)/ do |comments_table|
+  comments_table.hashes.each do |comment|
+    Comment.create!(comment)
+  end
+end
+
 Given /^the following messages exist:$/ do |message_table|
   message_table.hashes.each do |message|
     @receiver = message.delete("receiver")
