@@ -4,7 +4,7 @@ describe User do
 	
 	describe 'adding a model instance' do
 		before :each do
-			@fake = FactoryGirl.create :user
+			@fake = mock("testuser")
 		end
 
 		it 'should add a new user to the database' do
