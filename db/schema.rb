@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502155244) do
+ActiveRecord::Schema.define(:version => 20130503220523) do
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20130502155244) do
   end
 
   create_table "ideas_users", :force => true do |t|
-    t.string "user_id"
-    t.string "idea_id"
+    t.integer "user_id"
+    t.integer "idea_id"
   end
 
   create_table "messages", :force => true do |t|
@@ -48,14 +48,14 @@ ActiveRecord::Schema.define(:version => 20130502155244) do
     t.string   "subject"
     t.string   "status"
     t.integer  "sender"
-    t.integer  "parent_id"
-    t.integer  "child_id"
+    t.integer  "parent"
+    t.integer  "child"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "messages_users", :force => true do |t|
-    t.integer "message_id"
+    t.string  "message_id"
     t.integer "user_id"
   end
 
@@ -75,5 +75,21 @@ ActiveRecord::Schema.define(:version => 20130502155244) do
     t.datetime "last_login"
     t.text     "bio"
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], :name => "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], :name => "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end
