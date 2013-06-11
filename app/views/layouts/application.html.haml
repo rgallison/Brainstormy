@@ -23,12 +23,12 @@
   %footer
     %div.usernamePos
       = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
-    = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon")
-    = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), edit_user_path(@current_user), :id => "icon")
+    = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon1")
+    = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), edit_user_path(@current_user), :id => "icon2")
     -if User.find_by_id(@current_user).received.exists?(:status => 'unread')
-      = link_to(image_tag("mail_new.png", :size => "30x30", :alt => "new mail"), messages_path, :id => "icon2")
+      = link_to(image_tag("mail_new.png", :size => "30x30", :alt => "new mail"), messages_path, :id => "icon3")
     -else
-      = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), messages_path, :id => "icon2")
-    = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), ideas_path, :id => "icon2")
+      = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), messages_path, :id => "icon3")
+    = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), ideas_path, :id => "icon4")
 
 

@@ -7,7 +7,7 @@ menu, nav, section { display: block; }
 
 /* Layout ------------------ */
 html, body { height: 100%; margin: 0; padding: 0;}
-body > #main { height: 100%; min-height: 100%;}
+body > #main { height: 100%; min-height: 100%; overflow: auto;}
 
 /*#container {
     height: 100%;
@@ -149,6 +149,10 @@ footer {
 	background-color: white;
 }*/
 
+.usernamePos, .username {
+	position: absolute;
+}
+
 .usernamePos {
 	float: left;
 	width: 200px;
@@ -161,16 +165,22 @@ footer {
 	font-style: normal;
 }
 
-#icon {
-	float: right;
-	margin-top: 15px;
-	margin-right: 10px;
+#icon1, #icon2, #icon3, #icon4, #icon5 {
+	position: absolute;
+	bottom: 8px;
 }
 
+#icon1 {
+	right: 10px;
+}
 #icon2 {
-	float: right;
-	margin-top: 11px;
-	margin-right: 10px;
+ 	right: 40px;
+ }
+#icon3 {
+	right: 75px;
+}
+#icon4 {
+	right: 110px;
 }
 
 /* Links ------------------ */
