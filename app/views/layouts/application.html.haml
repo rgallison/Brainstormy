@@ -8,7 +8,7 @@
 
   %body
   %header
-    = link_to(image_tag("logo_example.jpg", :size => "250x70", :alt => "Brainstormy logo"), root_path, :id => "logo")
+    = link_to(image_tag("logo_example.png", :size => "250x70", :alt => "Brainstormy logo"), root_path, :id => "logo")
     - [:notice, :warning].each do |key|
       -if flash[key]
         %p{:class => "flash#{key} flash"}= flash[key]
@@ -19,16 +19,16 @@
   #main
     = yield
 
-    -if @current_user
-      %footer
-        %div.usernamePos
-          = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
-        = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon")
-        = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), edit_user_path(@current_user), :id => "icon")
-        -if User.find_by_id(@current_user).received.exists?(:status => 'unread')
-          = link_to(image_tag("mail_new.png", :size => "30x30", :alt => "new mail"), messages_path, :id => "icon2")
-        -else
-          = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), messages_path, :id => "icon2")
-        = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), ideas_path, :id => "icon2")
+-if @current_user
+  %footer
+    %div.usernamePos
+      = link_to "#{User.find_by_id(@current_user).username}", user_path(@current_user), :class => "username"
+    = link_to(image_tag("logout.png", :size => "25x25", :alt => "logout"), application_logout_user_path, :id => "icon")
+    = link_to(image_tag("settings.png", :size => "25x25", :alt => "settings"), edit_user_path(@current_user), :id => "icon")
+    -if User.find_by_id(@current_user).received.exists?(:status => 'unread')
+      = link_to(image_tag("mail_new.png", :size => "30x30", :alt => "new mail"), messages_path, :id => "icon2")
+    -else
+      = link_to(image_tag("mail.png", :size => "30x30", :alt => "mail"), messages_path, :id => "icon2")
+    = link_to(image_tag("lightbulb.png", :size => "30x30", :alt => "ideas"), ideas_path, :id => "icon2")
 
 

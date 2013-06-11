@@ -1,5 +1,5 @@
 
-%div.panel1
+%div.panel1{:class => ("panel1LoggedIn" if @current_user)}
 	- if !@current_user
 		%b Sign In
 		%div.content

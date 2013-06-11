@@ -1,5 +1,6 @@
 div.idea {
-	margin-left: 450px;
+	margin-left: auto;
+	margin-right: auto;
 	min-height: 250px;
 	border-style: ridge;
 	border-color: #006a89;
@@ -10,14 +11,19 @@ div.idea {
 	padding: 10px 20px 10px 20px;
 	line-height: 100%;
 	float: center;
-	position:relative;
-	left:-20px;	
+	background-color: #f9f9f9;
+	box-shadow: 2px 2px 2px #888888;
 }
 
-#taglist
-{
-text-align:left;
-color:blue;	
-font-size: 85%
+#taglist {
+	text-align:left;
+	color:blue;	
+	font-size: 85%;
+}
+
+.subscription {
+	float: right;
+	position: relative;
+	bottom: -15px;
 }
 
