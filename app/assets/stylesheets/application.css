@@ -1,13 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+/*Renee
  *= require_self
  *= require_tree .
  */
@@ -15,8 +6,8 @@ article, aside, figure, footer, header, hgroup,
 menu, nav, section { display: block; }
 
 /* Layout ------------------ */
-html, body { height: 100%; /*overflow:scroll;*/ margin: 0; padding: 0;}
-body > #main { height: 100%; min-height: 100%; }
+html, body { height: 100%; margin: 0; padding: 0;}
+body > #main { height: 100%; min-height: 100%;}
 
 /*#container {
     height: 100%;
@@ -28,7 +19,7 @@ body > #main { height: 100%; min-height: 100%; }
 
 }*/
 
-html {
+html, footer{
 	background-image:url('white_wall_hash.png')
 }
 
@@ -77,27 +68,44 @@ p.flashwarning {
     /*height: 100%;*/
 }
 div.panel1, div.panel2, div.panel3, div.panel4{
-	margin: 10px 1.1% 10px 2.4%;
 	border-style: ridge;
 	border-width: 3px;
 	border-color: #006a89;
-	padding: 20px 2% 25px 2%;
 	min-height: 455px;
 	/*height: 455px;*/
 	height: 70%;
 	overflow: auto;
 	width: 25%;
 	min-width: 320px;
+	padding: 20px 25.4px 25px;
 	float: left;
 	background-color: #f9f9f9;
 	box-shadow: 2px 2px 2px #888888;
 }
 
+div.panel2, div.panel3, .col1 {
+	margin: 10px 0px 10px 3%;
+}
+
 div.panel1LoggedIn {
 	line-height: 300%;
-	height: 250px;
-	min-height: 0px;
+	height: 30%;
+	min-height: 260px;
+	padding-top: 5px;
+	padding-left: 25.4px;
 
+}
+
+div.panel4 {
+	height: 30px;
+	min-height: 260px;
+	clear: both;
+	margin-top: 25px;
+	padding-left: 25.4px;
+}
+
+div.col1 {
+	float: left;
 }
 
 /* Tables ------------------ */
@@ -119,13 +127,12 @@ table#main td:first-child {
 /* Footer ------------------ */
 footer {
 	position: relative;
-	bottom: 0px;
+	z-index: 1;
 	width: 100%;
-	height: 50px;
-	/*background-color: #f3f3f3;*/
-/*	border-top: solid;
+	height: 55px;
+	border-top: solid;
 	border-top-style: ridge;
-	border-top-color: #006a89;*/
+	border-top-color: #006a89;
 }
 /*footer {
  	clear: both;
@@ -141,6 +148,7 @@ footer {
 	float: left;
 	width: 200px;
 	margin-left: 45%;
+	margin-top: 5px;
 	font-size: 80%;
 }
 .username {
@@ -150,13 +158,13 @@ footer {
 
 #icon {
 	float: right;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-right: 10px;
 }
 
 #icon2 {
 	float: right;
-	margin-top: 6px;
+	margin-top: 11px;
 	margin-right: 10px;
 }
 
@@ -175,4 +183,8 @@ a:hover {text-decoration: underline; color: red;}
 
 .floatR {
 	float: right;
+}
+
+.clear {
+	clear: both;
 }

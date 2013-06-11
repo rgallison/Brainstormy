@@ -1,3 +1,4 @@
+/* Collaborated: Renee, Lindsey; */
 div.commentbox {
 	margin: 10px auto 100px;
 	border-style: ridge;
@@ -42,7 +43,7 @@ a.voterButtons {
 	width: 15px;
 	height: 25px;
 	line-height: 23px;
-	
+
 }
 
 a.voterButtons:active {
