@@ -42,12 +42,18 @@ a.voterButtons {
 	display: block;
 	width: 15px;
 	height: 25px;
-	line-height: 23px;
-
 }
 
 a.voterButtons:active {
 	position: relative;
 	top: 2px;
 	left: 2px;
+}
+
+a.up{
+	line-height: 26px;
+}
+
+a.down {
+	line-height: 23px;
 }

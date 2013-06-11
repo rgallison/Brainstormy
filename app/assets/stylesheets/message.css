@@ -4,17 +4,10 @@
 	margin-left: 5%;
 }
 
-div.panelHalf {
-	margin: 0 1.1% 10px 2.4%;
-	border-style: ridge;
-	border-color: #006a89;
-	padding: 10px 2% 25px 2%;
-	/*min-height: 455px;*/
-	height: 455px;
-	overflow: auto;
+div.panelWide {
 	width: 35%;
 	min-width: 320px;
-	float: left;
+
 }
 
 /* Table ----------------------------*/
@@ -29,12 +22,12 @@ table#messages td{
 }
 
 table#messages td:first-child {
-	width: 46%;
+	width: 31%;
 }
 table#messages td:nth-child(2) {
-	width: 31%;
+	width: 46%;
 }
 
 .highlight {
-	font-weight: bold;
+	font-weight: 800;
 }

@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   	else
   		flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
   	end
+    @messages = get_messages
   	redirect_to root_path#and to the home page! -rg
   end
 

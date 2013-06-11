@@ -23,6 +23,9 @@ html, footer{
 	background-image:url('white_wall_hash.png')
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
 
 
 /* Header ------------------ */
@@ -67,13 +70,14 @@ p.flashwarning {
 /*    overflow-y:auto;*/
     /*height: 100%;*/
 }
-div.panel1, div.panel2, div.panel3, div.panel4{
+
+div.panel, div.panel1, div.panel2 {
 	border-style: ridge;
 	border-width: 3px;
 	border-color: #006a89;
 	min-height: 455px;
 	/*height: 455px;*/
-	height: 70%;
+	height: 80%;
 	overflow: auto;
 	width: 25%;
 	min-width: 320px;
@@ -83,29 +87,30 @@ div.panel1, div.panel2, div.panel3, div.panel4{
 	box-shadow: 2px 2px 2px #888888;
 }
 
-div.panel2, div.panel3, .col1 {
+div.panel, .col1 {
 	margin: 10px 0px 10px 3%;
 }
 
-div.panel1LoggedIn {
+div.panel1LoggedIn, div.panel2 {
 	line-height: 300%;
-	height: 30%;
+	height: 37%;
 	min-height: 260px;
-	padding-top: 5px;
 	padding-left: 25.4px;
-
 }
 
-div.panel4 {
-	height: 30px;
-	min-height: 260px;
+div.panel1LoggedIn {
+	padding-top: 5px;
+}
+
+div.panel2 {
 	clear: both;
 	margin-top: 25px;
-	padding-left: 25.4px;
+	padding-top: 10px;
 }
 
 div.col1 {
 	float: left;
+	height: 100%;
 }
 
 /* Tables ------------------ */
@@ -132,7 +137,7 @@ footer {
 	height: 55px;
 	border-top: solid;
 	border-top-style: ridge;
-	border-top-color: #006a89;
+	background-color: #f9f9f9;
 }
 /*footer {
  	clear: both;

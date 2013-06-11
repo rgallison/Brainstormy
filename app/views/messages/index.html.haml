@@ -1,4 +1,4 @@
-%div.panelHalf
+%div.panel.panelWide
 	%b My Messages
 	%br
 	%table#messages
@@ -6,11 +6,11 @@
 			- if @messages
 				-@messages.each do |message|
 					%tr{:class => ("highlight" if message.status == 'unread')}
-						%td= link_to "#{message.subject}", message_path(message.id)
 						%td= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
+						%td= link_to "#{message.subject}", message_path(message.id)
 						%td= message.created_at.strftime("%B %d, %Y")
 -if @message
-	%div.panel1
+	%div.panel
 		%p From: #{link_to "#{User.find_by_id(@message.sender).username}", user_path(@message.sender)}
 		%p Subject: #{@message.subject}
 		%hr
@@ -23,7 +23,7 @@
 			=f.submit 'Reply'
 
 -else
-	%div.panel1
+	%div.panel.panel3
 		%b New Message
 		%div.newMessage
 			=form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f|

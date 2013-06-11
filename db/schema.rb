@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20130503220523) do
   end
 
   create_table "ideas_users", :force => true do |t|
-    t.integer "user_id"
-    t.integer "idea_id"
+    t.string "user_id"
+    t.string "idea_id"
   end
 
   create_table "messages", :force => true do |t|
@@ -48,14 +48,14 @@ ActiveRecord::Schema.define(:version => 20130503220523) do
     t.string   "subject"
     t.string   "status"
     t.integer  "sender"
-    t.integer  "parent"
-    t.integer  "child"
+    t.integer  "parent_id"
+    t.integer  "child_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "messages_users", :force => true do |t|
-    t.string  "message_id"
+    t.integer "message_id"
     t.integer "user_id"
   end
 
