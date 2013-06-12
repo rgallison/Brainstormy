@@ -1,6 +1,6 @@
 %div.col1
-	%div.panel1{:class => ("panel1LoggedIn" if @current_user)}
-		- if !@current_user
+	- if !@current_user
+		%div.panel4
 			%b Sign In
 			%div.content
 				= form_for :user, :url => {:action => "create_session", :controller => "application"} do |f|
@@ -27,7 +27,8 @@
 					= f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
 					%br
 					= f.submit 'Sign Up'
-		- else
+	- else
+		%div.panel1{:class => ("panel1LoggedIn" if @current_user)}
 			%b Post An Idea
 			%br
 			= form_for :idea, :url => {:action => "create", :controller => "ideas"} do |f|
