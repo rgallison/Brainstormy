@@ -1,4 +1,6 @@
 class IdeasController < ApplicationController
+  skip_before_filter :check_login, :only => [:show]
+
   def index
     @ideas_created = User.find_by_id(@current_user).ideas#gets all the ideas user created -rg 4/15
     @ideas_commented = User.find_by_id(@current_user).commented_ideas#gets all ideas that the user commented on -rg 4/15

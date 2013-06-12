@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_current_user
+  before_filter :check_login
+  skip_before_filter :check_login, :only => [:create_session]
 
   def create_session
   	#gets params and finds user with such a username and password, then sets user to session -rg
@@ -11,13 +13,13 @@ class ApplicationController < ActionController::Base
   	else
   		flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
   	end
-    @messages = get_messages
   	redirect_to root_path#and to the home page! -rg
   end
 
   def set_current_user
   	@current_user ||= session[:user_id]#sets @current_user to valid session user if nil -rg
   end
+
 
   def logout_user
     get_current_user.update_attributes(:last_login => Time.now)
@@ -27,11 +29,18 @@ class ApplicationController < ActionController::Base
   end
 
   def get_current_user
-  	User.find_by_id(session[:user_id])
+  	User.find_by_id(@current_user)
   end
 
   def get_messages
-    get_current_user.received.order('created_at DESC')
+      get_current_user.received.order('created_at DESC')
+  end
+
+  def check_login
+    unless get_current_user
+      flash[:warning] = "You need to be logged in to do that"
+      redirect_to root_path
+    end
   end
 end
 

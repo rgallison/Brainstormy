@@ -9,14 +9,16 @@ hr {
 
 div.content {
 	margin-top: 10px;
-	margin-left: 10%;
+	margin-left: 8%;
 	line-height: 210%;
 }
 
-/*div#content2 {
-	margin-top: 15px;
+table#messages td#home1 {
+	width: 10%;
 }
 
-div#content3 {
-	margin-top: 15px;
-}*/
+table#messages td#home2 {
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 70px;
+}

@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+  skip_before_filter :check_login, :only => [:index]
   def index
+    @messages = get_messages if @current_user
   	@pop_ideas = Idea.all(:order =>'title', :conditions => {:privacy => 'public'})
     # search_condition = "%" + params[:search] + "%"
     # @pop_ideas = Idea.find(:all, :conditions => ['title LIKE ?', search_condition])

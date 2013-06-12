@@ -41,16 +41,20 @@
 
 	-if @current_user
 		%div.panel2
-			%b My Messages
+			%b New Messages
 			%br
 			%table#messages
 				%tbody
 					- if @messages
 						-@messages.each do |message|
-							%tr{:class => ("highlight" if message.status == 'unread')}
-								%td= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
-								%td= link_to "#{message.subject}", message_path(message.id)
-								%td= message.created_at.strftime("%B %d, %Y")
+							-if message.status == "unread"
+								%tr.highlight
+									%td#home1= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
+									%td#home2= link_to "#{message.subject}", message_path(message.id)
+					-else
+						%tr
+							%td= "You have no new messages"
+
 
 
 %div.panel

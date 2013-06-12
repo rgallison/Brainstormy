@@ -20,7 +20,6 @@ ideas = [{:title => 'A site that matches wines to meals', :rank => 54, :status =
 comments = [{:text => 'I like that', :rank => 2, :user_id => 2, :idea_id =>2},
 			{:text => 'how about a virtual tour', :rank => 10, :user_id => 1, :idea_id => 4},
 			{:text => 'A place for divers to upload pictures', :rank => 23, :user_id => 3, :idea_id => 4},
-			{:text => 'should include hats that create an illusion of some object', :rank => 6, :user_id => 1, :idea_id => 2},
 			{:text => 'What about hats to match tv show characters?', :rank => 44, :user_id => 5, :idea_id => 2}]
 
 # messages = [{:subject => "Meeting time", :message => "We should meet up at 9 on Friday", :status => "unread", :sender => 1},

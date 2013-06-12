@@ -33,43 +33,27 @@ class CommentsController < ApplicationController
 		@comment = Comment.find(id)
 		@idea = @comment.idea
     @voter = get_current_user
-		if @current_user != nil
-			#if @voter.voted_for? @comment
-				#redirect_to idea_path(@idea.id), notice: 'You have already voted on this comment!'
-			#else
-				@comment.liked_by @voter
-        upvotes = @comment.upvotes.size
-        downvotes = @comment.downvotes.size
-        negranking = upvotes - downvotes
-        @comment.rank = negranking
-        @comment.save
-				redirect_to idea_path(@idea.id), notice: 'You have sucessfully upvoted this comment'
-			#end
-		else
-			redirect_to idea_path(@idea.id), notice: 'You need to log in to vote!'
-		end
-	end
+		@comment.liked_by @voter
+    upvotes = @comment.upvotes.size
+    downvotes = @comment.downvotes.size
+    negranking = upvotes - downvotes
+    @comment.rank = negranking
+    @comment.save
+		redirect_to idea_path(@idea.id), notice: 'You have successfully upvoted this comment'
+end
 
 	def downvote
 		id = params[:id]
 		@comment = Comment.find(id)
 		@idea = @comment.idea
     @voter = get_current_user
-		if @current_user != nil
-			#if @current_user.voted_for? @comment == true
-				#redirect_to idea_path(@idea.id), notice: 'You have already voted on this comment!'
-			#else
-				@comment.downvote_from @voter
-        upvotes = @comment.upvotes.size
-        downvotes = @comment.downvotes.size
-        negranking = upvotes - downvotes
-        @comment.rank = negranking
-        @comment.save
-				redirect_to idea_path(@idea.id), notice: 'You have sucessfully downvoted this comment'
-			#end
-		else
-			redirect_to idea_path(@idea.id), notice: 'You need to log in to vote!'
-		end
+		@comment.downvote_from @voter
+    upvotes = @comment.upvotes.size
+    downvotes = @comment.downvotes.size
+    negranking = upvotes - downvotes
+    @comment.rank = negranking
+    @comment.save
+		redirect_to idea_path(@idea.id), notice: 'You have successfully downvoted this comment'
 	end
 
   #def update

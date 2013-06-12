@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  skip_before_filter :check_login, :only => [:create]
   def create
  		if @user = User.create!(params[:user])#gets params, tries to add to user database, and checks if successful -rg
       session[:user_id] = @user.id if @user#assigns id to session when accound it created
