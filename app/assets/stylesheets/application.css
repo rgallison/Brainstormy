@@ -10,7 +10,7 @@ html, body { height: 100%; margin: 0; padding: 0;}
 body > #main { 
 	position: fixed; 
 	width: 100%; 
-	height: 86%; 
+	height: 90%; 
 	overflow: auto;
 	padding-top: 10px;
 }
@@ -58,15 +58,14 @@ p.flashwarning {
 	margin: 2% .5%;
 }
 
-/* body ------------------ */
+/* Panels ------------------ */
 
 div.panel, div.panel1, div.panel2, div.panel3, div.panel4 {
 	border-style: ridge;
 	border-width: 3px;
 	border-color: #006a89;
-	min-height: 455px;
-	/*height: 455px;*/
-	height: 80%;
+	min-height: 440px;
+	height: 75%;
 	overflow: auto;
 	width: 25%;
 	min-width: 310px;
@@ -77,17 +76,17 @@ div.panel, div.panel1, div.panel2, div.panel3, div.panel4 {
 }
 
 div.panel, .col1 {
-	margin: 10px 0px 10px 3%;
+	margin: 10px 0px 10px 3.5%;
 }
 
 div.panel1LoggedIn, div.panel2 {
-	height: 41.8%;
-	min-height: 200px;
-	padding-left: 25.4px;
+	height: 43%;
+	min-height: 180px;
+	/*padding-left: 25.4px;*/
 }
 
 div.panel1LoggedIn {
-	line-height: 300%;
+	line-height: 280%;
 }
 
 div.panel1LoggedIn {
@@ -101,27 +100,46 @@ div.panel2 {
 
 div.col1 {
 	float: left;
-	height: 86%;
+	/*height: 86%;*/
+	min-height: 440px;
 }
 
 div.panel4 {
-	height: 93%;
+	/*height: 93%;*/
+	/*margin-bottom: 10px;*/
+}
+
+div.wide {
+	width: 50%;
 }
 
 /* Tables ------------------ */
-table#main {
+table.main {
 	padding-top: 10px;
 	font-size: 85%;
 	width: 100%
 }
 
-table#main td{
+table.main td{
 	border-top: thin solid gray;
 	padding: 5px;
 }
 
-table#main td:first-child {
+table.main td:first-child {
 	width: 90%;
+}
+
+table.spaced td:first-child {
+	width: 50%;
+}
+
+table.spaced td:nth-child(2), table.spaced td:nth-child(3), table.spaced td:nth-child(4) {
+	padding-left: 10px;
+	/*padding-right: 10px;*/
+}
+
+td.small {
+	font-size: 80%;
 }
 
 /* Footer ------------------ */
@@ -130,19 +148,11 @@ footer {
 	bottom: 0px;
 	width: 100%;
 	height: 55px;
-	border-top: solid;
+/*	border-top: solid;
 	border-top-style: ridge;
+	border-top-color: #006a89;*/
 	background-color: #f9f9f9;
 }
-/*footer {
- 	clear: both;
- 	position: relative;
- 	z-index: 10;
- 	margin-top: -3em;
- 	width: 100%;
-	height: 50px;
-	background-color: white;
-}*/
 
 .usernamePos, .username {
 	position: absolute;

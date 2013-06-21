@@ -1,21 +1,28 @@
 %div.panel
 	%b My Ideas
-	%table#main
+	%table.main
 		%tbody
-			- if @ideas_created
+			- if @ideas_created == nil
 				-@ideas_created.each do |idea|
 					%tr
 						%td= link_to "#{idea.title}", idea_path(idea)
 						/ %td= "" if !idea.description I don't think this is nessecary and there is no room.  We can talk about it more
 						%td= idea.rank
+			- else
+				%tr
+					%td= "No ideas have been created."
 
-%div.panel
+%div.panel.wide
 	%b My Comments
-	%table#main
+	%table.main.spaced
 		%tbody
-			- if @ideas_commented
-				- @ideas_commented.each do |idea|
+			- if @comments == nil
+				- @comments.each do |comment|
 					%tr
-						%td= link_to "#{idea.title}", idea_path(idea)
-						/ %td= "" if !idea.description I don't think this is nessecary and there is no room.  We can talk about it more
-						%td= idea.rank
+						%td= comment.text
+						%td= comment.rank
+						%td.small= "on"
+						%td= link_to "#{comment.idea.title}", idea_path(comment.idea)
+			- else
+				%tr
+					%td= "No comments have been made."

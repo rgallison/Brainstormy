@@ -26,6 +26,8 @@ class UsersController < ApplicationController
       @showform = 'show'
       @showlist = 'hide'
     end
+    @ideas_created = @user.ideas.order('created_at DESC')
+    @ideas_collaborated = @user.commented_ideas.order('created_at DESC').uniq
   end
 
 #Rachel - updates attributes of user from params[]

@@ -48,8 +48,29 @@
 %div.panel
 	%b Ideas Created
 	%br
+	%table.main
+		%tbody
+			-if @ideas_created
+				-@ideas_created.each do |idea|
+					%tr
+						%td= link_to "#{idea.title}", idea_path(idea)
+						%td= idea.rank
+			-else
+				%tr
+					%td= "#{@user.username} has not created an idea yet."
+
+%div.panel
+	%b Ideas Collaborated
 	%br
-	-@user.ideas.each do |idea|
-		=link_to "#{idea.title}", idea_path(idea)
-		%br
+	%table.main
+		%tbody
+			- if @ideas_collaborated == nil
+				-@ideas_collaborated.each do |idea|
+					%tr
+						%td= link_to "#{idea.title}", idea_path(idea)
+						%td= idea.rank
+			-else
+				%tr
+					%td= "#{@user.username} has not collaborated yet."
+
 

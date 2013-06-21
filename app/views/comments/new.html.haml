@@ -1,8 +1,10 @@
-%h2 Post new comment: 
-= form_tag idea_comments_path, :method => :post do
-	=render :partial => 'form'  
-	-#= hidden_field :comment, :idea_id, value: @idea.id
+%div.panel
+	%h2 Post new comment: 
+	= form_tag idea_comments_path, :method => :post do
+		=render :partial => 'form'  
+		-#= hidden_field :comment, :idea_id, value: @idea.id
 
-	= hidden_field :comment, :user_id, value: @current_user
-	= hidden_field :comment, :rank, value: 0  
-	= submit_tag 'Add Comment'
+		= hidden_field :comment, :user_id, value: @current_user
+		= hidden_field :comment, :rank, value: 0  
+		%br
+		= submit_tag 'Add Comment'

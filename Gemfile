@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-#6/12  Rg
-gem 'dynamic_form', '~> 1.1.4'
+#6/13 rg: file upload
+gem 'carrierwave' 
+#6/12  rg: validation errors
+# gem 'dynamic_forms'
 
 gem 'rails', '3.2.13'
 gem 'haml' #support haml -RG, 3/20

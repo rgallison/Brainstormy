@@ -33,20 +33,19 @@
 
     -if @current_user and not @idea.collaborator_ids.include? @current_user and ! (@current_user == @idea.user_id)
       = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
+      
+    %div{:name=>"commentbox", :class => "commentbox"}
+      -if @current_user != nil
+        = link_to 'Post comment', new_idea_comment_path(@idea.id)
+        %br
 
+      -#= link_to 'All comments', idea_comments_path(@idea.id)
+      = render :template => 'comments/index'
+      -#=render :partial => 'show_comments'
 
   -#The problem was indentation. If it happens again tell me via email asap
   -#Lindsey Stratton
   -#Making a box for comments
-
-  %div{:name=>"commentbox", :class => "commentbox"}
-    -if @current_user != nil
-      = link_to 'Post comment', new_idea_comment_path(@idea.id)
-      %br
-
-    -#= link_to 'All comments', idea_comments_path(@idea.id)
-    = render :template => 'comments/index'
-    -#=render :partial => 'show_comments'
     
 -else
   %h2 You do not have permission to access this idea
