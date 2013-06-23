@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	#4/18 Colin added:
 	has_and_belongs_to_many :collaborated_ideas, :class_name => 'Idea'
 
+	# Validations for sign up form
 	validates :password, :email, :confirmation => true
 	validates :username, :email, :password, :name, :presence => true
     validates :username, :email, :uniqueness => true

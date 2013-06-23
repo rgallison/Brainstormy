@@ -8,7 +8,8 @@ div.commentbox {
 	/*height: 20%;*/
 	/*width: 40%;*/
 	/*min-width: 425px;*/
-	padding: 10px 20px 10px 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	line-height: 100%;
 	float: center;
 	background-color: #f9f9f9;
@@ -17,12 +18,12 @@ div.commentbox {
 }
 
 table#comments {
-	margin-top: 10px;
+	margin: 10px auto;
 }
 
 table#comments th, table#comments td {
 	border-top: thin solid gray;
-	padding: 10px;
+	padding-top: 10px;
 }
 
 table#comments td:nth-child(4), table#comments td:nth-child(5) {

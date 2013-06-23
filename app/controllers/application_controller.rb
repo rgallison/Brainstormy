@@ -11,8 +11,12 @@ class ApplicationController < ActionController::Base
   	if user && (session[:user_id] = user.id if user.password == params[:user][:password_login])
   		set_current_user#sets sets @current_user if user was found -rg
   	else
-  		flash[:warning] = "That is not a valid login.  Please try again."#setting falsh warning if no such user exists -rg
-  	end
+      if user == nil
+        flash[:warning] = "There is no such username.  Please try again."
+      else
+  		  flash[:warning] = "That password did not match the username.  Please try again."#setting falsh warning if no such user exists -rg
+  	 end
+    end
   	redirect_to root_path#and to the home page! -rg
   end
 

@@ -1,14 +1,21 @@
 class UsersController < ApplicationController
   skip_before_filter :check_login, :only => [:create]
   def create
- 		if @user = User.create!(params[:user])#gets params, tries to add to user database, and checks if successful -rg
+    @user = User.new(params[:user])#gets params and creates a new db item
+ 		if @user.save #checks if save to db is successful -rg
       session[:user_id] = @user.id if @user#assigns id to session when accound it created
       set_current_user#sets sets @current_user if user was found -rg
       flash[:notice] = "You have successfully been added.  Please fill out your profile."
       redirect_to user_path(@user.id)#redirects to home page -rg      
 
     else
-      flash[:warning] = "There is an invalid entry.  Please try again"#sets warning flash for failed add -rg
+      flash[:warning] = "That is an invalid entry.  Please try again: "#sets warning flash for failed add -rg
+      if @user.errors.any?
+        # raise @user.errors.full_messages.inspect
+        @user.errors.full_messages.each do |message|
+          flash[:warning] += message + ". "
+        end
+      end
       redirect_to root_path
     end
   end
