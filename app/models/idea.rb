@@ -12,6 +12,9 @@ class Idea < ActiveRecord::Base
 
 	has_many :comments #idea comments <no longer needed due to acts as commentable
 	
+	#validation
+	validates :title, :presence => true
+
 
 	# acts_as_commentable 
 end
