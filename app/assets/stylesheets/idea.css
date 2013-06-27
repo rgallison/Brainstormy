@@ -28,3 +28,9 @@ div.idea {
 	bottom: -10px;
 }
 
+#centralIdea, #option {
+	float: left;
+	width: 50%;
+	min-width: 300px;
+}
+

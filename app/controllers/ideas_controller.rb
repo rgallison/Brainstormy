@@ -89,9 +89,9 @@ class IdeasController < ApplicationController
       flash[:notice]="#{collab.name} deleted from subscribers."
     else
       if params[:privacy]=='1'
-        params[:idea][:privacy]='private'
+        is_private = true
       else
-        params[:idea][:privacy]='public'
+        is_private = false
       end
       @idea.update_attributes!(params[:idea])
       redir=idea_path(@idea.id)

@@ -112,9 +112,7 @@ div.panel4 {
 	/*margin-bottom: 10px;*/
 }
 
-div.wide {
-	width: 50%;
-}
+
 
 /* Tables ------------------ */
 table.main {
@@ -215,3 +213,8 @@ a:hover {text-decoration: underline; color: red;}
 .smaller_font { 
 	font-size: 80%;
 }
+
+div.wide {
+	width: 50%;
+}
+

@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 #6/13 rg: file upload
-gem 'carrierwave' 
+gem 'carrierwave', '>= 0.5.3'
+gem 'nested_form'
 #6/12  rg: validation errors
 # gem 'dynamic_forms'
 

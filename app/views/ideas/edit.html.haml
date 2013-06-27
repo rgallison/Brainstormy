@@ -1,12 +1,11 @@
 -# in app/views/ideas/show.html.haml
-%div.panel.smaller_font
+%div.panel.smaller_font.wide
   -if @current_user != @idea.user_id
     %h2 You do not have access to this page.
   -else  
-    %div.centralIdea
-      = form_tag idea_path(@idea), :method => :put do
-
-        = text_field :idea, 'title'
+    %div#centralIdea
+      = nested_form_for @idea, :url => {:action => "update", :controller=>"ideas"}, :html=>{:multipart => true} do |f|
+        =f.text_field :title, value: @idea.title
 
         %ul#details
           %li
@@ -19,15 +18,21 @@
 
         %h3 Description:
 
-        = text_area :idea, 'description', :size => '30x7', :id => 'description'
+        = f.text_area :description, :size => '30x7', :id => 'description'
         %br 
         
-        = label :idea, :privacy, "Make Private" 
-        = check_box_tag 'privacy', 1, (@idea.privacy=='private'), :id=>"Make Private"
+        = f.label :privacy, "Make Private" 
+        = f.check_box :is_private
+        %p
+          = f.fields_for :suggested_files_by_owner do |a_form|
+            = a_form.file_field :file
+            = a_form.link_to_remove "Remove"
+          = f.link_to_add "Add Attachment", :suggested_files_by_owner
 
-        =submit_tag 'Save and Post'
-      =#Colin added 4/18 for showing existing collaborators if any exist
-      %br
+
+        = f.submit 'Save and Post'
+    =#Colin added 4/18 for showing existing collaborators if any exist
+    %div#options
       -if not @idea.collaborators.empty? 
         %table
           %thead
@@ -62,13 +67,13 @@
         =text_field_tag :tag, nil, :placeholder => 'Enter topic'
         =submit_tag 'Add Tag'    
 
-      =#Colin removed edit link since we are already on edit page 4/19:
-      %header
-        %br
-        -if @current_user==@user.id
-          = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-        -else
-          = link_to 'home', root_path
+    =#Colin removed edit link since we are already on edit page 4/19:
+    %header
+      %br
+      -if @current_user==@user.id
+        = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+      -else
+        = link_to 'home', root_path
 
 
-    = link_to 'Back to idea list', ideas_path
+  = link_to 'Back to idea list', ideas_path

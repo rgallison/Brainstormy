@@ -106,6 +106,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.7.1)
+    nested_form (0.3.2)
     nokogiri (1.5.7)
     nokogiri (1.5.7-x86-mingw32)
     pg (0.14.1)
@@ -191,7 +192,7 @@ DEPENDENCIES
   acts_as_commentable_with_threading
   acts_as_votable (~> 0.5.0)
   capybara
-  carrierwave
+  carrierwave (>= 0.5.3)
   coffee-rails (~> 3.2.1)
   cucumber-rails
   cucumber-rails-training-wheels
@@ -200,6 +201,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  nested_form
   pg (~> 0.14.1)
   rails (= 3.2.13)
   rspec-rails (~> 2.0)
