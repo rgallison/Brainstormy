@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130627074815) do
     t.string   "title"
     t.integer  "attachable_id"
     t.string   "attachable_type"
+    t.string   "file"
   end
 
   create_table "comments", :force => true do |t|
@@ -39,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20130627074815) do
     t.datetime "updated_at",  :null => false
     t.text     "description"
     t.integer  "rank"
-    t.string   "file"
   end
 
   create_table "ideas_tags", :force => true do |t|
