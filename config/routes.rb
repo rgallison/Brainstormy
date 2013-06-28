@@ -1,11 +1,11 @@
 Brainstormy::Application.routes.draw do
-  # get "home/index"
   root :to => 'home#index'
   resources :ideas do
     resources :comments
   end
   resources :users
   resources :messages
+  resources :attachments
 
   match '/application/create_session' => 'application#create_session'
   match '/application/logout_user' => 'application#logout_user'

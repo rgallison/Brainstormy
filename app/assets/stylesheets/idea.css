@@ -9,7 +9,7 @@ div.idea {
 	/*height: 20%;*/
 	width: 50%;
 	min-width: 350px;
-	padding: 10px 20px 10px 20px;
+	padding: 0px 20px 10px 20px;
 	line-height: 100%;
 	float: center;
 	background-color: #f9f9f9;
@@ -25,17 +25,50 @@ div.idea {
 .subscription {
 	float: right;
 	position: relative;
-	bottom: -10px;
+	bottom: 5px;
+	font-size: 80%;
 }
 
 .firstDiv {
 	float: left;
 	width: 50%;
 	min-width: 300px;
-	height: 200px;
+	height: 230px;
+	margin-right: 10px;
 }
 
 .files {
 	height: 200px;
 	overflow: auto;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.links {
+	float: right;
+	position: relative;
+	bottom: -25px;
+	right: 10px;
+}
+
+.delete {
+	float: right;
+	position: relative;
+	bottom: -15px;
+}
+
+.file {
+	float: left;
+	width: 150px;
+	padding: 3px;
+}
+
+.filename {
+	text-align: center;
+	font-size: 80%;
+}
+
+.actions {
+	text-align: center;
+	font-size: 70%;
 }

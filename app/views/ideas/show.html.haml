@@ -26,22 +26,21 @@
           = link_to 'Edit', edit_idea_path(@idea)
           = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
         -else
-      -if not @tags.empty?
-        Tags: 
-        %table#taglist
-          %tbody
-            - @tags.each do |tag|
-              %td= link_to tag.category, root_path(:search => tag.category)
+        -if not @tags.empty?
+          Tags: 
+          %table#taglist
+            %tbody
+              - @tags.each do |tag|
+                %td= link_to tag.category, root_path(:search => tag.category)
 
-      -if @current_user and not @idea.collaborator_ids.include? @current_user and ! (@current_user == @idea.user_id)
-        = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
+    
+    %h4 Attachments
+    %div.files
+      -@idea.files_by_owner.each do |attachment|
+        =image_tag attachment.file.thumb.url, :alt => ""
 
-    %div
-      %h4 Attachments
-      %div.files
-        -@idea.files_by_owner.each do |attachment|
-          / -raise attachment.file.inspect
-          =image_tag attachment.file.thumb.url, :alt => ""
+    -if @current_user and not @idea.collaborator_ids.include? @current_user and ! (@current_user == @idea.user_id)
+      = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
       
     %div{:name=>"commentbox", :class => "commentbox clear"}
       -if @current_user != nil

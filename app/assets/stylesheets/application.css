@@ -218,3 +218,15 @@ div.wide {
 	width: 50%;
 }
 
+div.wider {
+	width: 75%;
+}
+
+div.longer {
+	height: 300px;
+}
+
+h2 {
+	line-height: 100%;
+}
+
