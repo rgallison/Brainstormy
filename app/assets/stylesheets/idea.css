@@ -31,7 +31,7 @@ div.idea {
 
 .firstDiv {
 	float: left;
-	width: 50%;
+	width: 350px;
 	min-width: 300px;
 	height: 230px;
 	margin-right: 10px;
@@ -70,5 +70,5 @@ div.idea {
 
 .actions {
 	text-align: center;
-	font-size: 70%;
+	font-size: 75%;
 }

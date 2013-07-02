@@ -12,8 +12,8 @@ class Idea < ActiveRecord::Base
 
 	has_many :comments #idea comments <no longer needed due to acts as commentable
 
-	has_many :files_by_owner, :class_name => 'Attachment', :as => :attachable# all files submitted by owner of the idea
-	has_many :final_files, :class_name => 'Attachment' #all files to include in final state
+	has_many :files_by_owner, :class_name => 'Attachment', :as => :attachable, :dependent => :destroy# all files submitted by owner of the idea
+	has_many :final_files, :class_name => 'Attachment', :dependent => :destroy #all files to include in final state
 	accepts_nested_attributes_for :files_by_owner
 
 	#validation

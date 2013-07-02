@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 #6/13 rg: file upload
 gem 'carrierwave', '>= 0.5.3'
-# gem "RMagick", "~>2.13.2", :require => 'RMagick'
+gem "rmagick"#, :require => 'RMagick'
 gem 'nested_form'
+gem "jquery-fileupload-rails"
 #6/12  rg: validation errors
 # gem 'dynamic_forms'
 

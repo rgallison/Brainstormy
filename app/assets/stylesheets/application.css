@@ -1,6 +1,7 @@
 /*Renee
  *= require_self
  *= require_tree .
+ *= require jquery.fileupload-ui
  */
 article, aside, figure, footer, header, hgroup,
 menu, nav, section { display: block; }

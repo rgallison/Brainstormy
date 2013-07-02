@@ -22,7 +22,9 @@
         = f.label :privacy, "Make Private" 
         = f.check_box :is_private
         %p
+          %b Attachment
           = f.fields_for :files_by_owner do |a_form|
+            = a_form.text_field :title, :placeholder => "Title", :size => 20
             = a_form.file_field :file
             = a_form.link_to_remove "Remove"
           = f.link_to_add "Add Attachment", :files_by_owner
