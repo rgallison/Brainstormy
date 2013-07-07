@@ -1,0 +1,4 @@
+%h2 Attachment - #{@attachment.title}
+	
+=form_for @attachment, :url => {:action => "update", :controller => "attachments"} do |f|
+	= f.label "Title"

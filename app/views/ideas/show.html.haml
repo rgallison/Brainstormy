@@ -1,7 +1,7 @@
 -require 'RMagick'
 -# in app/views/ideas/show.html.haml
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
-  %div{:name=>"idea", :class => "idea"}
+  %div{:name=>"idea", :class => "idea smaller-font"}
     %div.firstDiv
       -#Colin added 5/2
       %h2 #{@idea.title}
@@ -26,12 +26,15 @@
           = link_to 'Edit', edit_idea_path(@idea)
           = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
         -else
-        -if not @tags.empty?
-          Tags: 
-          %table#taglist
-            %tbody
-              - @tags.each do |tag|
-                %td= link_to tag.category, root_path(:search => tag.category)
+        - unless @idea.tags.empty? 
+          %br
+          %b Tags
+          %br
+          -@idea.tags.each do |tag|
+            %div.floatL.padding
+              = tag.category 
+              = link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
+          %br
 
     
     %h4 Attachments

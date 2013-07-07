@@ -211,7 +211,7 @@ a:hover {text-decoration: underline; color: red;}
 	clear: both;
 }
 
-.smaller_font { 
+.smaller-font { 
 	font-size: 80%;
 }
 
@@ -231,3 +231,10 @@ h2 {
 	line-height: 100%;
 }
 
+.padding {
+	padding-right: 5px;
+}
+
+.spaced {
+	line-height: 130%;
+}

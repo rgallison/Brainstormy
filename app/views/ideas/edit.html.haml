@@ -1,8 +1,9 @@
 -# in app/views/ideas/show.html.haml
-%div.panel.smaller_font.wider
+%div.panel.smaller-font.wider
   -if @current_user == @idea.user_id
+    / Idea edit form
     %div.firstDiv
-      = nested_form_for @idea, :url => {:action => "update", :controller=>"ideas"}, :html=>{:multipart => true} do |f|
+      = form_for @idea, :url => {:action => "update", :controller=>"ideas"} do |f|
         =f.text_field :title, value: @idea.title
 
         %ul#details
@@ -21,75 +22,71 @@
         
         = f.label :privacy, "Make Private" 
         = f.check_box :is_private
-        %p
-          %b Attachment
-          = f.fields_for :files_by_owner do |a_form|
-            = a_form.text_field :title, :placeholder => "Title", :size => 20
-            = a_form.file_field :file
-            = a_form.link_to_remove "Remove"
-          = f.link_to_add "Add Attachment", :files_by_owner
-
         = f.submit 'Save and Post'
-
-      %br
       
-    =#Colin added 4/18 for showing existing collaborators if any exist
-    
-    -if not @idea.collaborators.empty? 
-      %table
-        %thead
-          %tr
-            %th Collaborators
-        %tbody#collaborators
+      =#Colin added 4/18 for showing existing collaborators if any exist
+
+    %div.secondDiv
+      / Tags
+      =#Colin added 5/2 for showing existing tags if any exist
+      %br
+      %div
+        -unless @idea.collaborators.empty? 
+          %b Collaborators
+          %br
           - @idea.collaborators.each do |user|
-            %tr
-              %td= user.name
-              %td= link_to '(x)', idea_path(@idea, :delete_collaborator => user.id), :method => :put
+            %div.floatL.padding
+              = user.name
+              = link_to '(x)', idea_path(@idea, :delete_collaborator => user.id), :method => :put
 
-    =#Colin added 4/18 for adding collaborators:
-    =form_tag idea_path(@idea), :method => :put do
-      =label :idea, :collaborator, "Add Collaborator:"
-      =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
-      =submit_tag 'Add'
-    =#Colin added 5/2 for showing existing tags if any exist
-    %br
-    -if not @idea.tags.empty? 
-      %table
-        %thead
-          %tr
-            %th Tags
-        %tbody#taglist
-          - @idea.tags.each do |tag|
-            %tr
-              %td= tag.category 
-              %td= link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
-    =#Colin added 5/2 for adding tags:
-    =form_tag idea_path(@idea), :method => :put do
-      =label :idea, :tag, "Add Tag:"
-      =text_field_tag :tag, nil, :placeholder => 'Enter topic'
-      =submit_tag 'Add'    
+      / Collaborators
+      %br
+      =#Colin added 4/18 for adding collaborators:
+      =form_tag idea_path(@idea), :method => :put do
+        =label :idea, :collaborator, "Add Collaborator:"
+        =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
+        =submit_tag 'Add'
+      %hr#edit
+      %div
+        - unless @idea.tags.empty? 
+          %b Tags
+          %br
+          -@idea.tags.each do |tag|
+            %div.floatL.padding
+              = tag.category 
+              = link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
+          %br
+        =#Colin added 5/2 for adding tags:
+        =form_tag idea_path(@idea), :method => :put do
+          =label :idea, :tag, "Add Tag:"
+          =text_field_tag :tag, nil, :placeholder => 'Enter topic'
+          =submit_tag 'Add'    
 
-    =#Colin removed edit link since we are already on edit page 4/19:
+      =#Colin removed edit link since we are already on edit page 4/19:
 
-    %div.files.longer
-      -@idea.files_by_owner.each do |attachment|
-        %div.file
-          =image_tag attachment.file.thumb.url, :alt => ""
-          %div.filename
-            =attachment.title
-          %div.actions
-            = link_to "edit", edit_attachment_path(attachment)
-            |
-            = link_to "remove", attachment, :confirm => 'Are you sure?', :method => :delete
-
-    %div.delete  
-      -if @current_user==@user.id
-        = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-      -else
-        = link_to 'home', root_path
+      / Attachments
+      %hr#edit
+      %b Attachments
+      %br
+      =render :partial => "upload"
+      %br
+      %div.fileuploader
+        -@idea.files_by_owner.each do |attachment|
+          %div.file
+            =image_tag attachment.file.thumb.url, :alt => ""
+            %div.filename
+              =attachment.title
+            %div.actions
+              = link_to "edit", edit_attachment_path(attachment)
+              |
+              = link_to "remove", attachment, :confirm => 'Are you sure?', :method => :delete
 
   -else  
     %h2 You do not have access to this page.
 
   %div.links
     = link_to 'Back to idea list', ideas_path
+    -if @current_user==@user.id
+      = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+    -else
+      = link_to 'home', root_path

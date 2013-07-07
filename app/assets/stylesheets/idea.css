@@ -31,34 +31,42 @@ div.idea {
 
 .firstDiv {
 	float: left;
-	width: 350px;
+	width: auto;
 	min-width: 300px;
-	height: 230px;
+	height: auto;
 	margin-right: 10px;
 }
 
-.files {
-	height: 200px;
+.secondDiv {
+	height: 100%;
+}
+
+#edit {
+	width: 60%;
+}
+
+.fileuploader {
+	height: 35%;
+	width: 100%;
 	overflow: auto;
-	margin-top: 30px;
-	margin-bottom: 10px;
+	/*margin-top: 30px;*/
+	/*margin-bottom: 10px;*/
 }
 
 .links {
-	float: right;
-	position: relative;
-	bottom: -25px;
-	right: 10px;
+	position: absolute;
+	left: 72%;
+	bottom: 17%;
+	display: inline-block;
 }
 
-.delete {
-	float: right;
-	position: relative;
-	bottom: -15px;
+.deleteB {
+	position: absolute;
+	left: 64%;
+	bottom: 17%;
 }
 
 .file {
-	float: left;
 	width: 150px;
 	padding: 3px;
 }
@@ -71,4 +79,9 @@ div.idea {
 .actions {
 	text-align: center;
 	font-size: 75%;
+}
+
+.tags {
+	min-width: 50px;
+	width: 100%;
 }
