@@ -35,10 +35,14 @@ div.idea {
 	min-width: 300px;
 	height: auto;
 	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
 .secondDiv {
+	float:left;
 	height: 100%;
+	/*width: auto;*/
+	min-width: 300px;
 }
 
 #edit {
@@ -55,7 +59,7 @@ div.idea {
 
 .links {
 	position: absolute;
-	left: 72%;
+	left: 67%;
 	bottom: 17%;
 	display: inline-block;
 }
@@ -84,4 +88,8 @@ div.idea {
 .tags {
 	min-width: 50px;
 	width: 100%;
+}
+
+.table {
+	/*float: right;*/
 }

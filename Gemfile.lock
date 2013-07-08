@@ -109,7 +109,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.7.1)
-    nested_form (0.3.2)
     nokogiri (1.5.7)
     nokogiri (1.5.7-x86-mingw32)
     pg (0.14.1)
@@ -206,7 +205,6 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   launchy
-  nested_form
   pg (~> 0.14.1)
   rails (= 3.2.13)
   rmagick

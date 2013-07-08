@@ -65,28 +65,31 @@
       =#Colin removed edit link since we are already on edit page 4/19:
 
       / Attachments
-      %hr#edit
-      %b Attachments
-      %br
-      =render :partial => "upload"
-      %br
-      %div.fileuploader
-        -@idea.files_by_owner.each do |attachment|
-          %div.file
-            =image_tag attachment.file.thumb.url, :alt => ""
-            %div.filename
-              =attachment.title
-            %div.actions
-              = link_to "edit", edit_attachment_path(attachment)
-              |
-              = link_to "remove", attachment, :confirm => 'Are you sure?', :method => :delete
+      / %hr#edit
+      / %b Attachments
+      / %br
+      / /=render :partial => "upload"
+      / %br
+      / %div.fileuploader
+      /   -@idea.files_by_owner.each do |attachment|
+      /     %div.file
+      /       =image_tag attachment.file.thumb.url, :alt => ""
+      /       %div.filename
+      /         =attachment.title
+      /       %div.actions
+      /         = link_to "edit", edit_attachment_path(attachment)
+      /         |
+      /         = link_to "remove", attachment, :confirm => 'Are you sure?', :method => :delete
 
   -else  
     %h2 You do not have access to this page.
 
   %div.links
-    = link_to 'Back to idea list', ideas_path
-    -if @current_user==@user.id
-      = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-    -else
-      = link_to 'home', root_path
+    %div.floatR.padding
+      = link_to 'Back to idea list', ideas_path
+    %div.floatR.padding
+      -if @current_user==@user.id
+        = link_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+      -else
+        = link_to 'home', root_path
+      |
