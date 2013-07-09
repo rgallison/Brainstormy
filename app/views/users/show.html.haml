@@ -1,4 +1,4 @@
-%div.panel
+%div.panel.small-font
 
 	%b Profile
 	%div.content
@@ -64,7 +64,7 @@
 	%br
 	%table.main
 		%tbody
-			- if @ideas_collaborated == nil
+			- if @ideas_collaborated != nil
 				-@ideas_collaborated.each do |idea|
 					%tr
 						%td= link_to "#{idea.title}", idea_path(idea)

@@ -30,18 +30,17 @@ div.idea {
 }
 
 .firstDiv {
-	float: left;
-	width: auto;
-	min-width: 300px;
+	display: inline-block;
+	width: 300px;
 	height: auto;
-	margin-right: 10px;
-	margin-bottom: 10px;
+	margin: 15px 10px;
+	vertical-align: top;
 }
 
 .secondDiv {
-	float:left;
-	height: 100%;
-	/*width: auto;*/
+	display: inline-block;
+	height: 95%;
+	width: 65%;
 	min-width: 300px;
 }
 
@@ -62,6 +61,8 @@ div.idea {
 	left: 67%;
 	bottom: 17%;
 	display: inline-block;
+	width: auto;
+	margin-right: 15%;
 }
 
 .deleteB {
@@ -90,6 +91,6 @@ div.idea {
 	width: 100%;
 }
 
-.table {
-	/*float: right;*/
+.red {
+	color: red;
 }

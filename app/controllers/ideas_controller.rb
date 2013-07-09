@@ -2,8 +2,10 @@ class IdeasController < ApplicationController
   skip_before_filter :check_login, :only => [:show]
 
   def index
-    @ideas_created = User.find_by_id(@current_user).ideas#gets all the ideas user created -rg 4/15
-    @comments = User.find_by_id(@current_user).comments#gets all ideas that the user commented on -rg 4/15
+    @ideas_created = get_current_user.ideas#gets all the ideas user created -rg 4/15
+    @comments = get_current_user.comments#gets all ideas that the user commented on -rg 4/15
+    @updated = get_updated
+    @user = get_current_user
   end
   
   def show

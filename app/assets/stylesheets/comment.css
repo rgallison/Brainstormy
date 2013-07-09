@@ -19,6 +19,11 @@ div.commentbox {
 
 table#comments {
 	margin: 10px auto;
+	width: 90%;
+}
+
+table#comments td:first-child {
+	text-align: center;
 }
 
 table#comments th, table#comments td {

@@ -41,12 +41,12 @@
 				= f.submit 'Post an Idea'
 
 	-if @current_user
-		%div.panel2
+		%div.panel2.smaller-font
 			%b New Messages
 			%br
 			%table#messages
 				%tbody
-					- if @messages == nil
+					- if @messages != nil
 						-@messages.each do |message|
 							%tr.highlight
 								%td#home1= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
@@ -98,12 +98,17 @@
 		%div.newsFeed
 			%b News Feed
 			%br
-			%table.main
+			%table.smaller.main
 				%tbody
-				-if @updated == nil
-					-@updated.each do |idea| 
+				-if @updated != nil
+					-@updated.each do |item| 
 						%tr
-							%td= link_to "#{idea.title}", idea_path(idea)
+							-if item.is_a?(Idea)
+								%td= link_to "#{item.title}", idea_path(item)
+							-else
+								%td= link_to "#{item.text}", idea_path(item.idea_id)
+								%td on
+								%td= "#{Idea.find_by_id(item.idea_id).title}"
 				-else
 					%tr
 						%td= "There doesn't seem to be anything new."

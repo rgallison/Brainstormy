@@ -211,6 +211,9 @@ a:hover {text-decoration: underline; color: red;}
 	clear: both;
 }
 
+.small-font {
+	font-size: 90%;
+}
 .smaller-font { 
 	font-size: 80%;
 }

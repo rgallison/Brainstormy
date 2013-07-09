@@ -10,7 +10,7 @@
 						%td= link_to "#{message.subject}", message_path(message.id)
 						%td= message.created_at.strftime("%B %d, %Y")
 -if @message
-	%div.panel
+	%div.panel.smaller-font
 		%p From: #{link_to "#{User.find_by_id(@message.sender).username}", user_path(@message.sender)}
 		%p Subject: #{@message.subject}
 		%hr
@@ -23,7 +23,7 @@
 			=f.submit 'Reply'
 
 -else
-	%div.panel.panel3
+	%div.panel.panel3.smaller-font
 		%b New Message
 		%div.newMessage
 			=form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f|

@@ -30,15 +30,7 @@ class HomeController < ApplicationController
     @pop_ideas = results if results
     end
     if @current_user
-      user = get_current_user
-      @updated = []
-      @updated += user.commented_ideas.where("ideas.updated_at >= :date", date: user.last_login).all
-      @updated += user.collaborated_ideas.where("updated_at >= :date", date: user.last_login).all
-      @updated += user.ideas.where("updated_at >= :date", date: user.last_login).all
-
-      @updated.each do |idea|
-        @updated += idea.comments.where("updated_at >= :date", date: user.last_login).all
-      end
+      @updated = get_updated
     end
   end
 end

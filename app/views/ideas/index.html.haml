@@ -1,22 +1,23 @@
-%div.panel
+%div.panel.small-font
 	%b My Ideas
 	%table.main
 		%tbody
-			- if @ideas_created == nil
+			- if @ideas_created
 				-@ideas_created.each do |idea|
 					%tr
 						%td= link_to "#{idea.title}", idea_path(idea)
-						/ %td= "" if !idea.description I don't think this is nessecary and there is no room.  We can talk about it more
+						/ - if idea.comments.keep_if { |comment| comment.created_at >= @user.last_login } != nil
+						/ 	%td.red !
 						%td= idea.rank
 			- else
 				%tr
 					%td= "No ideas have been created."
 
-%div.panel.wide
+%div.panel.wide.small-font
 	%b My Comments
 	%table.main.spaced
 		%tbody
-			- if @comments == nil
+			- if @comments
 				- @comments.each do |comment|
 					%tr
 						%td= comment.text

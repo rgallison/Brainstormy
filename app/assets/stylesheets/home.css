@@ -22,3 +22,8 @@ table#messages td#home2 {
 	overflow: hidden;
 	max-width: 70px;
 }
+
+table.smaller td:first-child {
+	width: 50%;
+	overflow: hidden;
+}

@@ -37,8 +37,35 @@ class ApplicationController < ActionController::Base
   end
 
   def get_messages
-      get_current_user.received.order('created_at DESC')
+    get_current_user.received.order('created_at DESC')
   end
+
+  def get_updated
+    user = get_current_user
+    @updated = []
+    # ideas that have been updated
+    @updated += user.collaborated_ideas.where("updated_at >= :date", date: user.last_login).all
+    # comments that have been  created
+    user.collaborated_ideas.each do |idea|
+      @updated += idea.comments.where("created_at >= :date", date: user.last_login).all
+    end
+    user.ideas.each do |idea|
+      @updated += idea.comments.where("created_at >= :date", date: user.last_login).all
+    end
+    return @updated
+  end
+
+  # def check_updated id
+  #   idea = Idea.find_by_id(id)
+  #   user = get_current_user
+  #   idea.comments.each do |comment|
+  #     if comment.created_at >= user.last_login
+  #       return true
+  #     end
+  #   end
+  #   return false
+    
+  # end
 
   def check_login
     unless get_current_user
