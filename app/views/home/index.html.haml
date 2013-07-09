@@ -57,7 +57,7 @@
 
 
 
-%div.panel
+%div.panel.small-font
 	%b Popular Ideas
 	//Christie - Listing ideas
 	%table.main
@@ -74,7 +74,7 @@
 						%td= link_to "#{user.username}", user_path(user)
 						/ %td= "" if !user.description I don't think this is nessecary and there is no room.  We can talk about it more
 
-%div.panel
+%div.panel.small-font
 	-if !@current_user
 		%div.aboutSite
 			%b About Brainstormy
@@ -100,14 +100,14 @@
 			%br
 			%table.smaller.main
 				%tbody
-				-if @updated != nil
+				-unless @updated == []
 					-@updated.each do |item| 
 						%tr
 							-if item.is_a?(Idea)
 								%td= link_to "#{item.title}", idea_path(item)
 							-else
 								%td= link_to "#{item.text}", idea_path(item.idea_id)
-								%td on
+								%td.smaller-font on
 								%td= "#{Idea.find_by_id(item.idea_id).title}"
 				-else
 					%tr

@@ -140,10 +140,6 @@ table.spaced td:nth-child(2), table.spaced td:nth-child(3), table.spaced td:nth-
 	/*padding-right: 10px;*/
 }
 
-td.small {
-	font-size: 80%;
-}
-
 /* Footer ------------------ */
 footer {
 	position: absolute;

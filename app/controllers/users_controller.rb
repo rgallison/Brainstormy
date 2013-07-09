@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     else
       flash[:warning] = "That is an invalid entry.  Please try again: "#sets warning flash for failed add -rg
       if @user.errors.any?
-        # raise @user.errors.full_messages.inspect
         @user.errors.full_messages.each do |message|
           flash[:warning] += message + ". "
         end
@@ -42,8 +41,7 @@ class UsersController < ApplicationController
     @flag = false#set flag to false.  No longer need edit form. -rg
     @user = User.find params[:id]
     @user.update_attributes!(params[:user])
-    flash[:notice] = "#{@user.name} was successfully updated."
-    redirect_to user_path(@user)
+    redirect_to user_path(@user), notice: "#{@user.name} was successfully updated."
   end
 
 end

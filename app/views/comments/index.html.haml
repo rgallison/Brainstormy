@@ -10,6 +10,7 @@
       %th Rank
       %th Upvote
       %th Downvote   
+      %th
       
     %tbody
     - @comments.each do |comment|
@@ -17,8 +18,10 @@
         %td= comment.rank
         %td= comment.user.name
         %td= comment.text
-        %td= link_to "+", comments_upvote_path(:id => comment.id), :class => "voterButtons up"
-        %td= link_to "-", comments_downvote_path(:id => comment.id), :class => "voterButtons down"
+        %td= button_to "+", comments_upvote_path(:id => comment.id), :class => "voterButtons up"
+        %td= button_to "-", comments_downvote_path(:id => comment.id), :class => "voterButtons down"
+        %td.small-font= #link_to "delete", idea_comment_path(comment.id), :method => :delete
+
         
 
 -#= link_to 'Back to idea list', ideas_path(@idea.id)

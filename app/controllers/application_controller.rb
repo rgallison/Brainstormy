@@ -55,22 +55,9 @@ class ApplicationController < ActionController::Base
     return @updated
   end
 
-  # def check_updated id
-  #   idea = Idea.find_by_id(id)
-  #   user = get_current_user
-  #   idea.comments.each do |comment|
-  #     if comment.created_at >= user.last_login
-  #       return true
-  #     end
-  #   end
-  #   return false
-    
-  # end
-
   def check_login
     unless get_current_user
-      flash[:warning] = "You need to be logged in to do that"
-      redirect_to root_path
+      redirect_to root_path, warning: "You need to be logged in to do that"
     end
   end
 end

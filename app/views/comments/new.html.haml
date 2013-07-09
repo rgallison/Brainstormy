@@ -1,5 +1,7 @@
 %div.panel
-	%h2 Post new comment: 
+	%b Post new comment: 
+	%br
+	%br
 	= form_tag idea_comments_path, :method => :post do
 		=render :partial => 'form'  
 		-#= hidden_field :comment, :idea_id, value: @idea.id

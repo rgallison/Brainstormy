@@ -3,12 +3,15 @@
 	%br
 	%table#messages
 		%tbody
-			- if @messages
+			- unless @messages == []
 				-@messages.each do |message|
 					%tr{:class => ("highlight" if message.status == 'unread')}
 						%td= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
 						%td= link_to "#{message.subject}", message_path(message.id)
 						%td= message.created_at.strftime("%B %d, %Y")
+			- else 
+                %tr
+                    %td= "You have no messages yet.  Start collaborating!"
 -if @message
 	%div.panel.smaller-font
 		%p From: #{link_to "#{User.find_by_id(@message.sender).username}", user_path(@message.sender)}
