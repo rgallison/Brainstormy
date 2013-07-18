@@ -1,3 +1,4 @@
+# Courtesy of Carrierwave
 class AttachmentsController < ApplicationController
   def index
     @pictures = Picture.all

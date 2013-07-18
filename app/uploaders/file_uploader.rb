@@ -1,3 +1,4 @@
+# Courtesy of FileUploader
 # encoding: utf-8
 
 class FileUploader < CarrierWave::Uploader::Base

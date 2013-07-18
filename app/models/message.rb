@@ -1,3 +1,5 @@
+# Renee
+
 class Message < ActiveRecord::Base
   attr_accessible :body, :subject, :status, :sender, :receiver,:parent_id, :child_id
   belongs_to :sent, :class_name => 'User'

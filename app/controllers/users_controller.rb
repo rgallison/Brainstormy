@@ -1,3 +1,4 @@
+# Collaborated: Renee, Rachel
 class UsersController < ApplicationController
   skip_before_filter :check_login, :only => [:create]
   def create

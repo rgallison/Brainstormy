@@ -1,3 +1,5 @@
+# Courtesy of Carrierwave.  Renee
+
 class Attachment < ActiveRecord::Base
   attr_accessible :title, :file
   # belongs_to :comment

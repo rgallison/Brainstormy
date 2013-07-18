@@ -1,3 +1,4 @@
+# Renee
 class MessagesController < ApplicationController
 	def index
 		@messages = get_messages

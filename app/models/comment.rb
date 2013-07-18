@@ -1,3 +1,4 @@
+# Lindsey
 class Comment < ActiveRecord::Base
 
   attr_accessible :rank, :text, :idea_id, :user_id

@@ -1,3 +1,4 @@
+# Renee
 class User < ActiveRecord::Base
 	attr_accessible :username, :name, :email, :email_confirmation, :password, :password_confirmation, :bio, :last_login
 	has_many :comments, :dependent => :destroy #comments user has posted on ideas -rg

@@ -1,3 +1,4 @@
+# Collaborated: Renee, Colin
 class Idea < ActiveRecord::Base
 	attr_accessible :title, :description, :rank, :user_id, :status, :privacy, :created_on, :updated_on, :files_by_owner_attributes, :is_private
 	belongs_to :user #User who created the idea

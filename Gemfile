@@ -14,19 +14,17 @@ gem 'haml' #support haml -RG, 3/20
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'acts_as_votable', '~> 0.5.0'
-gem 'acts_as_commentable_with_threading'
+# gem 'acts_as_commentable_with_threading'
 gem 'simplecov'
 
-group :development, :test do
-  gem 'sqlite3'
-end
 #for iter 1-2.  to support BDD and TDD.  rg
 group :test, :development do
 	gem 'ZenTest', '~> 4.4.2'
 	gem 'rspec-rails','~> 2.0'
 	gem 'database_cleaner'
-	gem 'capybara'
+	# gem 'capybara'
 	gem 'launchy'
+	gem 'sqlite3'
 end
 
 group :test do
