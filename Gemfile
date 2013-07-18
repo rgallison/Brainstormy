@@ -22,7 +22,7 @@ group :test, :development do
 	gem 'ZenTest', '~> 4.4.2'
 	gem 'rspec-rails','~> 2.0'
 	gem 'database_cleaner'
-	# gem 'capybara'
+	gem 'capybara'
 	gem 'launchy'
 	gem 'sqlite3'
 end
