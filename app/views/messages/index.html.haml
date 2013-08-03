@@ -1,21 +1,22 @@
 / Renee
 
-%div.panel.panelWide
+%div.panel.width2.margin3.floatL
 	%b My Messages
 	%br
 	%table#messages
 		%tbody
-			- unless @messages == []
+			- if @messages != []
 				-@messages.each do |message|
 					%tr{:class => ("highlight" if message.status == 'unread')}
 						%td= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
 						%td= link_to "#{message.subject}", message_path(message.id)
 						%td= message.created_at.strftime("%B %d, %Y")
 			- else 
-                %tr
-                    %td= "You have no messages yet.  Start collaborating!"
+				%tr
+					%td= "You have no messages yet.  Start collaborating!"
+
 -if @message
-	%div.panel.smaller-font
+	%div.panel.width2.margin3.floatL.smaller-font
 		%p From: #{link_to "#{User.find_by_id(@message.sender).username}", user_path(@message.sender)}
 		%p Subject: #{@message.subject}
 		%hr
@@ -28,7 +29,7 @@
 			=f.submit 'Reply'
 
 -else
-	%div.panel.panel3.smaller-font
+	%div.panel.width3.margin3.floatL.smaller-font
 		%b New Message
 		%div.newMessage
 			=form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f|

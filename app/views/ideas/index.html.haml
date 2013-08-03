@@ -1,5 +1,5 @@
 / Colin
-%div.panel.small-font
+%div.panel.width2.floatL.margin3.small-font
 	%b My Ideas
 	%table.main
 		%tbody
@@ -10,11 +10,12 @@
 						/ - if idea.comments.keep_if { |comment| comment.created_at >= @user.last_login } != nil
 						/ 	%td.red !
 						%td= idea.rank
+						%td= link_to "Edit", edit_idea_path(idea)
 			- else
 				%tr
 					%td= "No ideas have been created."
 
-%div.panel.wide.small-font
+%div.panel.width2.floatL.margin3.small-font
 	%b My Comments
 	%table.main.spaced
 		%tbody

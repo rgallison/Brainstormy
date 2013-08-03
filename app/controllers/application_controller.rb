@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def create_session
   	#gets params and finds user with such a username and password, then sets user to session -rg
   	user = User.find_by_username(params[:user][:username_login])
-  	if user && (session[:user_id] = user.id if user.password == params[:user][:password_login])
+  	if user && user.password == params[:user][:password_login] && session[:user_id] = user.id
   		set_current_user#sets sets @current_user if user was found -rg
   	else
       if user == nil
@@ -58,7 +58,8 @@ class ApplicationController < ActionController::Base
 
   def check_login
     unless get_current_user
-      redirect_to root_path, warning: "You need to be logged in to do that"
+      flash[:warning] = "You need to be logged in to do that"
+      redirect_to root_path
     end
   end
 end

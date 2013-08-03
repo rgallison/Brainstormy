@@ -63,57 +63,53 @@ p.flashwarning {
 }
 
 /* Panels ------------------ */
-
-div.panel, div.panel1, div.panel2, div.panel3, div.panel4 {
+div.panel {
+	overflow: auto;
 	border-style: ridge;
 	border-width: 3px;
 	border-color: #006a89;
-	min-height: 440px;
-	height: 75%;
-	overflow: auto;
-	width: 25%;
-	min-width: 310px;
 	padding: 20px 25.4px 25px;
-	float: left;
 	background-color: #f9f9f9;
 	box-shadow: 2px 2px 2px #888888;
 }
 
-div.panel, .col1 {
-	margin: 10px 0px 10px 3.5%;
-}
-
-div.panel1LoggedIn, div.panel2 {
-	height: 42%;
-	min-height: 176px;
-	/*padding-left: 25.4px;*/
-}
-
-div.panel1LoggedIn {
-	line-height: 280%;
-}
-
-div.panel1LoggedIn {
-	padding-top: 5px;
-}
-
-div.panel2 {
-	clear: both;
-	margin-top: 25px;
-}
-
-div.col1 {
-	float: left;
-	/*height: 86%;*/
+div.page-height, div.width1, div.width2, div.width3 {
 	min-height: 440px;
+	height: 75%;
+	margin-bottom: 20px;
 }
 
-div.panel4 {
-	/*height: 93%;*/
-	/*margin-bottom: 10px;*/
+div.half-height {
+	height: 42.2%;
+	min-height: 176px;
 }
 
+div.width1 {
+	width: 77%;
+}
 
+div.width2 {
+	width: 40%;
+	min-height: 310px;
+}
+
+div.width3 {
+	width: 25%;
+	min-width: 310px;
+}
+
+div.margin-half {
+	margin-bottom: 18px;
+}
+
+div.margin3 {
+	margin-left: 3.2%;
+}
+
+div.col {
+	width: 29.1%;
+	margin-bottom: 70px;
+}
 
 /* Tables ------------------ */
 table.main {
@@ -201,6 +197,10 @@ a:hover {text-decoration: underline; color: red;}
 
 .floatR {
 	float: right;
+}
+
+.floatC {
+	float: center;
 }
 
 .clear {

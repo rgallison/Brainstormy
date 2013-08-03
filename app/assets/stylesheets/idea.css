@@ -2,18 +2,14 @@
 div.idea {
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 250px;
-	border-style: ridge;
-	border-color: #006a89;
-	/*min-height: 10px;*/
-	/*height: 20%;*/
+	/*min-height: 250px;*/
+	/*height: auto;*/
 	width: 50%;
 	min-width: 350px;
 	padding: 0px 20px 10px 20px;
 	line-height: 100%;
 	float: center;
-	background-color: #f9f9f9;
-	box-shadow: 2px 2px 2px #888888;
+	overflow: visible;
 }
 
 #taglist {
@@ -39,8 +35,8 @@ div.idea {
 
 .secondDiv {
 	display: inline-block;
-	height: 95%;
-	width: 65%;
+	/*height: 95%;*/
+	/*width: 65%;*/
 	min-width: 300px;
 }
 
@@ -58,11 +54,17 @@ div.idea {
 
 .links {
 	position: absolute;
-	left: 67%;
-	bottom: 17%;
+	left: 63%;
+	top: 5%;
 	display: inline-block;
 	width: auto;
 	margin-right: 15%;
+}
+
+.links2 {
+	position:absolute;
+	left: 70%;
+	top: 5%;
 }
 
 .deleteB {
@@ -93,4 +95,12 @@ div.idea {
 
 .red {
 	color: red;
+}
+
+div.idea h4 {
+	line-height: 50%;
+}
+
+div.inner {
+	padding: 10px 0px;
 }

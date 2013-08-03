@@ -2,7 +2,7 @@
 / -require 'RMagick'
 -# in app/views/ideas/show.html.haml
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
-  %div{:name=>"idea", :class => "idea smaller-font"}
+  %div{:name=>"idea", :class => "panel idea smaller-font"}
     %div.firstDiv
       -#Colin added 5/2
       %h2 #{@idea.title}
@@ -22,28 +22,35 @@
       -#5/2 Colin added;
       %br
 
-      %header
+      %div.spaced
         -if @current_user==@user.id
-          = link_to 'Edit', edit_idea_path(@idea)
-          = button_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-        -else
-        - unless @idea.tags.empty? 
-          %br
-          %b Tags
-          %br
-          -@idea.tags.each do |tag|
-            %div.floatL.padding
-              = tag.category 
-              = link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
-          %br
+          %div.links2
+            = link_to 'Edit', edit_idea_path(@idea) 
+            |
+            = link_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
 
     %div.secondDiv
-      / %h4 Attachments
-      %div.files
-        -@idea.files_by_owner.each do |attachment|
-          =image_tag attachment.file.thumb.url, :alt => ""
+      %br
+      %br
+      - unless @idea.tags.empty? 
+        %h4 Tags
+        -@idea.tags.each do |tag|
+          %div.floatL.padding
+            = tag.category 
+        %br
 
-    -if @current_user and not @idea.collaborator_ids.include? @current_user and ! (@current_user == @idea.user_id)
+      -unless @idea.collaborators.empty?
+        %h4 Collaborators
+        -@idea.collaborators.each do |collaborator|
+          %div.floatL.padding
+            = collaborator.name
+      %br
+      %h4 Attachments
+      %div.files
+        / -@idea.files_by_owner.each do |attachment|
+        /   =image_tag attachment.file.thumb.url, :alt => ""
+
+    -if @current_user and not @idea.collaborator_ids.include? @current_user and !(@current_user == @idea.user_id)
       = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
       
     %div{:name=>"commentbox", :class => "commentbox clear"}
