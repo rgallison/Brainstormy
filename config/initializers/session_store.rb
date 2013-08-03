@@ -8,4 +8,4 @@ Brainstormy::Application.config.session_store :cookie_store, key: '_Brainstormy_
 # Brainstormy::Application.config.session_store :active_record_store
 
 # File Upload: Skater Coder
-ActionController::Dispatcher.middleware.insert_before(ActionController::Base.session_store, FlashSessionCookieMiddleware, ActionController::Base.session_options[:key])
+# ActionController::Dispatcher.middleware.insert_before(ActionController::Base.session_store, FlashSessionCookieMiddleware, ActionController::Base.session_options[:key])
