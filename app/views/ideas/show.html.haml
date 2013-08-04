@@ -3,9 +3,16 @@
 -# in app/views/ideas/show.html.haml
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
   %div{:name=>"idea", :class => "panel idea smaller-font"}
+    %div.spaced
+      -if @current_user==@user.id
+        %div.links.floatR
+          = link_to 'Edit', edit_idea_path(@idea) 
+          |
+          = link_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+    %div.clear
     %div.firstDiv
       -#Colin added 5/2
-      %h2 #{@idea.title}
+      %b.larger-font #{@idea.title}
 
       %ul#details
         %li
@@ -22,16 +29,7 @@
       -#5/2 Colin added;
       %br
 
-      %div.spaced
-        -if @current_user==@user.id
-          %div.links2
-            = link_to 'Edit', edit_idea_path(@idea) 
-            |
-            = link_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-
     %div.secondDiv
-      %br
-      %br
       - unless @idea.tags.empty? 
         %h4 Tags
         -@idea.tags.each do |tag|
@@ -47,8 +45,12 @@
       %br
       %h4 Attachments
       %div.files
-        / -@idea.files_by_owner.each do |attachment|
-        /   =image_tag attachment.file.thumb.url, :alt => ""
+        -@idea.owner_attachments.each do |a|
+          / -raise a.attachment.url(:thumb).inspect
+          %div.file
+            =image_tag "#{a.attachment.url(:thumb)}"
+            %div.filename
+              =a.title
 
     -if @current_user and not @idea.collaborator_ids.include? @current_user and !(@current_user == @idea.user_id)
       = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"

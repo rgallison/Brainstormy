@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
 #6/13 rg: file upload
-gem 'carrierwave', '>= 0.5.3'
-gem "rmagick"#, :require => 'RMagick'
+# gem 'carrierwave', '>= 0.5.3'
+gem "rmagick", :require => 'RMagick'
 # gem 'nested_form'
-gem "jquery-fileupload-rails"
+# gem "jquery-fileupload-rails"
+gem "paperclip", "~> 3.0"
 #6/12  rg: validation errors
-# gem 'dynamic_forms'
+# gem 'dynamic_forms
 
 gem 'rails', '3.2.13'
 gem 'haml' #support haml -RG, 3/20

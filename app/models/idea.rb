@@ -1,6 +1,6 @@
 # Collaborated: Renee, Colin
 class Idea < ActiveRecord::Base
-	attr_accessible :title, :description, :rank, :user_id, :status, :privacy, :created_on, :updated_on, :files_by_owner_attributes, :is_private
+	attr_accessible :title, :description, :rank, :user_id, :status, :privacy, :created_on, :updated_on, :is_private, :owner_attachments_attributes#, :final_attachments:attributes
 	belongs_to :user #User who created the idea
 
 	#4/4 Colin deleted : after :class_name (previously read ":class_name: => ")
@@ -13,9 +13,10 @@ class Idea < ActiveRecord::Base
 
 	has_many :comments #idea comments <no longer needed due to acts as commentable
 
-	has_many :files_by_owner, :class_name => 'Attachment', :as => :attachable, :dependent => :destroy# all files submitted by owner of the idea
-	has_many :final_files, :class_name => 'Attachment', :dependent => :destroy #all files to include in final state
-	accepts_nested_attributes_for :files_by_owner
+	has_many :owner_attachments, :class_name => 'Attachment', :as => :attachable, :dependent => :destroy# all files submitted by owner of the idea
+	# has_many :final_attachments, :class_name => 'Attachment', :dependent => :destroy #all files to include in final state
+	accepts_nested_attributes_for :owner_attachments, :allow_destroy => true
+	# accepts_nested_attributes_for :final, :allow_destroy => true
 
 	#validation
 	validates :title, :presence => true

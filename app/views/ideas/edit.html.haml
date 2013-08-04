@@ -1,8 +1,17 @@
 / Collaborated: Renee, Colin
 
--# in app/views/ideas/show.html.haml
+-# in app/views/ideas/show.html.haml.
 %div.panel.idea.smaller-font
-  %div.inner
+  %div.links
+    %div.floatR.padding
+      = link_to 'Back to idea list', ideas_path
+    %div.floatR.padding
+      -if @current_user==@user.id
+        = link_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+      -else
+        = link_to 'home', root_path
+      |
+  %div.inner.clear
     -if @current_user == @idea.user_id
       / Idea edit form
       %div.firstDiv
@@ -32,7 +41,6 @@
       %div.secondDiv
         / Tags
         =#Colin added 5/2 for showing existing tags if any exist
-        %br
         %br
         %div
           -unless @idea.collaborators.empty? 
@@ -74,25 +82,25 @@
         %br
         %br
         %div.fileuploader
-        /   -@idea.files_by_owner.each do |attachment|
-        /     %div.file
-        /       =image_tag attachment.file.thumb.url, :alt => ""
-        /       %div.filename
-        /         =attachment.title
-        /       %div.actions
-        /         = link_to "edit", edit_attachment_path(attachment)
-        /         |
-        /         = link_to "remove", attachment, :confirm => 'Are you sure?', :method => :delete
+          = form_for Attachment.new, html: { multipart: true } do |f|
+            = f.hidden_field :idea_id, :value => @idea.id
+            = f.text_field :title, :placeholder => "Title"#, :width => 20
+            %br
+            = f.text_area :description, :placeholder => "Description", :size => "30x7"
+            %br
+            = f.file_field :attachment
+            =f.submit  "Add File"
+          %br
+          / -@idea.owner_attachments.each do |file|
+          /   %div.file
+          /     =image_tag file.url(:thumb), :alt => ""
+          /     %div.filename
+          /       =file.title
+          /     %div.actions
+          /       = link_to "edit", edit_attachment_path(file)
+          /       |
+          /       = link_to "remove", file, :confirm => 'Are you sure?', :method => :delete
 
     -else  
       %h2 You do not have access to this page.
 
-    %div.links
-      %div.floatR.padding
-        = link_to 'Back to idea list', ideas_path
-      %div.floatR.padding
-        -if @current_user==@user.id
-          = link_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-        -else
-          = link_to 'home', root_path
-        |

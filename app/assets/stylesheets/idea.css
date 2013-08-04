@@ -53,18 +53,9 @@ div.idea {
 }
 
 .links {
-	position: absolute;
-	left: 63%;
-	top: 5%;
-	display: inline-block;
-	width: auto;
-	margin-right: 15%;
-}
-
-.links2 {
-	position:absolute;
-	left: 70%;
-	top: 5%;
+	float: right;
+	position: relative;
+	top:10px;
 }
 
 .deleteB {
@@ -73,9 +64,14 @@ div.idea {
 	bottom: 17%;
 }
 
+.files {
+	overflow-x:auto;
+}
+
 .file {
 	width: 150px;
 	padding: 3px;
+	display: inline-block;
 }
 
 .filename {
@@ -104,3 +100,4 @@ div.idea h4 {
 div.inner {
 	padding: 10px 0px;
 }
+
