@@ -46,9 +46,9 @@
       %h4 Attachments
       %div.files
         -@idea.owner_attachments.each do |a|
-          / -raise a.attachment.url(:thumb).inspect
+          / -raise a.inspect
           %div.file
-            =image_tag "#{a.attachment.url(:thumb)}"
+            =image_tag "#{a.attachment.url(:small)}"
             %div.filename
               =a.title
 

@@ -77,29 +77,32 @@
         =#Colin removed edit link since we are already on edit page 4/19:
 
         / Attachments
-        %hr#edit
-        %b Attachments
-        %br
-        %br
-        %div.fileuploader
-          = form_for Attachment.new, html: { multipart: true } do |f|
-            = f.hidden_field :idea_id, :value => @idea.id
-            = f.text_field :title, :placeholder => "Title"#, :width => 20
-            %br
-            = f.text_area :description, :placeholder => "Description", :size => "30x7"
-            %br
-            = f.file_field :attachment
-            =f.submit  "Add File"
+      %div#attachments.clear
+        %hr
+        %div.floatL
+          %b Attachments
           %br
-          / -@idea.owner_attachments.each do |file|
-          /   %div.file
-          /     =image_tag file.url(:thumb), :alt => ""
-          /     %div.filename
-          /       =file.title
-          /     %div.actions
-          /       = link_to "edit", edit_attachment_path(file)
-          /       |
-          /       = link_to "remove", file, :confirm => 'Are you sure?', :method => :delete
+          %br
+          %div.fileuploader
+            = form_for Attachment.new, html: { multipart: true } do |f|
+              = f.hidden_field :idea_id, :value => @idea.id
+              = f.text_field :title, :placeholder => "Title"#, :width => 20
+              %br
+              = f.text_area :description, :placeholder => "Description", :size => "30x7"
+              %br
+              = f.file_field :attachment
+              =f.submit  "Add File"
+            %br
+        %div.files
+          -@idea.owner_attachments.each do |a|
+            %div.file
+              =image_tag "#{a.attachment.url(:small)}"
+              %div.filename
+                =a.title
+              %div.actions
+                = link_to "edit", edit_attachment_path(a)
+                |
+                = link_to "remove", a, :confirm => 'Are you sure?', :method => :delete
 
     -else  
       %h2 You do not have access to this page.
