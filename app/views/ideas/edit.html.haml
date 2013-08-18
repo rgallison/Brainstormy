@@ -14,7 +14,7 @@
   %div.inner.clear
     -if @current_user == @idea.user_id
       / Idea edit form
-      %div.firstDiv
+      %div.firstDiv.sideline
         = form_for @idea, :url => {:action => "update", :controller=>"ideas"} do |f|
           =f.text_field :title, value: @idea.title
 
@@ -34,15 +34,14 @@
           
           = f.label :privacy, "Make Private" 
           = f.check_box :is_private
-          = f.submit 'Save and Post'
+          = f.submit 'Save and Post', :class => "move"
         
         =#Colin added 4/18 for showing existing collaborators if any exist
 
-      %div.secondDiv
-        / Tags
+        / Collaborators
         =#Colin added 5/2 for showing existing tags if any exist
         %br
-        %div
+        %div.spaced
           -unless @idea.collaborators.empty? 
             %b Collaborators
             %br
@@ -50,16 +49,15 @@
               %div.floatL.padding
                 = user.name
                 = link_to '(x)', idea_path(@idea, :delete_collaborator => user.id), :method => :put
+          %br
+          =#Colin added 4/18 for adding collaborators:
+          =form_tag idea_path(@idea), :class => "padding-top", :method => :put do
+            =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
+            =submit_tag 'Add'
 
-        / Collaborators
-        %br
-        =#Colin added 4/18 for adding collaborators:
-        =form_tag idea_path(@idea), :method => :put do
-          =label :idea, :collaborator, "Add Collaborator:"
-          =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
-          =submit_tag 'Add'
+        / Tags
         %hr#edit
-        %div
+        %div.spaced
           - unless @idea.tags.empty? 
             %b Tags
             %br
@@ -69,30 +67,28 @@
                 = link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
             %br
           =#Colin added 5/2 for adding tags:
-          =form_tag idea_path(@idea), :method => :put do
-            =label :idea, :tag, "Add Tag:"
+          =form_tag idea_path(@idea), :class => "padding-top", :method => :put do
             =text_field_tag :tag, nil, :placeholder => 'Enter topic'
             =submit_tag 'Add'    
 
         =#Colin removed edit link since we are already on edit page 4/19:
 
         / Attachments
-      %div#attachments.clear
-        %hr
-        %div.floatL
-          %b Attachments
-          %br
-          %br
-          %div.fileuploader
-            = form_for Attachment.new, html: { multipart: true } do |f|
-              = f.hidden_field :idea_id, :value => @idea.id
-              = f.text_field :title, :placeholder => "Title"#, :width => 20
-              %br
-              = f.text_area :description, :placeholder => "Description", :size => "30x7"
-              %br
-              = f.file_field :attachment
-              =f.submit  "Add File"
+      %div.secondDiv
+        %br
+        %b Attachments
+        %br
+        %br
+        %div.fileuploader
+          = form_for Attachment.new, html: { multipart: true } do |f|
+            = f.hidden_field :idea_id, :value => @idea.id
+            = f.text_field :title, :placeholder => "Title"#, :width => 20
             %br
+            = f.text_area :description, :placeholder => "Description", :size => "30x7"
+            %br
+            = f.file_field :attachment
+            = f.submit  "Add File"
+          %br
         %div.files
           -@idea.owner_attachments.each do |a|
             %div.file

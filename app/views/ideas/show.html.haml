@@ -29,7 +29,6 @@
       -#5/2 Colin added;
       %br
 
-    %div.secondDiv
       - unless @idea.tags.empty? 
         %h4 Tags
         -@idea.tags.each do |tag|
@@ -42,6 +41,7 @@
         -@idea.collaborators.each do |collaborator|
           %div.floatL.padding
             = collaborator.name
+    %div.secondDiv
       %br
       %h4 Attachments
       %div.files
@@ -55,7 +55,7 @@
     -if @current_user and not @idea.collaborator_ids.include? @current_user and !(@current_user == @idea.user_id)
       = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
       
-    %div{:name=>"commentbox", :class => "commentbox clear"}
+    %div{:name=>"commentbox", :class => "commentbox clear padding-top"}
       -if @current_user != nil
         = link_to 'Post comment', new_idea_comment_path(@idea.id)
         %br

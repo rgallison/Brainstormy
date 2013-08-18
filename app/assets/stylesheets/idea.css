@@ -4,7 +4,7 @@ div.idea {
 	margin-right: auto;
 	/*min-height: 250px;*/
 	/*height: auto;*/
-	width: 50%;
+	width: 55%;
 	min-width: 350px;
 	padding: 0px 20px 10px 20px;
 	line-height: 100%;
@@ -27,18 +27,21 @@ div.idea {
 
 .firstDiv {
 	display: inline-block;
-	width: 300px;
+	width:47%;
 	height: auto;
 	margin: 15px 10px;
 	vertical-align: top;
+	/*float:left;*/
 }
 
 .secondDiv {
+	margin-left: 20px;
 	display: inline-block;
 	/*height: 95%;*/
-	width: 52%;
+	width: 45%;
 	/*min-width: 300px;*/
 	/*overflow-x:auto;*/
+	/*float:left;*/
 }
 
 #edit {
@@ -67,9 +70,10 @@ div.idea {
 
 .files {
 	overflow-x:auto;
-	height: 200px;
+	height: 280px;
 	padding-left: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+
 }
 
 .file {
@@ -105,3 +109,13 @@ div.inner {
 	padding: 10px 0px;
 }
 
+.move {
+	position: relative;
+	top:250px;
+	right:30px;
+}
+
+.sideline {
+	border-right: 1px solid gray;
+	padding-bottom: 75px;
+}
