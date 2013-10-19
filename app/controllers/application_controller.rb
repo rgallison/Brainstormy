@@ -1,3 +1,4 @@
+# Renee
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -8,7 +9,7 @@ class ApplicationController < ActionController::Base
   def create_session
   	#gets params and finds user with such a username and password, then sets user to session -rg
   	user = User.find_by_username(params[:user][:username_login])
-  	if user && (session[:user_id] = user.id if user.password == params[:user][:password_login])
+  	if user && user.password == params[:user][:password_login] && session[:user_id] = user.id
   		set_current_user#sets sets @current_user if user was found -rg
   	else
       if user == nil
@@ -37,7 +38,22 @@ class ApplicationController < ActionController::Base
   end
 
   def get_messages
-      get_current_user.received.order('created_at DESC')
+    get_current_user.received.order('created_at DESC')
+  end
+
+  def get_updated
+    user = get_current_user
+    @updated = []
+    # ideas that have been updated
+    @updated += user.collaborated_ideas.where("updated_at >= :date", date: user.last_login).all
+    # comments that have been  created
+    user.collaborated_ideas.each do |idea|
+      @updated += idea.comments.where("created_at >= :date", date: user.last_login).all
+    end
+    user.ideas.each do |idea|
+      @updated += idea.comments.where("created_at >= :date", date: user.last_login).all
+    end
+    return @updated
   end
 
   def check_login

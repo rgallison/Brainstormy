@@ -1,35 +1,35 @@
-%div.col1
-	- if !@current_user
-		%div.panel4
-			%b Sign In
-			%div.content
-				= form_for :user, :url => {:action => "create_session", :controller => "application"} do |f|
-					= f.text_field :username_login, :placeholder => 'Username', :size => 30 
-					%br
-					= f.password_field :password_login, :placeholder => 'Password', :size => 30 
-					%br
-					= f.hidden_field :login, :value => true
-					= f.submit 'Login'
+/ Collaborated: Renee, Christie
+- if !@current_user
+	%div.panel.page-height.width3.floatL.margin3
+		%b Sign In
+		%div.content
+			= form_for :user, :url => {:action => "create_session", :controller => "application"} do |f|
+				= f.text_field :username_login, :placeholder => 'Username', :size => 30 
+				%br
+				= f.password_field :password_login, :placeholder => 'Password', :size => 30 
+				%br
+				= f.hidden_field :login, :value => true
+				= f.submit 'Login'
 
-				%hr
-				%b Sign Up
-				=form_for :user, :url => {:action => "create", :controller=>"users"} do |f|
-					/ = f.error_messages
-					= f.text_field :username, :placeholder => 'Username', :size => 30
-					%br
-					= f.text_field :name, :placeholder => 'Name', :size => 30 
-					%br
-					= f.text_field :email, :placeholder => 'E-mail', :size => 30#, :id =>'email'
-					%br
-					= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
-					%br
-					= f.password_field :password, :placeholder => 'Password', :size => 30
-					%br
-					= f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
-					%br
-					= f.submit 'Sign Up'
-	- else
-		%div.panel1{:class => ("panel1LoggedIn" if @current_user)}
+			%hr
+			%b Sign Up
+			=form_for :user, :url => {:action => "create", :controller=>"users"} do |f|
+				= f.text_field :username, :placeholder => 'Username', :size => 30
+				%br
+				= f.text_field :name, :placeholder => 'Name', :size => 30 
+				%br
+				= f.text_field :email, :placeholder => 'E-mail', :size => 30#, :id =>'email'
+				%br
+				= f.text_field :email_confirmation, :placeholder => 'Re-enter E-mail', :size => 30
+				%br
+				= f.password_field :password, :placeholder => 'Password', :size => 30
+				%br
+				= f.password_field :password_confirmation, :placeholder => 'Re-enter Password', :size => 30
+				%br
+				= f.submit 'Sign Up'
+- else
+	%div.col.width3.floatL.margin3
+		%div.panel{:class => ("half-height margin-half" if @current_user)}
 			%b Post An Idea
 			%br
 			= form_for :idea, :url => {:action => "create", :controller => "ideas"} do |f|
@@ -40,26 +40,26 @@
 				%br
 				= f.submit 'Post an Idea'
 
-	-if @current_user
-		%div.panel2
-			%b New Messages
-			%br
-			%table#messages
-				%tbody
-					- if @messages == nil
-						-@messages.each do |message|
-							%tr.highlight
-								%td#home1= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
-								%td#home2= link_to "#{message.subject}", message_path(message.id)
-					- else
-						%tr
-							%td= "You have no new messages"
+		-if @current_user
+			%div.panel.half-height.smaller-font
+				%b New Messages
+				%br
+				%table#messages
+					%tbody
+						- if @messages != nil
+							-@messages.each do |message|
+								%tr.highlight
+									%td#home1= link_to "#{User.find_by_id(message.sender).username}", user_path(message.sender)
+									%td#home2= link_to "#{message.subject}", message_path(message.id)
+						- else
+							%tr
+								%td= "You have no new messages"
 
 
 
-%div.panel
+%div.panel.width3.floatL.margin3.small-font
 	%b Popular Ideas
-	//Christie - Listing ideas
+	-# Christie - Listing ideas
 	%table.main
 		%tbody
 			- if @pop_ideas
@@ -74,7 +74,7 @@
 						%td= link_to "#{user.username}", user_path(user)
 						/ %td= "" if !user.description I don't think this is nessecary and there is no room.  We can talk about it more
 
-%div.panel
+%div.panel.width3.floatL.margin3.small-font
 	-if !@current_user
 		%div.aboutSite
 			%b About Brainstormy
@@ -98,12 +98,17 @@
 		%div.newsFeed
 			%b News Feed
 			%br
-			%table.main
+			%table.smaller.main
 				%tbody
-				-if @updated == nil
-					-@updated.each do |idea| 
+				-unless @updated == []
+					-@updated.each do |item| 
 						%tr
-							%td= link_to "#{idea.title}", idea_path(idea)
+							-if item.is_a?(Idea)
+								%td= link_to "#{item.title}", idea_path(item)
+							-else
+								%td= link_to "#{item.text}", idea_path(item.idea_id)
+								%td.smaller-font on
+								%td= "#{Idea.find_by_id(item.idea_id).title}"
 				-else
 					%tr
 						%td= "There doesn't seem to be anything new."

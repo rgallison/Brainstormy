@@ -1,74 +1,109 @@
--# in app/views/ideas/show.html.haml
-%div.panel.smaller_font
-  -if @current_user != @idea.user_id
-    %h2 You do not have access to this page.
-  -else  
-    %div.centralIdea
-      = form_tag idea_path(@idea), :method => :put do
+/ Collaborated: Renee, Colin
 
-        = text_field :idea, 'title'
+-# in app/views/ideas/show.html.haml.
+%div.panel.idea.smaller-font
+  %div.links
+    %div.floatR.padding
+      = link_to 'Back to idea list', ideas_path
+    %div.floatR.padding
+      -if @current_user==@user.id
+        = link_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+      -else
+        = link_to 'home', root_path
+      |
+  %div.inner.clear
+    -if @current_user == @idea.user_id
+      / Idea edit form
+      %div.firstDiv
+        = form_for @idea, :url => {:action => "update", :controller=>"ideas"} do |f|
+          =f.text_field :title, value: @idea.title
 
-        %ul#details
-          %li
-            Created By:
-            = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
+          %ul#details
+            %li
+              Created By:
+              = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
 
-          %li
-            Points:
-            = @idea.rank
+            %li
+              Points:
+              = @idea.rank
 
-        %h3 Description:
+          %h4 Description:
 
-        = text_area :idea, 'description', :size => '30x7', :id => 'description'
-        %br 
+          = f.text_area :description, :size => '30x7', :id => 'description'
+          %br 
+          
+          = f.label :privacy, "Make Private" 
+          = f.check_box :is_private
+          = f.submit 'Save and Post'
         
-        = label :idea, :privacy, "Make Private" 
-        = check_box_tag 'privacy', 1, (@idea.privacy=='private'), :id=>"Make Private"
+        =#Colin added 4/18 for showing existing collaborators if any exist
 
-        =submit_tag 'Save and Post'
-      =#Colin added 4/18 for showing existing collaborators if any exist
-      %br
-      -if not @idea.collaborators.empty? 
-        %table
-          %thead
-            %tr
-              %th Collaborators
-          %tbody#collaborators
-            - @idea.collaborators.each do |user|
-              %tr
-                %td= user.name
-                %td= link_to '(x)', idea_path(@idea, :delete_collaborator => user.id), :method => :put
-
-      =#Colin added 4/18 for adding collaborators:
-      =form_tag idea_path(@idea), :method => :put do
-        =label :idea, :collaborator, "Add Collaborator:"
-        =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
-        =submit_tag 'Add Collaborator'
-      =#Colin added 5/2 for showing existing tags if any exist
-      %br
-      -if not @idea.tags.empty? 
-        %table
-          %thead
-            %tr
-              %th Tags
-          %tbody#taglist
-            - @idea.tags.each do |tag|
-              %tr
-                %td= tag.category 
-                %td= link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
-      =#Colin added 5/2 for adding tags:
-      =form_tag idea_path(@idea), :method => :put do
-        =label :idea, :tag, "Add topic tag:"
-        =text_field_tag :tag, nil, :placeholder => 'Enter topic'
-        =submit_tag 'Add Tag'    
-
-      =#Colin removed edit link since we are already on edit page 4/19:
-      %header
+      %div.secondDiv
+        / Tags
+        =#Colin added 5/2 for showing existing tags if any exist
         %br
-        -if @current_user==@user.id
-          = button_to 'Delete Idea', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-        -else
-          = link_to 'home', root_path
+        %div
+          -unless @idea.collaborators.empty? 
+            %b Collaborators
+            %br
+            - @idea.collaborators.each do |user|
+              %div.floatL.padding
+                = user.name
+                = link_to '(x)', idea_path(@idea, :delete_collaborator => user.id), :method => :put
 
+        / Collaborators
+        %br
+        =#Colin added 4/18 for adding collaborators:
+        =form_tag idea_path(@idea), :method => :put do
+          =label :idea, :collaborator, "Add Collaborator:"
+          =text_field_tag :collaborator, nil, :placeholder => 'Enter username'
+          =submit_tag 'Add'
+        %hr#edit
+        %div
+          - unless @idea.tags.empty? 
+            %b Tags
+            %br
+            -@idea.tags.each do |tag|
+              %div.floatL.padding
+                = tag.category 
+                = link_to '(x)', idea_path(@idea, :delete_tag => tag.id), :method => :put       
+            %br
+          =#Colin added 5/2 for adding tags:
+          =form_tag idea_path(@idea), :method => :put do
+            =label :idea, :tag, "Add Tag:"
+            =text_field_tag :tag, nil, :placeholder => 'Enter topic'
+            =submit_tag 'Add'    
 
-    = link_to 'Back to idea list', ideas_path
+        =#Colin removed edit link since we are already on edit page 4/19:
+
+        / Attachments
+      %div#attachments.clear
+        %hr
+        %div.floatL
+          %b Attachments
+          %br
+          %br
+          %div.fileuploader
+            = form_for Attachment.new, html: { multipart: true } do |f|
+              = f.hidden_field :idea_id, :value => @idea.id
+              = f.text_field :title, :placeholder => "Title"#, :width => 20
+              %br
+              = f.text_area :description, :placeholder => "Description", :size => "30x7"
+              %br
+              = f.file_field :attachment
+              =f.submit  "Add File"
+            %br
+        %div.files
+          -@idea.owner_attachments.each do |a|
+            %div.file
+              =image_tag "#{a.attachment.url(:small)}"
+              %div.filename
+                =a.title
+              %div.actions
+                = link_to "edit", edit_attachment_path(a)
+                |
+                = link_to "remove", a, :confirm => 'Are you sure?', :method => :delete
+
+    -else  
+      %h2 You do not have access to this page.
+

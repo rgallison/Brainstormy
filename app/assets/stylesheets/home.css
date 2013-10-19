@@ -1,3 +1,6 @@
+
+/*Renee*/
+
 .aboutSite p {
 	font-size: 85%;
 }
@@ -21,4 +24,9 @@ table#messages td#home2 {
 	white-space: nowrap;
 	overflow: hidden;
 	max-width: 70px;
+}
+
+table.smaller td:first-child {
+	width: 50%;
+	overflow: hidden;
 }

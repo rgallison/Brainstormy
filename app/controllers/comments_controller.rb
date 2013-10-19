@@ -62,8 +62,9 @@ end
    # redirect_to idea_comment_path(@comment.idea_id,@comment.id), notice: 'Comment was sucessfuly edited' 
   #end
 
-  #def destroy
-   # @comment = Comment.find(params[:id])
-    #@comment.destroy
-  #end
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to idea_path(@comment.idea_id)
+  end
 end

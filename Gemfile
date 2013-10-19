@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
 #6/13 rg: file upload
-gem 'carrierwave' 
+# gem 'carrierwave', '>= 0.5.3'
+gem "rmagick", :require => 'RMagick'
+# gem 'nested_form'
+# gem "jquery-fileupload-rails"
+gem "paperclip", "~> 3.0"
 #6/12  rg: validation errors
-# gem 'dynamic_forms'
+# gem 'dynamic_forms
 
 gem 'rails', '3.2.13'
 gem 'haml' #support haml -RG, 3/20
@@ -11,12 +15,9 @@ gem 'haml' #support haml -RG, 3/20
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'acts_as_votable', '~> 0.5.0'
-gem 'acts_as_commentable_with_threading'
+# gem 'acts_as_commentable_with_threading'
 gem 'simplecov'
 
-group :development, :test do
-  gem 'sqlite3'
-end
 #for iter 1-2.  to support BDD and TDD.  rg
 group :test, :development do
 	gem 'ZenTest', '~> 4.4.2'
@@ -24,6 +25,7 @@ group :test, :development do
 	gem 'database_cleaner'
 	gem 'capybara'
 	gem 'launchy'
+	gem 'sqlite3'
 end
 
 group :test do

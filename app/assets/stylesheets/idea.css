@@ -2,18 +2,14 @@
 div.idea {
 	margin-left: auto;
 	margin-right: auto;
-	min-height: 250px;
-	border-style: ridge;
-	border-color: #006a89;
-	/*min-height: 10px;*/
-	/*height: 20%;*/
+	/*min-height: 250px;*/
+	/*height: auto;*/
 	width: 50%;
 	min-width: 350px;
-	padding: 10px 20px 10px 20px;
+	padding: 0px 20px 10px 20px;
 	line-height: 100%;
 	float: center;
-	background-color: #f9f9f9;
-	box-shadow: 2px 2px 2px #888888;
+	overflow: visible;
 }
 
 #taglist {
@@ -25,6 +21,87 @@ div.idea {
 .subscription {
 	float: right;
 	position: relative;
-	bottom: -10px;
+	bottom: 5px;
+	font-size: 80%;
+}
+
+.firstDiv {
+	display: inline-block;
+	width: 300px;
+	height: auto;
+	margin: 15px 10px;
+	vertical-align: top;
+}
+
+.secondDiv {
+	display: inline-block;
+	/*height: 95%;*/
+	width: 52%;
+	/*min-width: 300px;*/
+	/*overflow-x:auto;*/
+}
+
+#edit {
+	width: 60%;
+}
+
+.fileuploader {
+	height: 35%;
+	width: 100%;
+	overflow: auto;
+	/*margin-top: 30px;*/
+	/*margin-bottom: 10px;*/
+}
+
+.links {
+	float: right;
+	position: relative;
+	top:10px;
+}
+
+.deleteB {
+	position: absolute;
+	left: 64%;
+	bottom: 17%;
+}
+
+.files {
+	overflow-x:auto;
+	height: 200px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+
+.file {
+	width: 210px;
+	padding: 5px;
+	display: inline-block;
+}
+
+.filename {
+	text-align: center;
+	font-size: 80%;
+}
+
+.actions {
+	text-align: center;
+	font-size: 75%;
+}
+
+.tags {
+	min-width: 50px;
+	width: 100%;
+}
+
+.red {
+	color: red;
+}
+
+div.idea h4 {
+	line-height: 50%;
+}
+
+div.inner {
+	padding: 10px 0px;
 }
 

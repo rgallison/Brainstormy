@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503220523) do
+ActiveRecord::Schema.define(:version => 20130804013135) do
+
+  create_table "attachments", :force => true do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.integer  "idea_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.string   "text"
@@ -39,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20130503220523) do
   end
 
   create_table "ideas_users", :force => true do |t|
-    t.string "user_id"
-    t.string "idea_id"
+    t.integer "user_id"
+    t.integer "idea_id"
   end
 
   create_table "messages", :force => true do |t|
