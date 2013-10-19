@@ -93,8 +93,21 @@ class IdeasController < ApplicationController
       else
         params[:idea][:privacy]='public'
       end
-      @idea.update_attributes!(params[:idea])
-      redir=idea_path(@idea.id)
+      #Colin added validation 6/27/13
+      updated_idea=Idea.new(params[:idea]) #attempts to create an idea with the updated info
+      if updated_idea.valid? #check that user did not invalidate idea with update
+        @idea.update_attributes!(params[:idea])
+        redir=idea_path(@idea.id)
+      else
+        redir=edit_idea_path(@idea.id)   
+        flash[:warning] = "That is an invalid entry.  Please try again: "#sets warning flash for failed add -rg
+        if updated_idea.errors.any?
+          # raise @user.errors.full_messages.inspect
+          updated_idea.errors.full_messages.each do |message|
+            flash[:warning] += message + ". "
+          end
+        end
+      end        
     end
     redirect_to redir
   end
