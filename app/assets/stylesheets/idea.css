@@ -1,15 +1,14 @@
 /* Collaborated: Renee, Colin; */
 div.idea {
-	margin-left: auto;
-	margin-right: auto;
-	/*min-height: 250px;*/
-	/*height: auto;*/
-	width: 55%;
-	min-width: 350px;
 	padding: 0px 20px 10px 20px;
 	line-height: 100%;
-	float: center;
 	overflow: visible;
+}
+
+div.container{
+	width: 55%;
+	min-width: 350px;
+	margin: 25px auto;
 }
 
 #taglist {
@@ -118,4 +117,42 @@ div.inner {
 .sideline {
 	border-right: 1px solid gray;
 	padding-bottom: 75px;
+}
+
+div.tab1, div.tab2 {
+	height:0px;
+	width:50%;
+	overflow:visible;
+	position:relative;
+	top:-30px;
+}
+
+div.tab1 {
+}
+
+div.tab2 {
+	left:50%;
+}
+
+div.tab1 div, div.tab2 div{
+	height:22px;
+	background-color: rgb(249, 249, 249);
+	border-style: ridge;
+	border-width: 3px;
+	border-color: #006a89;
+	border-bottom:none;
+	border-radius: 10px 10px 0px 0px;
+	/*box-shadow: 2px 0px 0px #888888;*/
+	padding: 8px 38% 0px;
+}
+
+div.tab2 div {
+	height:19px;
+}
+
+#attachments {
+	padding: 0px 20px 10px 20px;
+	line-height: 100%;
+	overflow: visible;
+	display:none;
 }

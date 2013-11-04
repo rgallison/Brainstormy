@@ -1,8 +1,33 @@
 
 /*Renee*/
 
-.aboutSite p {
+#about-site p {
 	font-size: 85%;
+	line-height:150%;
+}
+
+#new-idea, #new-idea form, #new-idea textarea {
+	height:80%;
+}
+
+#new-idea textarea{
+	width:98%
+}
+
+/*#sign-in :not(h3){
+	text-align: center;
+}
+*/
+
+#sign-in form{
+	display: inline-block;
+    text-align: center;
+	width:100%;
+}
+
+#sign-in form input{
+	width:80%;
+	margin-bottom:2%;
 }
 
 hr {
@@ -10,10 +35,8 @@ hr {
 	width: 85%
 }
 
-div.content {
-	margin-top: 10px;
-	margin-left: 8%;
-	line-height: 210%;
+table#messages{
+	line-height:100%;
 }
 
 table#messages td#home1 {

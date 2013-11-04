@@ -44,6 +44,7 @@ class IdeasController < ApplicationController
     @idea=Idea.find(params[:id])
     #4/18 Colin added check for adding collaborators:
     #5/2 Colin added check for subscribers
+    #User is adding the collaborators
     if params[:collaborator] != nil or params[:subscriber] != nil
       #retrieves the user profile for collaborator from db
       if params[:collaborator] != nil
@@ -74,6 +75,7 @@ class IdeasController < ApplicationController
 
 
     #5/2 Colin added tags:
+    #User is adding tags
     elsif params[:tag] != nil
       tag=Tag.find_by_category(params[:tag])
       if tag == nil
@@ -81,16 +83,19 @@ class IdeasController < ApplicationController
       end
       @idea.tags<< tag
       redir=edit_idea_path(@idea.id)
+    #User is deleting tags
     elsif params[:delete_tag] != nil
       tag=Tag.find_by_id(params[:delete_tag])
       @idea.tags.delete(tag)
       redir=edit_idea_path(@idea.id)
       flash[:notice]="#{tag.category} deleted from tags."
+    #user is deleting collaborators
     elsif params[:delete_collaborator] != nil
       collab=User.find_by_id(params[:delete_collaborator])
       @idea.collaborators.delete(collab)
       redir=edit_idea_path(@idea.id)     
       flash[:notice]="#{collab.name} deleted from subscribers."
+
     else
       if params[:privacy]=='1'
         is_private = true

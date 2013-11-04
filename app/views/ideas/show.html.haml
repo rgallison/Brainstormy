@@ -1,73 +1,82 @@
 / Colin
 / -require 'RMagick'
 -# in app/views/ideas/show.html.haml
+
+
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
-  %div{:name=>"idea", :class => "panel idea smaller-font"}
-    %div.spaced
-      -if @current_user==@user.id
-        %div.links.floatR
-          = link_to 'Edit', edit_idea_path(@idea) 
-          |
-          = link_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
-    %div.clear
-    %div.firstDiv
-      -#Colin added 5/2
-      %b.larger-font #{@idea.title}
+  %div.container
+    %div.tab1
+      %div
+        Idea Thread
+    %div.tab2
+      %div
+        Final State
+    %div{:id=>"idea", :class => "panel idea"}
+      %div.spaced
+        -if @current_user==@user.id
+          %div.links.floatR
+            = link_to 'Edit', edit_idea_path(@idea) 
+            |
+            = link_to 'Delete', idea_path(@idea), :method => :delete, :confirm => 'Are you sure?'
+        -else
+          %br
+      %div.clear
+      %div.firstDiv
+        -#Colin added 5/2
+        %b.larger-font #{@idea.title}
 
-      %ul#details
-        %li
-          Created By:
-          = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
+        %ul#details
+          %li
+            Created By:
+            = link_to "#{@user.name}", user_path(User.find_by_id(@user.id))
 
-        %li
-          Points:
-          = @idea.rank
+          %li
+            Points:
+            = @idea.rank
 
-      %h4 Description:
+        %h4 Description:
 
-      %p#description= @idea.description
-      -#5/2 Colin added;
-      %br
-
-      - unless @idea.tags.empty? 
-        %h4 Tags
-        -@idea.tags.each do |tag|
-          %div.floatL.padding
-            = tag.category 
+        %p#description= @idea.description
+        -#5/2 Colin added;
         %br
 
-      -unless @idea.collaborators.empty?
-        %h4 Collaborators
-        -@idea.collaborators.each do |collaborator|
-          %div.floatL.padding
-            = collaborator.name
-    %div.secondDiv
-      %br
-      %h4 Attachments
-      %div.files
-        -@idea.owner_attachments.each do |a|
-          / -raise a.inspect
-          %div.file
-            =image_tag "#{a.attachment.url(:small)}"
-            %div.filename
-              =a.title
+        - unless @idea.tags.empty? 
+          %h4 Tags
+          -@idea.tags.each do |tag|
+            %div.floatL.padding
+              = tag.category 
+          %br
 
-    -if @current_user and not @idea.collaborator_ids.include? @current_user and !(@current_user == @idea.user_id)
-      = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
-      
-    %div{:name=>"commentbox", :class => "commentbox clear padding-top"}
-      -if @current_user != nil
-        = link_to 'Post comment', new_idea_comment_path(@idea.id)
+        -unless @idea.collaborators.empty?
+          %h4 Collaborators
+          -@idea.collaborators.each do |collaborator|
+            %div.floatL.padding
+              = collaborator.name
+      %div.secondDiv
         %br
+        %h4 Attachments
+        %div.files
+          -@idea.owner_attachments.each do |a|
+            / -raise a.inspect
+            %div.file
+              =image_tag "#{a.attachment.url(:small)}"
+              %div.filename
+                =a.title
 
-      -#= link_to 'All comments', idea_comments_path(@idea.id)
-      = render :template => 'comments/index'
-      -#=render :partial => 'show_comments'
+      -if @current_user and not @idea.collaborator_ids.include? @current_user and !(@current_user == @idea.user_id)
+        = link_to 'Subscribe to this idea', idea_path(@idea, :subscriber => @current_user), :method => :put, :class => "subscription"
+        
+      %div{:name=>"commentbox", :class => "commentbox clear padding-top"}
+        -if @current_user != nil
+          = link_to 'Post comment', new_idea_comment_path(@idea.id)
+          %br
 
-  -#The problem was indentation. If it happens again tell me via email asap
-  -#Lindsey Stratton
-  -#Making a box for comments
+        -#= link_to 'All comments', idea_comments_path(@idea.id)
+        = render :template => 'comments/index'
+        -#=render :partial => 'show_comments'
     
+    %div#attachments.panel{style: "height:400px;"}
+      derp
 -else
   %h2 You do not have permission to access this idea
 

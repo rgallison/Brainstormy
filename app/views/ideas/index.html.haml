@@ -1,31 +1,33 @@
 / Colin
-%div.panel.width2.floatL.margin3.small-font
-	%b My Ideas
-	%table.main
-		%tbody
-			- if @ideas_created
-				-@ideas_created.each do |idea|
+%div.panel.width2.floatL.margin3
+	%div.content
+		%h3 My Ideas
+		%table.main
+			%tbody
+				- if @ideas_created
+					-@ideas_created.each do |idea|
+						%tr
+							%td= link_to "#{idea.title}", idea_path(idea)
+							/ - if idea.comments.keep_if { |comment| comment.created_at >= @user.last_login } != nil
+							/ 	%td.red !
+							%td= idea.rank
+							%td= link_to "Edit", edit_idea_path(idea)
+				- else
 					%tr
-						%td= link_to "#{idea.title}", idea_path(idea)
-						/ - if idea.comments.keep_if { |comment| comment.created_at >= @user.last_login } != nil
-						/ 	%td.red !
-						%td= idea.rank
-						%td= link_to "Edit", edit_idea_path(idea)
-			- else
-				%tr
-					%td= "No ideas have been created."
+						%td= "No ideas have been created."
 
-%div.panel.width2.floatL.margin3.small-font
-	%b My Comments
-	%table.main.spaced
-		%tbody
-			- if @comments
-				- @comments.each do |comment|
+%div.panel.width2.floatL.margin3
+	%div.content
+		%h3 My Comment
+		%table.main.spaced
+			%tbody
+				- if @comments
+					- @comments.each do |comment|
+						%tr
+							%td= comment.text
+							%td= comment.rank
+							%td.smaller-font= "on"
+							%td= link_to "#{comment.idea.title}", idea_path(comment.idea)
+				- else
 					%tr
-						%td= comment.text
-						%td= comment.rank
-						%td.smaller-font= "on"
-						%td= link_to "#{comment.idea.title}", idea_path(comment.idea)
-			- else
-				%tr
-					%td= "No comments have been made."
+						%td= "No comments have been made."
