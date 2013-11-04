@@ -5,12 +5,12 @@
 
 -if @idea.privacy == 'public' or @idea.collaborator_ids.include? @current_user or @idea.user_id == @current_user 
   %div.container
-    %div.tab1
-      %div
-        Idea Thread
-    %div.tab2
-      %div
-        Final State
+    / %div.tab1
+    /   %div
+    /     Idea Thread
+    / %div.tab2
+    /   %div
+    /     Final Features
     %div{:id=>"idea", :class => "panel idea"}
       %div.spaced
         -if @current_user==@user.id
@@ -76,7 +76,7 @@
         -#=render :partial => 'show_comments'
     
     %div#attachments.panel{style: "height:400px;"}
-      derp
+      %h3 Final Features
 -else
   %h2 You do not have permission to access this idea
 
