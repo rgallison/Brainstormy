@@ -1,15 +1,14 @@
 /* Collaborated: Renee, Colin; */
 div.idea {
-	margin-left: auto;
-	margin-right: auto;
-	/*min-height: 250px;*/
-	/*height: auto;*/
-	width: 50%;
-	min-width: 350px;
 	padding: 0px 20px 10px 20px;
 	line-height: 100%;
-	float: center;
 	overflow: visible;
+}
+
+div.container{
+	width: 55%;
+	min-width: 350px;
+	margin: 25px auto;
 }
 
 #taglist {
@@ -27,18 +26,21 @@ div.idea {
 
 .firstDiv {
 	display: inline-block;
-	width: 300px;
+	width:47%;
 	height: auto;
 	margin: 15px 10px;
 	vertical-align: top;
+	/*float:left;*/
 }
 
 .secondDiv {
+	margin-left: 20px;
 	display: inline-block;
 	/*height: 95%;*/
-	width: 52%;
+	width: 45%;
 	/*min-width: 300px;*/
 	/*overflow-x:auto;*/
+	/*float:left;*/
 }
 
 #edit {
@@ -67,9 +69,10 @@ div.idea {
 
 .files {
 	overflow-x:auto;
-	height: 200px;
+	height: 280px;
 	padding-left: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+
 }
 
 .file {
@@ -105,3 +108,51 @@ div.inner {
 	padding: 10px 0px;
 }
 
+.move {
+	position: relative;
+	top:250px;
+	right:30px;
+}
+
+.sideline {
+	border-right: 1px solid gray;
+	padding-bottom: 75px;
+}
+
+div.tab1, div.tab2 {
+	height:0px;
+	width:50%;
+	overflow:visible;
+	position:relative;
+	top:-30px;
+}
+
+div.tab1 {
+}
+
+div.tab2 {
+	left:50%;
+}
+
+div.tab1 div, div.tab2 div{
+	height:22px;
+	background-color: rgb(249, 249, 249);
+	border-style: ridge;
+	border-width: 3px;
+	border-color: #006a89;
+	border-bottom:none;
+	border-radius: 10px 10px 0px 0px;
+	/*box-shadow: 2px 0px 0px #888888;*/
+	padding: 8px 38% 0px;
+}
+
+div.tab2 div {
+	height:19px;
+}
+
+#attachments {
+	padding: 0px 20px 10px 20px;
+	line-height: 100%;
+	overflow: visible;
+	display:none;
+}

@@ -1,12 +1,8 @@
 /*Renee*/
 div.show {
-	display: all;
+	display: block;
 }
 
 div.hide {
 	display: none;
-}
-
-.content {
-	line-height: 210%;
 }

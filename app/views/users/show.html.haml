@@ -1,9 +1,8 @@
 / Rachel
 
-%div.panel.width3.floatL.margin3.small-font
-
-	%b Profile
+%div.panel.width3.floatL.margin3
 	%div.content
+		%h3 Profile
 		//Rachel - page that shows user information and will dynamically change to a form to edit the profile page
 		%div{:name=>"profile_info", :class => @showlist} 
 			%ul
@@ -17,7 +16,7 @@
 			%li
 
 		%div{:name=>"edit_profile_info", :class => @showform} 
-			%b Edit Profile
+			%h3 Edit Profile
 			=form_for :user, :url => { :action => "update", :controller => "users"}, :method => :put do |f|
 				= f.text_field :username, :placeholder => 'Username', :size => 30
 				%br
@@ -36,43 +35,43 @@
 				%br
 				= f.submit 'Update'
 
-	%div{:name => 'bio', :class => 'bio'}
-		%b Biography
-		#{@user.bio}
-	<br>
-	-if @current_user == @user.id
-		=form_tag user_path(@current_user), :method => :get do
-			= hidden_field_tag(:flag, true)
-			= submit_tag "Edit Profile"
+		%div{:name => 'bio', :class => 'bio'}
+			%h3 Biography
+			#{@user.bio}
+		<br>
+		-if @current_user == @user.id
+			=form_tag user_path(@current_user), :method => :get do
+				= hidden_field_tag(:flag, true)
+				= submit_tag "Edit Profile"
 
 
 //Rachel
 %div.panel.width3.margin3.floatL
-	%b Ideas Created
-	%br
-	%table.main
-		%tbody
-			-if @ideas_created
-				-@ideas_created.each do |idea|
+	%div.content
+		%h3 Ideas Created
+		%table.main
+			%tbody
+				-if @ideas_created
+					-@ideas_created.each do |idea|
+						%tr
+							%td= link_to "#{idea.title}", idea_path(idea)
+							%td= idea.rank
+				-else
 					%tr
-						%td= link_to "#{idea.title}", idea_path(idea)
-						%td= idea.rank
-			-else
-				%tr
-					%td= "#{@user.username} has not created an idea yet."
+						%td= "#{@user.username} has not created an idea yet."
 
 %div.panel.width3.margin3.floatL
-	%b Ideas Collaborated
-	%br
-	%table.main
-		%tbody
-			- if @ideas_collaborated != nil
-				-@ideas_collaborated.each do |idea|
+	%div.content
+		%h3 Ideas Collaborated
+		%table.main
+			%tbody
+				- if @ideas_collaborated != nil
+					-@ideas_collaborated.each do |idea|
+						%tr
+							%td= link_to "#{idea.title}", idea_path(idea)
+							%td= idea.rank
+				-else
 					%tr
-						%td= link_to "#{idea.title}", idea_path(idea)
-						%td= idea.rank
-			-else
-				%tr
-					%td= "#{@user.username} has not collaborated yet."
+						%td= "#{@user.username} has not collaborated yet."
 
 

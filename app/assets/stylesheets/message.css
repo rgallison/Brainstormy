@@ -13,8 +13,7 @@ div.panelWide {
 
 /* Table ----------------------------*/
 table#messages {
-	padding-top: 10px;
-	font-size: 85%
+	/*padding-top: 10px;*/
 }
 
 table#messages td{
