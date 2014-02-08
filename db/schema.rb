@@ -79,11 +79,12 @@ ActiveRecord::Schema.define(:version => 20130804013135) do
     t.datetime "updated_at", :null => false
   end
 
+  #1 Feb. 2014 Colin changed password to password_digest for encryption purposes
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.datetime "last_login"

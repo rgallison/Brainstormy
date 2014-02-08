@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
 	validates :username, :email, :password, :name, :presence => true
     validates :username, :email, :uniqueness => true
   	acts_as_voter
+
+  	#1 February Colin added:
+  	has_secure_password
 end
