@@ -10,8 +10,11 @@ class User < ActiveRecord::Base
 	has_and_belongs_to_many :collaborated_ideas, :class_name => 'Idea'
 
 	# Validations for sign up form
-	validates :password, :email, :confirmation => true
-	validates :username, :email, :password, :name, :presence => true
+	validates :password, :confirmation => true, :on => :create
+	validates :email, :confirmation => true
+	# Modified to make password only validate on create to work with authentication -cdl
+	validates :password, :presence => true, :on => :create
+	validates :username, :email, :name, :presence => true
     validates :username, :email, :uniqueness => true
   	acts_as_voter
 

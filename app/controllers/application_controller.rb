@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   def create_session
   	#gets params and finds user with such a username and password, then sets user to session -rg
   	user = User.find_by_username(params[:user][:username_login])
-  	if user && session[:user_id] = user.id#&& user.password == params[:user][:password_login] && session[:user_id] = user.id
-  		#set_current_user#sets sets @current_user if user was found -rg
+  	if user && session[:user_id] = user.id
+  		#authenticate via hashed password
       @current_user = user.authenticate(params[:user][:password_login]).id
   	else
       if user == nil
@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-    #1 February 2014 Colin added authentication
   	@current_user ||= session[:user_id]#sets @current_user to valid session user if nil -rg
   end
 

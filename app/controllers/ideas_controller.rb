@@ -20,6 +20,7 @@ class IdeasController < ApplicationController
   def create
     #raise params.inspect
     params[:idea][:user_id]=params[:user_id]
+    #2/8/14 Colin added so Idea validation passes:
     if not params[:idea][:title]
       params[:idea][:title] = "Please enter title"
     end
