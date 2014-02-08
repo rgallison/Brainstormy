@@ -20,6 +20,9 @@ class IdeasController < ApplicationController
   def create
     #raise params.inspect
     params[:idea][:user_id]=params[:user_id]
+    if not params[:idea][:title]
+      params[:idea][:title] = "Please enter title"
+    end
   	@idea=Idea.new(params[:idea])
     if @idea.save
   	  redirect_to edit_idea_path(@idea.id)
